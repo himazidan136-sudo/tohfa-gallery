@@ -85,25 +85,18 @@ function updateCartUI() {
     totalDisp.innerText = total.toLocaleString() + " ج.م";
 }
 
-// إرسال الطلب للأبلكيشن
-// وظيفة إتمام الطلب من السلة
 function checkout() {
-    if (cart.length === 0) {
-        alert("السلة فارغة! اختر بعض التحف أولاً.");
-        return;
-    }
-     toggleCart(); // دي لوحدها هتشيل الـ stop-scrolling لأنها بتنادي الوظيفة اللي فوق
-    document.getElementById('orderModal').style.display = 'flex';
-    // تجميع كل اللي في السلة في نص واحد مرتب
-    let itemsSummary = cart.map(item => `${item.name} (عدد ${item.quantity})`).join(' + ');
-    let totalValue = document.getElementById('cartTotal').innerText;
+    if (cart.length === 0) return alert("السلة فارغة!");
+    
+    let summary = cart.map(item => `${item.name} (x${item.quantity})`).join(' + ');
+    let finalTotal = document.getElementById('cartTotal').innerText;
 
-    // وضع البيانات في الاستمارة
-    document.getElementById('hiddenProd').value = itemsSummary;
-    document.getElementById('hiddenPrice').value = totalValue;
+    document.getElementById('hiddenProd').value = summary;
+    document.getElementById('hiddenPrice').value = finalTotal;
 
-    // قفل السلة وفتح الأبلكيشن
-    toggleCart(); 
+    // نقفل السلة ونرجع السكرول للـ body عشان نعرف نملى الأبلكيشن
+    document.body.classList.remove('stop-scrolling');
+    document.getElementById('cartOverlay').classList.remove('active');
     document.getElementById('orderModal').style.display = 'flex';
 }
 
