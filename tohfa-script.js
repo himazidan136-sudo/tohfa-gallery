@@ -55,42 +55,41 @@ function saveAndRefresh() {
     updateCartUI();
 }
 
-function updateUI() {
-    const cartContainer = document.getElementById('cartItemsList');
+function updateCartUI() {
+    const list = document.getElementById('cartItemsList');
     const badge = document.getElementById('cartBadge');
-    const totalDisplay = document.getElementById('cartTotal');
+    const totalDisp = document.getElementById('cartTotal');
     
-    if (!cartContainer) return;
+    if(!list) return;
 
-    cartContainer.innerHTML = '';
+    list.innerHTML = '';
     let total = 0;
-    let totalItems = 0;
+    let count = 0;
 
     cart.forEach((item, index) => {
-        let numericPrice = parseFloat(item.price.toString().replace(/[^\d.]/g, ''));
-        total += (numericPrice * item.quantity);
-        totalItems += item.quantity;
+        let priceNum = parseFloat(item.price.toString().replace(/[^\d.]/g, ''));
+        total += (priceNum * item.qty);
+        count += item.qty;
 
-        // هيكل المنتج جوه السلة المطور
-        cartContainer.innerHTML += `
-            <div class="cart-item">
-                <img src="${item.img}" alt="${item.name}" onerror="this.src='tohfa/9.jpg.jpeg'">
-                <div class="item-info-box">
+        list.innerHTML += `
+            <div class="cart-item animate-reveal">
+                <img src="${item.img}">
+                <div class="item-details">
                     <h4>${item.name}</h4>
-                    <span class="price">${item.price}</span>
-                    <div class="qty-controls">
-                        <button onclick="changeQuantity(${index}, -1)">-</button>
-                        <span class="qty-num">${item.quantity}</span>
-                        <button onclick="changeQuantity(${index}, 1)">+</button>
+                    <div class="price-tag">${item.price}</div>
+                    <div class="qty-btn-group">
+                        <button onclick="changeQty(${index}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button onclick="changeQty(${index}, 1)">+</button>
                     </div>
                 </div>
-                <div class="remove-item-btn" onclick="removeFromCart(${index})">&times;</div>
+                <div class="remove-item" onclick="removeFromCart(${index})">&times;</div>
             </div>
         `;
     });
 
-    badge.innerText = totalItems;
-    totalDisplay.innerText = total.toLocaleString() + " ج.م";
+    badge.innerText = count;
+    totalDisp.innerText = total.toLocaleString() + " ج.م";
 }
 
 function checkout() {
