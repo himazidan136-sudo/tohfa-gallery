@@ -9,7 +9,7 @@ function toggleCart() {
     const cartOverlay = document.getElementById('cartOverlay');
     cartOverlay.classList.toggle('active');
     
-    // السحر هنا: لو السلة واخدة كلاس active، ضيف كلاس قفل السكرول للـ body
+    // سحر قفل السكرول
     if (cartOverlay.classList.contains('active')) {
         document.body.classList.add('stop-scrolling');
     } else {
