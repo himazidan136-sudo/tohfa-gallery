@@ -11,31 +11,30 @@
 
     <div class="liquid-bg"><div class="blob"></div><div class="blob"></div></div>
 
-    <nav class="navbar glass">
-    <div class="container nav-flex">
+    <nav class="navbar glass animate-navbar">
+    <div class="container nav-wrapper">
         
-        <!-- 1. اللوجو على اليمين -->
-        <div class="logo">TOHFA <span>تحفة</span></div>
-
-        <!-- 2. لينكات التنقل في النص (تم إزالة النقط وتعديل الترتيب) -->
-        <ul class="nav-links">
-            <li><a href="index.html" class="iq-btn-nav">الرئيسية</a></li>
-            <li><a href="#gallery" class="iq-btn-nav">الجاليري</a></li>
-            <li><a href="#categories" class="iq-btn-nav">الأقسام</a></li>
-        </ul>
-
-        <!-- 3. أيقونات التحكم على الشمال -->
-        <div class="nav-actions">
-            <div class="cart-icon-wrap" onclick="toggleCart()">
-                <span class="cart-emoji">🛒</span>
-                <span class="cart-badge" id="cartBadge">0</span>
+        <!-- 1. التحكم (الشمال) -->
+        <div class="nav-left">
+            <div class="theme-switch iq-btn-icon" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span>
             </div>
-            <!-- استبدل زرار المود القديم بـ ده -->
-<div class="theme-switch iq-btn" onclick="toggleTheme()" style="display: flex; align-items: center; justify-content: center; width: 45px; padding: 0;">
-    <span id="theme-icon">🌙</span>
-</div>
+            <div class="cart-trigger iq-btn-icon" onclick="toggleCart()">
+                🛒 <span class="cart-badge" id="cartBadge">0</span>
+            </div>
         </div>
 
+        <!-- 2. روابط التنقل (الوسط) -->
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-btn-text">الرئيسية</a></li>
+            <!-- لو انت في صفحة خارجية، الزرار ده هيفضل شغال -->
+        </ul>
+
+        <!-- 3. اللوجو (اليمين) -->
+        <div class="logo">
+            TOHFA <span>تحفة</span>
+        </div>
+        
     </div>
 </nav>
     <header id="home" class="hero">
