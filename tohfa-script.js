@@ -9,12 +9,19 @@ function toggleCart() {
     const cartOverlay = document.getElementById('cartOverlay');
     cartOverlay.classList.toggle('active');
     
-    // سحر قفل السكرول
+    // لو السلة مفتوحة، اقفل سكرول الصفحة الرئيسية
     if (cartOverlay.classList.contains('active')) {
         document.body.classList.add('stop-scrolling');
     } else {
         document.body.classList.remove('stop-scrolling');
     }
+}
+
+// تعديل بسيط في تحديث الواجهة للتأكد من الـ Container
+function updateUI() {
+    const cartContainer = document.getElementById('cartItemsList');
+    // ... باقي الكود اللي عندك ...
+    // تأكد إن اسم الـ id في الـ HTML هو cartItemsList وموجود جوه الـ cart-items-container
 }
 function addToCart(name, price, img) {
     const existing = cart.find(item => item.name === name);
