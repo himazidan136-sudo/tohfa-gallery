@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOHFA | تحفة - الرئيسية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Reem+Kufi:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tohfa/tohfa.css">
+</head>
+<body class="dark-theme">
+
+    <div class="liquid-bg"><div class="blob"></div><div class="blob"></div></div>
+
+    <nav class="navbar glass">
+    <div class="container nav-flex">
+        
+        <!-- 1. اللوجو على اليمين -->
+        <div class="logo">TOHFA <span>تحفة</span></div>
+
+        <!-- 2. لينكات التنقل في النص (تم إزالة النقط وتعديل الترتيب) -->
+        <ul class="nav-links">
+            <li><a href="index.html" class="iq-btn-nav">الرئيسية</a></li>
+            <li><a href="#gallery" class="iq-btn-nav">الجاليري</a></li>
+            <li><a href="#categories" class="iq-btn-nav">الأقسام</a></li>
+        </ul>
+
+        <!-- 3. أيقونات التحكم على الشمال -->
+        <div class="nav-actions">
+            <div class="cart-icon-wrap" onclick="toggleCart()">
+                <span class="cart-emoji">🛒</span>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+            <!-- استبدل زرار المود القديم بـ ده -->
+<div class="theme-switch iq-btn" onclick="toggleTheme()" style="display: flex; align-items: center; justify-content: center; width: 45px; padding: 0;">
+    <span id="theme-icon">🌙</span>
+</div>
+        </div>
+
+    </div>
+</nav>
+    <header id="home" class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content animate-reveal">
+                <h1>عالم من الجمال في بيتك</h1>
+                <p>أنتيكات، تابلوهات، وأنظمة منزلية ذكية تعكس ذوقك</p>
+                <a href="#categories" class="btn-main">اكتشف الأقسام</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">أقسامنا الفنية</h2>
+            <div class="category-grid">
+                <!-- لينكات لفتح الصفحات الجديدة -->
+                <a href="wall-decor.html" class="cat-card glass-card float-anim">
+                    <span class="icon">🖼️</span><h3>Wall Decor</h3><p>عرض التابلوهات</p>
+                </a>
+                <a href="vases.html" class="cat-card glass-card float-anim delay-1">
+                    <span class="icon">🏺</span><h3>Vases</h3><p>عرض الفازات </p>
+                </a>
+                <a href="home-decor.html" class="cat-card glass-card float-anim delay-2">
+                    <span class="icon">🏠</span><h3>Home Decor</h3><p>عرض قطع الديكور</p>
+                </a>
+         
+<a href="flowers.html" class="cat-card glass-card float-anim delay-3">
+    <span class="icon">🌸</span>
+    <h3>Flowers</h3>
+    <p>عرض تنسيقات الزهور</p>
+</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">من داخل الجاليري</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item glass-card"><img src="tohfa/9.jpg.jpeg"></div>
+                <div class="gallery-item glass-card"><img src="tohfa/1.jpg.jpeg"></div>
+                <div class="gallery-item glass-card"><img src="tohfa/2.jpg.jpeg"></div>
+                <div class="gallery-item glass-card"><img src="tohfa/4.jpg.jpeg"></div>
+                  <div class="gallery-item glass-card"><img src="tohfa/5.jpg.jpeg"></div>
+                <div class="gallery-item glass-card"><img src="tohfa/3.jpg.jpeg"></div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/201021832129" class="whatsapp-float" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const icon = document.getElementById('theme-icon');
+            icon.innerText = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
+        }
+    </script>
+    <!-- JavaScript للتحكم في السكرول والظهور التدريجي -->
+<script>
+    // 1. تغيير شكل الناف بار عند السكرول
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+
+    // 2. تفعيل تأثير "الظهور التدريجي" للأقسام (Reveal)
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // نطبق الأوبزرفر على السكاشن والجريدات
+    document.querySelectorAll('.reveal, .product-grid, .category-grid').forEach(el => {
+        if(!el.classList.contains('reveal')) el.classList.add('reveal');
+        observer.observe(el);
+    });
+
+        
+</script>
+<div id="cartOverlay" class="cart-overlay">
+    <div class="cart-header">
+        <h2>سلة المقتنيات</h2>
+        <div onclick="toggleCart()" style="cursor:pointer; font-size:30px; color:var(--primary)">&times;</div>
+    </div>
+    <div class="cart-items-list" id="cartItemsList"></div>
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>الإجمالي:</span>
+            <span id="cartTotal">0 ج.م</span>
+        </div>
+        <button class="order-btn" onclick="checkout()" style="width:100%">إتمام الطلب</button>
+    </div>
+</div>
+<!-- أبلكيشن طلب المقتنيات (Modal) -->
+<div id="orderModal" class="modal-overlay">
+    <div class="modal-content glass-card">
+        <span class="close-btn" onclick="closeOrderForm()">&times;</span>
+        <h3 id="mTitle" style="text-align:center; margin-bottom:20px; font-family:'Reem Kufi'; color:var(--primary);">استمارة طلب مقتنيات</h3>
+        
+        <form id="orderForm">
+            <!-- بيانات العميل -->
+            <input type="text" name="الاسم" id="cName" placeholder="الاسم بالكامل" required>
+            <input type="tel" name="الهاتف" id="cPhone" placeholder="رقم الهاتف (واتساب)" required>
+            <textarea name="العنوان" id="cAddr" rows="3" placeholder="العنوان بالتفصيل لسهولة التوصيل" required></textarea>
+            
+            <!-- حقول مخفية بيتم ملوها أوتوماتيك من السلة -->
+            <input type="hidden" name="تفاصيل_الأوردر" id="hiddenProd">
+            <input type="hidden" name="إجمالي_السعر" id="hiddenPrice">
+
+            <button type="button" id="submitBtn" class="order-btn" onclick="sendFinalOrder()">تأكيد وإرسال الطلب</button>
+        </form>
+    </div>
+</div>
+<!-- ربط ملف الجافا سكريبت الجديد -->
+<script src="tohfa-script.js"></script>
+</body>
+</html>
