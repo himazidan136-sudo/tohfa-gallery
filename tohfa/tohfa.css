@@ -34,158 +34,106 @@ body.stop-scrolling {
     .blob:nth-child(2) { background: #5c2a24; left: -10%; top: -10%; animation-duration: 20s; }
     .blob:nth-child(3) { background: #d4a373; right: -5%; bottom: -5%; animation-duration: 12s; }
     @keyframes move { from { transform: translate(0, 0); } to { transform: translate(100px, 50px); } }
-/* --- ضبط الناف بار الموحد --- */
+/* --- الناف بار العائم المطور (Floating Pill Navbar) --- */
 .navbar {
     position: fixed;
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 95%;
     max-width: 1100px;
     z-index: 2000;
-    padding: 8px 0;
-    border-radius: 50px; /* شكل الكبسولة الفخم */
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03); /* زجاجي شفاف جداً */
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 50px; /* شكل كبسولة */
+    padding: 8px 0;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-flex {
+.nav-wrapper {
     display: flex;
-    justify-content: space-between; /* بيبعد العناصر عن بعض */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
-/* حل مشكلة النقط والكلام اللي تحت بعضه */
-.nav-links {
-    list-style: none; /* بيشيل النقط السوداء */
-    display: flex;    /* بيخلي الكلام جنب بعضه */
-    gap: 20px;        /* مسافة بين الكلمات */
-    margin: 0;
-    padding: 0;
-    
-}
-
-/* --- تصميم الأزرار مع أنيميشن "البرق" --- */
-.iq-btn-nav {
-    position: relative;
-    color: #fff !important;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 8px 15px;
-    border-radius: 20px;
-    transition: 0.3s;
-    overflow: hidden; /* عشان البرق م يخرجش بره الزرار */
-    display: block;
-    
-}
-
-.iq-btn-nav:hover {
-    background: rgba(160, 64, 53, 0.2); /* توهج طوبي خفيف */
-    color: var(--primary) !important;
-}
-
-/* ⚡ تأثير البرق عند الضغط (Lightning Strike) */
-.iq-btn-nav:active::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 250%;
-    height: 250%;
-    background: radial-gradient(circle, #fff 10%, var(--primary) 30%, transparent 60%);
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: lightning-flash 0.4s ease-out;
-}
-
-@keyframes lightning-flash {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-    30% { opacity: 1; }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
-}
-
-/* تنسيق أيقونات التحكم (السلة والمود) */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    color: #fff;
-    :hover {
-    box-shadow: 0 0 20px var(--accent);
-    transform: rotate(15deg) scale(1.1);
-}
-}
-
-.cart-icon-wrap {
-    position: relative;
-    cursor: pointer;
-}
-
-.cart-badge {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background: var(--primary);
-    color: #fff;
-    font-size: 10px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* تنسيق اللوجو */
+.logo {
+    font-family: 'Reem Kufi';
+    font-size: 20px;
     font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
 }
+.logo span { color: var(--primary); font-size: 14px; margin-right: 4px; }
 
-/* الموبايل */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* يفضل عمل منيو تفتح من الجنب للموبايل */
-    .nav-flex { padding: 0 15px; }
-}
-/* تنسيق زرار المود الليلي ليظهر كزرار زجاجي */
-.theme-switch.iq-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%; /* خليه مدور عشان يختلف عن اللينكات */
-    padding: 0 !important;
+/* الروابط (الكلام) */
+.nav-links {
+    list-style: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    background: var(--glass);
-    cursor: pointer;
-    transition: 0.3s;
+    gap: 15px;
+}
+.nav-btn-text {
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* توهج إضافي لزرار المود عند الوقوف عليه */
-.theme-switch.iq-btn:hover {
-    box-shadow: 0 0 20px var(--accent);
-    transform: rotate(15deg) scale(1.1);
-}
-/* أنيميشن الدخول */
-.animate-navbar {
-    animation: slideDownNav 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-@keyframes slideDownNav {
-    from { opacity: 0; transform: translate(-50%, -50px); }
-    to { opacity: 1; transform: translate(-50%, 0); }
+/* أزرار الأيقونات (السلة والمود) */
+.nav-left { display: flex; align-items: center; gap: 10px; }
+.iq-btn-icon {
+    position: relative;
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px;
+    overflow: hidden;
 }
 
-/* تعديل الموبايل */
+/* ⚡ أنيميشن البرق عند الضغط */
+.nav-btn-text:active::after, .iq-btn-icon:active::after {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, #fff 10%, var(--primary) 40%, transparent 60%);
+    transform: translate(-50%, -50%);
+    animation: lightning-strike 0.4s ease-out;
+}
+@keyframes lightning-strike {
+    0% { opacity: 0; scale: 0; }
+    30% { opacity: 1; }
+    100% { opacity: 0; scale: 1.5; }
+}
+
+/* ستايل الـ Badge بتاع السلة */
+.cart-badge {
+    position: absolute; top: -5px; right: -5px;
+    background: var(--primary); color: #fff;
+    font-size: 9px; width: 16px; height: 16px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+
+/* --- 📱 الموبايل (إصلاح التداخل نهائياً) --- */
 @media screen and (max-width: 768px) {
-    .nav-flex { padding: 0 10px; }
-    .logo { font-size: 18px !important; }
-    .nav-links { gap: 8px; }
-    .glass-btn { padding: 5px 8px; font-size: 11px; }
+    .navbar { top: 10px; padding: 6px 0; }
+    .nav-wrapper { padding: 0 12px; }
     
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .product-img { height: 110px; }
-    .cart-overlay { width: 100%; } /* السلة تملأ الشاشة في الموبايل */
-}       
+    .logo { font-size: 16px; }
+    .logo span { display: none; } /* إخفاء كلمة تحفة في الموبايل لتوفير مساحة */
+    
+    .nav-links { gap: 8px; }
+    .nav-btn-text { font-size: 11px; padding: 5px 10px; }
+    
+    .nav-left { gap: 8px; }
+    .iq-btn-icon { width: 34px; height: 34px; font-size: 14px; }
+}
     /* الهيرو */
     .hero { height: 100vh; width: 100%; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('9.jpg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center; }
     .hero-content { text-align: center; color: white; max-width: 900px; background: transparent; }
