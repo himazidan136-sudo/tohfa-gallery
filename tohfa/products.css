@@ -78,13 +78,22 @@ body.stop-scrolling {
 }.product-name { font-size: 1rem; font-weight: bold; display: block; margin-bottom: 5px; }
 .product-price { font-size: 1.2rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 10px; }
 
-.order-btn { 
-    display: block; background: var(--primary); color: white !important; 
-    padding: 10px; border-radius: 12px; font-size: 0.9rem; font-weight: bold; 
-    cursor: pointer; border: none; width: 100%; transition: 0.3s; 
-}
-.order-btn:hover { background: white; color: var(--primary) !important; }
+.order-btn {
+        display: block;
+        background: var(--primary);
+        color: white;
+        text-decoration: none;
+        padding: 6px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
+    .order-btn:hover {
+        background: white;
+        color: var(--primary);
+    }
 /* الأبلكيشن (النافذة المنبثقة) - المظبوطة في نص الشاشة */
 /* --- الإصلاح النهائي لأبلكيشن الطلب على الموبايل --- */
 
