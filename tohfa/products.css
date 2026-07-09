@@ -229,7 +229,7 @@ body.stop-scrolling {
 
 /* أيقونة السلة في الناف بار */
 .cart-btn-nav { position: relative; cursor: pointer; margin-left: 15px; }
-cart-badge {
+.cart-badge {
     position: absolute; top: -5px; right: -5px;
     background: var(--primary); color: #fff;
     font-size: 9px; width: 16px; height: 16px;
