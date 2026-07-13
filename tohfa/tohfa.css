@@ -439,26 +439,27 @@ body.stop-scrolling {
     .modal-content h3 {
         font-size: 1.1rem;
     }
-}
-/* --- سلة مشتريات تحفة الملكية --- *//* --- سلة المشتريات المطورة (إصلاح السكرول والحجم) --- */
+}/* --- سلة المشتريات (تفعيل السكرول الداخلي) --- */
 .cart-overlay {
     position: fixed;
     top: 0;
-    left: -100%; /* تظهر من اليمين للشمال */
-    width: 350px; /* العرض في الكمبيوتر */
+    left: -100%;
+    width: 350px;
     height: 100vh;
     background: rgba(15, 15, 15, 0.98);
     backdrop-filter: blur(20px);
     border-right: 1px solid var(--primary);
     z-index: 5000;
     transition: 0.5s ease;
+    
+    /* السطرين دول هما اللي بيخلوا التقسيم يشتغل */
     display: flex;
-    flex-direction: column; /* ترتيب العناصر تحت بعض */
+    flex-direction: column; 
 }
 
 .cart-overlay.active { left: 0; }
 
-/* 1. رأس السلة (ثابت) */
+/* 1. رأس السلة (يفضل ثابت فوق) */
 .cart-header {
     padding: 20px;
     display: flex;
@@ -469,17 +470,25 @@ body.stop-scrolling {
 
 /* 2. منطقة المنتجات (المتحركة - السكرول هنا) */
 .cart-items-container {
-    flex: 1; /* تاخد كل المساحة المتاحة في النص */
-    overflow-y: auto !important; /* تفعيل السكرول للطول فقط */
+    flex: 1; /* بياخد كل المساحة المتاحة في النص */
+    overflow-y: auto !important; /* تفعيل السكرول للطول */
     padding: 15px;
-    -webkit-overflow-scrolling: touch; /* سكرول ناعم للموبايل */
+    /* سكرول ناعم للموبايل */
+    -webkit-overflow-scrolling: touch; 
 }
 
-/* 3. فوتر السلة (ثابت تحت) */
+/* 3. أسفل السلة (يفضل ثابت تحت) */
 .cart-footer {
     padding: 20px;
     background: rgba(0,0,0,0.2);
     border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: auto; /* يزق نفسه لتحت خالص */
+}
+
+/* كلاس قفل سكرول الصفحة الرئيسية (يُضاف للـ body) */
+body.stop-scrolling {
+    overflow: hidden !important;
+    height: 100vh;
 }
 
 /* --- 📱 تعديلات الموبايل (تصغير الحجم) --- */
