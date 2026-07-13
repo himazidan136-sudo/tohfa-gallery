@@ -97,7 +97,7 @@ body.stop-scrolling {
     display: flex;
     justify-content: center; /* توسيط الأزرار أفقيًا */
     align-items: center;
-    gap: 50px; /* مسافة بين الزرارين */
+    gap: 20px; /* مسافة بين الزرارين */
     width: 100%;
 }
 
