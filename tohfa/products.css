@@ -248,7 +248,10 @@ body.stop-scrolling {
     display: flex;
     flex-direction: column;
 }
-
+body.stop-scrolling {
+    overflow: hidden !important;
+    height: 100vh;
+}
 /* التعديل للموبايل عشان متبقاش برضه 100% لو حابب تسيب مسافة */
 @media screen and (max-width: 768px) {
     .cart-overlay {
