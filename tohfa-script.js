@@ -9,7 +9,7 @@ function toggleCart() {
     const cartOverlay = document.getElementById('cartOverlay');
     cartOverlay.classList.toggle('active');
     
-    // لو السلة مفتوحة، اقفل سكرول الصفحة الرئيسية
+    // لو السلة فتحت (واخدة active)، اقفل سكرول الصفحة اللي ورا
     if (cartOverlay.classList.contains('active')) {
         document.body.classList.add('stop-scrolling');
     } else {
@@ -95,15 +95,13 @@ function updateCartUI() {
 function checkout() {
     if (cart.length === 0) return alert("السلة فارغة!");
     
-    let summary = cart.map(item => `${item.name} (x${item.quantity})`).join(' + ');
-    let finalTotal = document.getElementById('cartTotal').innerText;
+    // ... كود تجميع البيانات اللي عندك ...
 
-    document.getElementById('hiddenProd').value = summary;
-    document.getElementById('hiddenPrice').value = finalTotal;
-
-    // نقفل السلة ونرجع السكرول للـ body عشان نعرف نملى الأبلكيشن
+    // قفل السلة ورجوع السكرول قبل فتح الأبلكيشن
     document.body.classList.remove('stop-scrolling');
     document.getElementById('cartOverlay').classList.remove('active');
+    
+    // فتح الأبلكيشن
     document.getElementById('orderModal').style.display = 'flex';
 }
 
