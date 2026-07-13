@@ -36,7 +36,11 @@ body.stop-scrolling {
     padding-bottom: 50px;
 }
 
+/* --- تعديل كارت المنتج (توسيط شامل) --- */
 .product-card { 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* السطر ده بيجيب كل المحتوى في النص بالظبط */
     background: var(--glass); 
     backdrop-filter: blur(10px); 
     border: 1px solid var(--glass-border); 
@@ -48,15 +52,12 @@ body.stop-scrolling {
 
 .product-card:hover { transform: translateY(-10px); border-color: var(--primary); }
 
-/* ابحث عن هذا الجزء في ملف الـ CSS الخاص بك وعدله */
-
 .product-img {
     width: 100%;
-    height: 160px; /* الارتفاع اللي إحنا مثبتينه */
+    height: 160px; 
     margin: 0 auto 10px;
     overflow: hidden;
     border-radius: 15px;
-    /* إضافة خلفية خفيفة عشان لو الصورة مقاسها مختلف متسبش فراغ وحش */
     background: rgba(255, 255, 255, 0.03); 
     display: flex;
     align-items: center;
@@ -64,39 +65,74 @@ body.stop-scrolling {
 }
 
 .product-img img {
-    max-width: 100%;
-    max-height: 100%;
-    /* السطر السحري: contain بدل cover */
+    max-width: 90%; /* صغرنا النسبة شوية عشان الصورة متلمسش الحواف */
+    max-height: 90%;
     object-fit: contain; 
     transition: 0.5s;
-    /* إضافة padding بسيط عشان أطراف المنتج متبقاش لازقة في البرواز */
     padding: 5px; 
 }
 
 .product-card:hover .product-img img {
-    transform: scale(1.1); /* أنيميشن الزووم اللي بيحبه إبراهيم */
-}.product-name { font-size: 1rem; font-weight: bold; display: block; margin-bottom: 5px; }
-.product-price { font-size: 1.2rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 10px; }
+    transform: scale(1.1); 
+}
+
+.product-name { 
+    font-size: 1rem; 
+    font-weight: bold; 
+    display: block; 
+    margin-bottom: 5px; 
+    color: white; /* تأكيد اللون */
+}
+
+.product-price { 
+    font-size: 1.2rem; 
+    color: var(--primary); 
+    font-weight: bold; 
+    display: block; 
+    margin-bottom: 15px; 
+}
+
+/* --- تنسيق الأزرار (جنب بعض وفي النص) --- */
+.btn-group {
+    display: flex;
+    justify-content: center; /* توسيط الأزرار أفقيًا */
+    align-items: center;
+    gap: 8px; /* مسافة بين الزرارين */
+    width: 100%;
+}
 
 .order-btn {
-        display: block;
-        background: var(--primary);
-        color: white;
-        text-decoration: none;
-        padding: 6px;
-        border-radius: 10px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        transition: 0.3s;
-    }
+    flex: 2; /* ياخد مساحة أكبر من السلة */
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
 
-    .order-btn:hover {
-        background: white;
-        color: var(--primary);
-    }
-/* الأبلكيشن (النافذة المنبثقة) - المظبوطة في نص الشاشة */
-/* --- الإصلاح النهائي لأبلكيشن الطلب على الموبايل --- */
+/* زرار إضافة للسلة (الأيقونة) */
+.add-to-cart-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary) !important;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
 
+.order-btn:hover { background: white; color: var(--primary) !important; }
+.add-to-cart-btn:hover { background: var(--primary); color: white !important; }
 .modal-overlay {
     position: fixed;
     top: 0;
