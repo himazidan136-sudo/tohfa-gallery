@@ -118,7 +118,7 @@ async function sendFinalOrder() {
         btn.innerText = "جاري إرسال الطلب...";
         btn.disabled = true;
 
-        const response = await fetch("https://formspree.io/f/xjgqbyqe", {
+        const response = await fetch("https://formspree.io/f/xrewzqnn", {
             method: "POST",
             body: new FormData(form),
             headers: { 'Accept': 'application/json' }
