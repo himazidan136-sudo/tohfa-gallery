@@ -484,7 +484,7 @@ body.stop-scrolling {
     border-top: 1px solid rgba(255,255,255,0.1);
     margin-top: auto; /* يزق نفسه لتحت خالص */
 }
-
+    
 /* كلاس قفل سكرول الصفحة الرئيسية (يُضاف للـ body) */
 body.stop-scrolling {
     overflow: hidden !important;
