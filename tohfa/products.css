@@ -37,57 +37,33 @@ body.stop-scrolling {
 }
 
 /* --- تعديل كارت المنتج (توسيط شامل) --- */
-/* --- جعل الكارت يتشكل حسب حجم الصورة --- */
+@media screen and (max-width: 768px) {
+    /* 1. نخلي المنتجات تظهر 2 في السطر عشان الشكل يبان منظم */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        align-items: start; /* بيخلي كل واحد واخد طوله الطبيعي من فوق */
+    }
 
-.product-card { 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    background: var(--glass); 
-    backdrop-filter: blur(10px); 
-    border: 1px solid var(--glass-border); 
-    border-radius: 20px; 
-    padding: 15px; 
-    text-align: center; 
-    transition: 0.4s;
-    /* شيلنا الـ max-width الثابت عشان يكون مرن أكتر */
-    height: auto; /* الكارت بيطول ويقصر حسب المحتوى */
-}
+    .product-card {
+        padding: 10px !important;
+        /* بيفضل الطول auto عشان يتشكل حسب الصورة */
+    }
 
-.product-img {
-    width: 100%; /* ياخد عرض الكارت بالكامل */
-    height: auto; /* الارتفاع مابقاش 160، بقى حسب الصورة */
-    margin-bottom: 12px;
-    overflow: hidden;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .product-img img {
+        /* في الموبايل بنصغر أقصى طول مسموح به عشان الشاشة صغيرة */
+        max-height: 180px !important; 
+        width: 100%;
+        object-fit: contain;
+    }
 
-.product-img img {
-    width: 100%; /* العرض يملأ الكارت */
-    height: auto; /* الارتفاع يتحدد تلقائياً حسب أبعاد الصورة الأصلية */
-    display: block;
-    /* السطر اللي جاي بيضمن إن الصورة متبوظش لو مقاسها ضخم جداً */
-    max-height: 300px; 
-    object-fit: contain; /* يخلي المنتج باين كله */
-    transition: 0.5s;
-}
+    .product-name {
+        font-size: 0.85rem !important; /* نصغر الخط شوية للموبايل */
+    }
 
-/* سحب كل المنتجات لتكون بنفس المحاذاة من فوق */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-    gap: 20px;
-    align-items: start; /* مهم جداً: بيخلي الكروت تبدأ من نفس الخط فوق حتى لو أطوالها اختلفت */
-}
-
-.product-name {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: auto; /* بيزق النص لتحت لو الصورة قصيرة عشان التناسق */
-    padding-top: 10px;
+    .product-price {
+        font-size: 1rem !important;
+    }
 }
 .product-price { 
     font-size: 1.2rem; 
