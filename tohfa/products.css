@@ -218,6 +218,34 @@ body.stop-scrolling {
     .modal-content h3 {
         font-size: 1.1rem;
     }
+    @media screen and (max-width: 768px) {
+    /* 1. نخلي المنتجات تظهر 2 في السطر عشان الشكل يبان منظم */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        align-items: start; /* بيخلي كل واحد واخد طوله الطبيعي من فوق */
+    }
+
+    .product-card {
+        padding: 10px !important;
+        /* بيفضل الطول auto عشان يتشكل حسب الصورة */
+    }
+
+    .product-img img {
+        /* في الموبايل بنصغر أقصى طول مسموح به عشان الشاشة صغيرة */
+        max-height: 180px !important; 
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .product-name {
+        font-size: 0.85rem !important; /* نصغر الخط شوية للموبايل */
+    }
+
+    .product-price {
+        font-size: 1rem !important;
+    }
+}
 }
 
 /* زر الواتساب */
