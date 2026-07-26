@@ -28,19 +28,12 @@ body.stop-scrolling {
 .glass-btn { color: white !important; padding: 8px 20px; border-radius: 10px; background: var(--glass); border: 1px solid var(--glass-border); font-weight: bold; font-size: 14px; }
 
 /* شبكة المنتجات (الحجم الصغير الموحد) */
-.product-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-    gap: 20px; 
-    margin-top: 120px; /* مسافة عشان الناف بار اللي فوق */
-    padding-bottom: 50px;
-}
+/* --- جعل الكارت يتشكل حسب حجم الصورة --- */
 
-/* --- تعديل كارت المنتج (توسيط شامل) --- */
 .product-card { 
     display: flex;
     flex-direction: column;
-    align-items: center; /* السطر ده بيجيب كل المحتوى في النص بالظبط */
+    align-items: center; 
     background: var(--glass); 
     backdrop-filter: blur(10px); 
     border: 1px solid var(--glass-border); 
@@ -48,40 +41,44 @@ body.stop-scrolling {
     padding: 15px; 
     text-align: center; 
     transition: 0.4s;
+    /* شيلنا الـ max-width الثابت عشان يكون مرن أكتر */
+    height: auto; /* الكارت بيطول ويقصر حسب المحتوى */
 }
 
-.product-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-
 .product-img {
-    width: 100%;
-    height: 160px; 
-    margin: 0 auto 10px;
+    width: 100%; /* ياخد عرض الكارت بالكامل */
+    height: auto; /* الارتفاع مابقاش 160، بقى حسب الصورة */
+    margin-bottom: 12px;
     overflow: hidden;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.03); 
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .product-img img {
-    max-width: 90%; /* صغرنا النسبة شوية عشان الصورة متلمسش الحواف */
-    max-height: 90%;
-    object-fit: contain; 
+    width: 100%; /* العرض يملأ الكارت */
+    height: auto; /* الارتفاع يتحدد تلقائياً حسب أبعاد الصورة الأصلية */
+    display: block;
+    /* السطر اللي جاي بيضمن إن الصورة متبوظش لو مقاسها ضخم جداً */
+    max-height: 300px; 
+    object-fit: contain; /* يخلي المنتج باين كله */
     transition: 0.5s;
-    padding: 5px; 
 }
 
-.product-card:hover .product-img img {
-    transform: scale(1.1); 
+/* سحب كل المنتجات لتكون بنفس المحاذاة من فوق */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 20px;
+    align-items: start; /* مهم جداً: بيخلي الكروت تبدأ من نفس الخط فوق حتى لو أطوالها اختلفت */
 }
 
-.product-name { 
-    font-size: 1rem; 
-    font-weight: bold; 
-    display: block; 
-    margin-bottom: 5px; 
-    color: white; /* تأكيد اللون */
+.product-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: auto; /* بيزق النص لتحت لو الصورة قصيرة عشان التناسق */
+    padding-top: 10px;
 }
 
 .product-price { 
