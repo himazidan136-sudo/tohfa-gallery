@@ -524,7 +524,7 @@ body.stop-scrolling {
 .cart-overlay {
     display: flex !important;
     flex-direction: column; /* ترتيب: رأس - منتجات - فوتر */
-    height: 100vh;
+    height: 100vh;                                                                             
     position: fixed;
     top: 0;
     left: -100%;
