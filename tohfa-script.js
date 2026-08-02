@@ -220,7 +220,7 @@ async function sendFinalOrder() {
     btn.disabled = true;
 
     try {
-        const response = await fetch("https://formspree.io/f/xrewzqnn", {
+        const response = await fetch("e199e4c7-3195-4345-9a40-9a2065ea8204", {
             method: "POST",
             body: new FormData(form),
             headers: { 'Accept': 'application/json' }
