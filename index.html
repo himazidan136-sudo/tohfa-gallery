@@ -97,16 +97,12 @@
             icon.innerText = document.body.classList.contains('light-theme') ? '☀️' : '🌙';
         }
     </script>
-    <!-- JavaScript للتحكم في السكرول والظهور التدريجي -->
+    <!-- JavaScript لتفعيل الظهور التدريجي للأقسام -->
+    <!-- 🐞 ملاحظة: تأثير تغيير شكل الناف بار عند السكرول اتشال من هنا
+         لأنه موجود بالفعل في tohfa-script.js (بيتفعل بعد DOMContentLoaded
+         مع تحقق إن .navbar موجود فعلاً) فمكانش لازم يتكرر مرتين هنا. -->
 <script>
-    // 1. تغيير شكل الناف بار عند السكرول
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
-    });
-
-    // 2. تفعيل تأثير "الظهور التدريجي" للأقسام (Reveal)
+    // تفعيل تأثير "الظهور التدريجي" للأقسام (Reveal)
     const observerOptions = { threshold: 0.15 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
