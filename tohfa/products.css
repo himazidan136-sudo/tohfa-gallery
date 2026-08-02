@@ -454,3 +454,48 @@ body.stop-scrolling {
     .hero-content h1 { font-size: 1.8rem !important; line-height: 1.3; }
     .hero-content p { font-size: 0.9rem !important; }
 }
+/* --- تنسيق نافذة تكبير الصور --- */
+.image-lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* خلفية سوداء فخمة */
+    backdrop-filter: blur(15px); /* تأثير زجاجي ورا الصورة */
+    display: none; /* مخفية بتبدأ */
+    align-items: center;
+    justify-content: center;
+    z-index: 10000; /* أعلى من كل شيء */
+    cursor: zoom-out;
+}
+
+.image-lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(160, 64, 53, 0.3); /* توهج طوبي خفيف */
+    transform: scale(0.8);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* لما تفتح الصورة يحصل أنيميشن تكبير */
+.image-lightbox.active img {
+    transform: scale(1);
+}
+
+/* زرار الإلغاء (X) */
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10001;
+}
+
+.close-lightbox:hover {
+    color: var(--primary); /* يقلب طوبي عند الوقوف عليه */
+    transform: rotate(90deg);
+}
