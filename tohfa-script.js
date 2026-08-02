@@ -241,3 +241,37 @@ async function sendFinalOrder() {
         btn.disabled = false;
     }
 }
+// وظيفة فتح الصورة الكبيرة
+function openLightbox(src) {
+    const modal = document.getElementById('imageModal');
+    const fullImg = document.getElementById('fullImage');
+    
+    fullImg.src = src;
+    modal.style.display = 'flex';
+    
+    // تأخير بسيط عشان الأنيميشن يظهر
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
+    
+    document.body.classList.add('stop-scrolling'); // قفل سكرول الصفحة
+}
+
+// وظيفة قفل الصورة
+function closeLightbox() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('active');
+    
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.classList.remove('stop-scrolling');
+    }, 400);
+}
+
+// إضافة الأمر لأي صورة في الجاليري أو المنتجات تلقائياً
+document.querySelectorAll('.gallery-item img, .product-img img').forEach(image => {
+    image.style.cursor = 'zoom-in';
+    image.onclick = function() {
+        openLightbox(this.src);
+    }
+});
