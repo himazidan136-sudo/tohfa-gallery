@@ -522,6 +522,9 @@ body.stop-scrolling {
     }
 }/* --- سلة المشتريات (تفعيل السكرول الداخلي) --- */
 .cart-overlay {
+    display: flex !important;
+    flex-direction: column; /* ترتيب: رأس - منتجات - فوتر */
+    height: 100vh;
     position: fixed;
     top: 0;
     left: -100%;
