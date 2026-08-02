@@ -1,30 +1,56 @@
-// tohfa-script.js
-let cart = JSON.parse(localStorage.getItem('TOHFA_CART')) || [];
+// tohfa/tohfa-script.js
 
+/* ==========================================================
+   1) الإعدادات العامة وتحميل السلة من المتصفح
+   - CART_STORAGE_KEY: مفتاح واحد موحّد بنستخدمه في كل مكان بدل ما
+     نكتب النص "TOHFA_CART" يدوي في أكتر من دالة (زي ما كان بيحصل
+     قبل كده، وده اللي سبب باج إن السلة ما كانتش بتتمسح بعد الطلب
+     لأن مكان كان بيمسح مفتاح باسم مختلف "TOHFA_STORE_CART")
+   ========================================================== */
+const CART_STORAGE_KEY = 'TOHFA_CART';
+let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
+
+/* ==========================================================
+   2) تشغيل الكود عند تحميل الصفحة
+   ========================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
+
+    // 🐞 تم نقل تأثير النافبار عند السكرول هنا جوه DOMContentLoaded
+    // عشان نتأكد إن عنصر .navbar موجود فعلاً قبل ما نتعامل معاه
+    const nav = document.querySelector('.navbar');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    }
 });
 
+/* ==========================================================
+   3) فتح / قفل السلة الجانبية
+   🐞 تم إصلاح: كانت بتقفل سكرول الصفحة بـ inline style مباشر
+   (document.body.style.overflow) وده مش نفس الطريقة اللي باقي
+   الكود (checkout) بيستخدمها (كلاس stop-scrolling). دلوقتي الاتنين
+   بيستخدموا نفس الكلاس عشان يكونوا متسقين مع ملفات الـ CSS.
+   ========================================================== */
 function toggleCart() {
     const cartOverlay = document.getElementById('cartOverlay');
+    if (!cartOverlay) return;
+
     cartOverlay.classList.toggle('active');
-    
-    if (cartOverlay.classList.contains('active')) {
-        // قفل سكرول الصفحة الرئيسية (الخلفية)
-        document.body.style.overflow = 'hidden';
-    } else {
-        // فتح سكرول الصفحة لما السلة تقفل
-        document.body.style.overflow = 'auto';
-    }
+    document.body.classList.toggle('stop-scrolling', cartOverlay.classList.contains('active'));
 }
 
-// تعديل بسيط في تحديث الواجهة للتأكد من الـ Container
-function updateUI() {
-    const cartContainer = document.getElementById('cartItemsList');
-    // ... باقي الكود اللي عندك ...
-    // تأكد إن اسم الـ id في الـ HTML هو cartItemsList وموجود جوه الـ cart-items-container
-}
-function addToCart(name, price, img) {
+/* ==========================================================
+   4) إضافة منتج للسلة
+   - لو المنتج موجود بالفعل بيزود الكمية بس، غير كده بيضيفه جديد
+   - بيعمل أنيميشن بسيط على زرار "أضف للسلة" (تمت الإضافة ✔)
+   🐞 تم إصلاح: كانت بتعتمد على المتغير العام event مباشرة، ده بيشتغل
+   بس لما الدالة متنادية من onclick="" جوه الـ HTML مباشرة. خليتها
+   تستقبل الزرار كباراميتر اختياري عشان تشتغل حتى لو اتنادت من
+   جافاسكريبت تاني (addEventListener مثلاً) من غير ما تتكسر.
+   ========================================================== */
+function addToCart(name, price, img, btn) {
     const existing = cart.find(item => item.name === name);
     if (existing) {
         existing.qty += 1;
@@ -32,36 +58,60 @@ function addToCart(name, price, img) {
         cart.push({ name, price, img, qty: 1 });
     }
     saveAndRefresh();
-    
-    // أنيميشن زرار الطلب
-    const btn = event.target;
-    const oldText = btn.innerText;
-    btn.innerText = "تمت الإضافة ✔";
-    setTimeout(() => btn.innerText = oldText, 1500);
+
+    // أنيميشن زرار الطلب: بيقبل الزرار كباراميتر، ولو مش موصول بيرجع
+    // لـ event.target (للتوافق مع onclick="addToCart(...)" القديمة)
+    const targetBtn = btn || (typeof event !== 'undefined' ? event.target : null);
+    if (targetBtn) {
+        const oldText = targetBtn.innerText;
+        targetBtn.innerText = "تمت الإضافة ✔";
+        targetBtn.disabled = true;
+        setTimeout(() => {
+            targetBtn.innerText = oldText;
+            targetBtn.disabled = false;
+        }, 1500);
+    }
 }
 
+/* ==========================================================
+   5) تغيير كمية منتج في السلة (+ / -)
+   لو الكمية نزلت لأقل من 1 بيشيل المنتج من السلة تلقائياً
+   ========================================================== */
 function changeQty(index, delta) {
+    if (!cart[index]) return;
     cart[index].qty += delta;
     if (cart[index].qty < 1) return removeFromCart(index);
     saveAndRefresh();
 }
 
+/* ==========================================================
+   6) حذف منتج من السلة نهائياً
+   ========================================================== */
 function removeFromCart(index) {
     cart.splice(index, 1);
     saveAndRefresh();
 }
 
+/* ==========================================================
+   7) حفظ السلة في localStorage وتحديث الواجهة فوراً
+   ========================================================== */
 function saveAndRefresh() {
-    localStorage.setItem('TOHFA_CART', JSON.stringify(cart));
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
     updateCartUI();
 }
 
+/* ==========================================================
+   8) رسم عناصر السلة في الواجهة + حساب الإجمالي + تحديث البادج
+   🐞 تم إصلاح: أضفنا تحقق (guard) على badge و totalDisp زي ما كان
+   موجود بالفعل على list، عشان لو أي عنصر منهم مش موجود في الـ HTML
+   الكود ميرميش error ويوقف تنفيذ باقي السكريبت.
+   ========================================================== */
 function updateCartUI() {
     const list = document.getElementById('cartItemsList');
     const badge = document.getElementById('cartBadge');
     const totalDisp = document.getElementById('cartTotal');
-    
-    if(!list) return;
+
+    if (!list) return;
 
     list.innerHTML = '';
     let total = 0;
@@ -89,36 +139,70 @@ function updateCartUI() {
         `;
     });
 
-    badge.innerText = count;
-    totalDisp.innerText = total.toLocaleString() + " ج.م";
+    if (badge) badge.innerText = count;
+    if (totalDisp) totalDisp.innerText = total.toLocaleString() + " ج.م";
 }
 
+/* ==========================================================
+   9) إتمام الطلب: بيقفل السلة الجانبية ويفتح فورم بيانات الطلب
+   🐞 تمت إضافة: تعبئة تلقائية لتفاصيل السلة (المنتجات + الإجمالي)
+   جوه حقل مخفي في الفورم (لو موجود) اسمه orderSummary، عشان
+   تفاصيل الطلب توصل مع الإيميل اللي بيبعته Formspree. الكود آمن:
+   لو الحقل مش موجود في الـ HTML، بيتجاهل الخطوة دي من غير أي مشاكل.
+   ========================================================== */
 function checkout() {
     if (cart.length === 0) return alert("السلة فارغة!");
-    
-    // ... كود تجميع البيانات اللي عندك ...
+
+    const summaryField = document.getElementById('orderSummary');
+    if (summaryField) {
+        const lines = cart.map(item => `${item.name} × ${item.qty} = ${item.price}`);
+        const total = cart.reduce((sum, item) => {
+            const priceNum = parseFloat(item.price.toString().replace(/[^\d.]/g, ''));
+            return sum + (priceNum * item.qty);
+        }, 0);
+        summaryField.value = lines.join('\n') + `\n\nالإجمالي: ${total.toLocaleString()} ج.م`;
+    }
 
     // قفل السلة ورجوع السكرول قبل فتح الأبلكيشن
     document.body.classList.remove('stop-scrolling');
-    document.getElementById('cartOverlay').classList.remove('active');
-    
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartOverlay) cartOverlay.classList.remove('active');
+
     // فتح الأبلكيشن
-    document.getElementById('orderModal').style.display = 'flex';
+    const modal = document.getElementById('orderModal');
+    if (modal) modal.style.display = 'flex';
 }
 
+/* ==========================================================
+   10) إغلاق فورم بيانات الطلب
+   ========================================================== */
 function closeOrderForm() {
-    document.getElementById('orderModal').style.display = 'none';
+    const modal = document.getElementById('orderModal');
+    if (modal) modal.style.display = 'none';
 }
 
-// إرسال البيانات النهائية لـ Formspree (أوتوماتيك للجيميل)
+/* ==========================================================
+   11) إرسال البيانات النهائية لـ Formspree (بيوصل أوتوماتيك للجيميل)
+   🐞 تم إصلاح: بعد نجاح الإرسال كان بيمسح مفتاح localStorage غلط
+   ("TOHFA_STORE_CART" بدل "TOHFA_CART")، فالسلة ما كانتش بتتصفر
+   فعلياً بعد إتمام الطلب. دلوقتي بيستخدم نفس CART_STORAGE_KEY
+   المستخدم في كل الملف، وأضفنا try/catch عشان لو النت فصل أثناء
+   الإرسال الكود ميعلقش ويظهر رسالة خطأ واضحة بدل ما يفضل معلق.
+   ========================================================== */
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
+    if (!form || !btn) return;
 
-    if(form.checkValidity()) {
-        btn.innerText = "جاري إرسال الطلب...";
-        btn.disabled = true;
+    if (!form.checkValidity()) {
+        alert("برجاء ملء كافة الخانات المطلوبة");
+        return;
+    }
 
+    btn.innerText = "جاري إرسال الطلب...";
+    btn.disabled = true;
+
+    try {
         const response = await fetch("https://formspree.io/f/xrewzqnn", {
             method: "POST",
             body: new FormData(form),
@@ -127,23 +211,16 @@ async function sendFinalOrder() {
 
         if (response.ok) {
             alert("تم استلام طلبك بنجاح! سنتواصل معك قريباً لتأكيد الموعد.");
-            // مسح السلة بعد نجاح الطلب
-            localStorage.removeItem('TOHFA_STORE_CART');
+            // مسح السلة فعلياً بعد نجاح الطلب (بنفس المفتاح المستخدم في كل مكان)
+            localStorage.removeItem(CART_STORAGE_KEY);
             window.location.reload(); // إعادة تحميل الصفحة لتصفير السلة
         } else {
             alert("عذراً، حدث خطأ في الشبكة. حاول مرة أخرى.");
         }
+    } catch (err) {
+        alert("تعذر الاتصال بالإنترنت. تأكد من اتصالك وحاول مرة أخرى.");
+    } finally {
         btn.innerText = "تأكيد وإرسال الطلب";
         btn.disabled = false;
-    } else {
-        alert("برجاء ملء كافة الخانات المطلوبة");
     }
 }
-window.onscroll = function() {
-    let nav = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
-};
