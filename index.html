@@ -141,19 +141,20 @@
         <h3 id="mTitle" style="text-align:center; margin-bottom:20px; font-family:'Reem Kufi'; color:var(--primary);">استمارة طلب مقتنيات</h3>
         
         <form id="orderForm">
-            <!-- بيانات العميل -->
-         <input type="hidden" name="access_key" value="e199e4c7-3195-4345-9a40-9a2065ea8204">
+    <!-- المفتاح الخاص بك -->
+    <input type="hidden" name="access_key" value="e199e4c7-3195-4345-9a40-9a2065ea8204">
+    
+    <!-- بيانات العميل -->
+    <input type="text" name="الاسم" id="cName" placeholder="الاسم بالكامل" required>
+    <input type="tel" name="الهاتف" id="cPhone" placeholder="رقم الهاتف" required>
+    <textarea name="العنوان" id="cAddr" rows="3" placeholder="العنوان بالتفصيل" required></textarea>
+    
+    <!-- التعديل هنا: دي الخانات اللي كانت بتوصل فاضية -->
+    <input type="hidden" name="تفاصيل_الأوردر" id="hiddenProd">
+    <input type="hidden" name="إجمالي_السعر" id="hiddenPrice">
 
-            <input type="text" name="الاسم" id="cName" placeholder="الاسم بالكامل" required>
-            <input type="tel" name="الهاتف" id="cPhone" placeholder="رقم الهاتف (واتساب)" required>
-            <textarea name="العنوان" id="cAddr" rows="3" placeholder="العنوان بالتفصيل لسهولة التوصيل" required></textarea>
-            
-            <!-- حقول مخفية بيتم ملوها أوتوماتيك من السلة -->
-            <input type="hidden" name="تفاصيل_الأوردر" id="hiddenProd">
-            <input type="hidden" name="إجمالي_السعر" id="hiddenPrice">
-
-            <button type="button" id="submitBtn" class="order-btn" onclick="sendFinalOrder()">تأكيد وإرسال الطلب</button>
-        </form>
+    <button type="button" id="submitBtn" class="order-btn" onclick="sendFinalOrder()">تأكيد وإرسال الطلب</button>
+</form>
     </div>
 </div>
 
