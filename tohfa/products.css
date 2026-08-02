@@ -368,15 +368,21 @@ body.stop-scrolling {
 
     /* 3. تظبيط السلة الجانبية (عشان زرار إتمام الطلب يبان) */
     .cart-overlay {
-        width: 100% !important; /* تاخد الشاشة كلها في الموبايل */
-        padding: 20px;
+        width: 85% !important; /* صغرنا العرض شوية لشكل أشيك */
+        max-width: 320px;
+        height: 100dvh !important; /* dvh بتظبط الطول على مقاس الشاشة بالضبط في الأيفون والأندرويد */
+        display: flex;
+        flex-direction: column; /* تقسيم السلة لطوابق */
+        left: -100%;
+        transition: 0.5s ease-in-out;
     }
 
     .cart-items-container {
-        max-height: 60vh; /* تحديد طول قايمة المنتجات عشان الفوتر يظهر */
-        overflow-y: auto;
+        flex: 1; /* ده أهم سطر: بيخلي منطقة المنتجات تاخد المساحة المتاحة وتعمل سكرول */
+        overflow-y: auto !important;
+        padding: 10px;
+        margin-bottom: 10px;
     }
-
     /* أهم جزء: زرار إتمام الطلب في السلة */
     .cart-footer {
         padding-top: 15px;
