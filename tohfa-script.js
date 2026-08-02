@@ -9,11 +9,12 @@ function toggleCart() {
     const cartOverlay = document.getElementById('cartOverlay');
     cartOverlay.classList.toggle('active');
     
-    // لو السلة فتحت (واخدة active)، اقفل سكرول الصفحة اللي ورا
     if (cartOverlay.classList.contains('active')) {
-        document.body.classList.add('stop-scrolling');
+        // قفل سكرول الصفحة الرئيسية (الخلفية)
+        document.body.style.overflow = 'hidden';
     } else {
-        document.body.classList.remove('stop-scrolling');
+        // فتح سكرول الصفحة لما السلة تقفل
+        document.body.style.overflow = 'auto';
     }
 }
 
