@@ -209,38 +209,47 @@ function closeOrderForm() {
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
-    if (!form || !btn) return;
 
-    if (!form.checkValidity()) {
-        alert("برجاء ملء كافة الخانات المطلوبة");
-        return;
-    }
+    if (form.checkValidity()) {
+        btn.innerText = "جاري إرسال الطلب...";
+        btn.disabled = true;
 
-    btn.innerText = "جاري إرسال الطلب...";
-    btn.disabled = true;
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
-    try {
-        const response = await fetch("e199e4c7-3195-4345-9a40-9a2065ea8204", {
-            method: "POST",
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: json
+            });
 
-        if (response.ok) {
-            alert("تم استلام طلبك بنجاح! سنتواصل معك قريباً لتأكيد الموعد.");
-            // مسح السلة فعلياً بعد نجاح الطلب (بنفس المفتاح المستخدم في كل مكان)
-            localStorage.removeItem(CART_STORAGE_KEY);
-            window.location.reload(); // إعادة تحميل الصفحة لتصفير السلة
-        } else {
-            alert("عذراً، حدث خطأ في الشبكة. حاول مرة أخرى.");
+            const result = await response.json();
+
+            if (result.success) {
+                alert("تم استلام طلبك بنجاح! شكراً لثقتك في تحفة.");
+                // مسح السلة بعد نجاح الطلب
+                localStorage.removeItem('TOHFA_STORE_CART');
+                localStorage.removeItem('IQ_CART');
+                window.location.reload(); 
+            } else {
+                alert("حدث خطأ: " + result.message);
+            }
+        } catch (error) {
+            alert("عذراً، فشل الاتصال بالسيرفر.");
+        } finally {
+            btn.innerText = "تأكيد وإرسال الطلب";
+            btn.disabled = false;
         }
-    } catch (err) {
-        alert("تعذر الاتصال بالإنترنت. تأكد من اتصالك وحاول مرة أخرى.");
-    } finally {
-        btn.innerText = "تأكيد وإرسال الطلب";
-        btn.disabled = false;
+    } else {
+        alert("برجاء ملء كافة البيانات المطلوبة");
     }
 }
+
 // وظيفة فتح الصورة
 function openLightbox(src) {
     const modal = document.getElementById('imageModal');
