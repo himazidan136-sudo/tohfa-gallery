@@ -25,7 +25,7 @@
                 <img src="tohfa/1.jpg.jpeg" class="product-img">
                 <span class="product-name">بونبنيره طفايه كلاسيك </span>
                 <span class="product-price">1045 ج.م</span>
-                <button class="order-btn" onclick="openForm('بونبنيره طفايه كلاسيك', '1045 ج.م')">طلب المنتج</button> 
+                <button class="order-btn" onclick="orderNow('بونبنيره طفايه كلاسيك', 1045, 'tohfa/1.jpg.jpeg')">طلب المنتج</button>
                 <button class="order-btn" onclick="addToCart('بونبنيره طفايه كلاسيك', 1045, 'tohfa/1.jpg.jpeg')">إضافة للسلة</button>
             </div>
             <!-- منتج 2 -->
@@ -33,106 +33,42 @@
                 <img src="tohfa/2.jpg.jpeg" class="product-img">
                 <span class="product-name">طفايه كلاسيك  </span>
                 <span class="product-price">735 ج.م</span>
-                <button class="order-btn" onclick="openForm(' طفايه كلاسيك ', '735 ج.م')">طلب المنتج</button>
+                <button class="order-btn" onclick="orderNow('طفايه كلاسيك', 735, 'tohfa/2.jpg.jpeg')">طلب المنتج</button>
                 <button class="order-btn" onclick="addToCart('طفايه كلاسيك', 735, 'tohfa/2.jpg.jpeg')">إضافة للسلة</button>
             </div>
             <div class="product-card">
                 <img src="tohfa/mab5ara.jpg.jpeg" class="product-img">
                 <span class="product-name">مبخره هيدستنس  </span>
                 <span class="product-price">600 ج.م</span>
-                <button class="order-btn" onclick="openForm(' مبخره هيدستنس ', '600 ج.م')">طلب المنتج</button>
+                <button class="order-btn" onclick="orderNow('مبخره هيدستنس', 600, 'tohfa/mab5ara.jpg.jpeg')">طلب المنتج</button>
                 <button class="order-btn" onclick="addToCart('مبخره هيدستنس', 600, 'tohfa/mab5ara.jpg.jpeg')">إضافة للسلة</button>
             </div>
             <div class="product-card">
                 <img src="tohfa/sham3dan.jpg.jpeg" class="product-img">
                 <span class="product-name">شمعدان ثلاثي  </span>
                 <span class="product-price">1495 ج.م</span>
-                <button class="order-btn" onclick="openForm(' شمعدان ثلاثي ', '1495 ج.م')">طلب المنتج</button>
+                <button class="order-btn" onclick="orderNow('شمعدان ثلاثي', 1495, 'tohfa/sham3dan.jpg.jpeg')">طلب المنتج</button>
                 <button class="order-btn" onclick="addToCart('شمعدان ثلاثي', 1495, 'tohfa/sham3dan.jpg.jpeg')">إضافة للسلة</button>
             </div>
             <div class="product-card">
                 <img src="tohfa/abajora.jpg.jpeg" class="product-img">
                 <span class="product-name">اباجوره سمارت  </span>
                 <span class="product-price">580 ج.م</span>
-                <button class="order-btn" onclick="openForm(' اباجوره سمارت ', '580 ج.م')">طلب المنتج</button>
+                <button class="order-btn" onclick="orderNow('اباجوره سمارت', 580, 'tohfa/abajora.jpg.jpeg')">طلب المنتج</button>
                 <button class="order-btn" onclick="addToCart('اباجوره سمارت', 580, 'tohfa/abajora.jpg.jpeg')">إضافة للسلة</button>
             </div>
             <div class="product-card">
                 <img src="tohfa/decor.jpeg" class="product-img">
                 <span class="product-name">حامل زهور عجله  </span>
                 <span class="product-price">350 ج.م</span>
-                <button class="order-btn" onclick="openForm('حامل زهور عجله', '350 ج.م')">طلب المنتج</button>
+                <button class="order-btn" onclick="orderNow('حامل زهور عجله', 350, 'tohfa/decor.jpeg')">طلب المنتج</button>
                 <button class="order-btn" onclick="addToCart('حامل زهور عجله', 350, 'tohfa/decor.jpeg')">إضافة للسلة</button>
             </div>
         </div>
     </div>
 
-    <!-- نافذة الأبلكيشن (Modal) -->
-    <div id="orderModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeForm()">&times;</span>
-            <h3 id="mTitle" style="text-align:center; margin-bottom:20px; color:white;">استمارة طلب</h3>
-            
-            <form id="orderForm">
-                <!-- الأسامي name بالانجليزي لضمان وصول الرسالة -->
-                <input type="text" name="customer_name" id="cName" placeholder="الاسم بالكامل" required>
-                <input type="tel" name="phone_number" id="cPhone" placeholder="رقم الهاتف" required>
-                <textarea name="address" id="cAddr" rows="3" placeholder="العنوان بالتفصيل" required></textarea>
-                
-                <!-- بيانات المنتج مخفية -->
-                <input type="hidden" name="product_name" id="hiddenProd">
-                <input type="hidden" name="product_price" id="hiddenPrice">
-
-                <button type="button" id="submitBtn" class="order-btn" onclick="sendOrder()">تأكيد الطلب</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        let selectedP, selectedPr;
-
-        function openForm(name, price) { 
-            selectedP = name; 
-            selectedPr = price;
-            document.getElementById('mTitle').innerText = "طلب: " + name;
-            document.getElementById('hiddenProd').value = name;
-            document.getElementById('hiddenPrice').value = price;
-            // السطر اللي بيخلي الفورم يظهر
-            document.getElementById('orderModal').style.display = 'flex'; 
-        }
-
-        function closeForm() { 
-            document.getElementById('orderModal').style.display = 'none'; 
-        }
-
-        async function sendOrder() {
-            const form = document.getElementById('orderForm');
-            const btn = document.getElementById('submitBtn');
-
-            if(form.checkValidity()) {
-                btn.innerText = "جاري الإرسال...";
-                btn.disabled = true;
-
-                const response = await fetch("https://formspree.io/f/xrewzqnn", {
-                    method: "POST",
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert("تم استلام طلبك بنجاح! سنتواصل معك فوراً.");
-                    form.reset();
-                    closeForm();
-                } else {
-                    alert("حدث خطأ في الإرسال، حاول مرة أخرى.");
-                }
-                btn.innerText = "تأكيد الطلب";
-                btn.disabled = false;
-            } else {
-                alert("برجاء ملء البيانات كاملة");
-            }
-        }
-    </script>
+    <!-- 🐞 تم حذف نافذة ونظام الطلب القديمين من هنا (نفس سبب الحذف
+         في باقي صفحات المنتجات: تعارض IDs مع نظام السلة تحت) -->
     <div id="cartOverlay" class="cart-overlay">
     <div class="cart-header">
         <h2>سلة المقتنيات</h2>
