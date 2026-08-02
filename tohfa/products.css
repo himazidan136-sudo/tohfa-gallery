@@ -385,11 +385,12 @@ body.stop-scrolling {
     }
     /* أهم جزء: زرار إتمام الطلب في السلة */
     .cart-footer {
-        padding-top: 15px;
-        margin-top: auto; /* يزق نفسه لتحت خالص */
-        padding-bottom: 20px;
+        margin-top: auto; /* بيجبر الفوتر يلزق تحت خالص */
+        background: rgba(20, 20, 20, 0.95); /* خلفية أغمق شوية عشان يبان */
+        padding: 15px !important;
+        padding-bottom: 30px !important; /* رفعنا الزرار لفوق شوية عشان م يختفيش ورا شريط الموبايل */
+        border-top: 1px solid var(--primary);
     }
-
     .cart-footer .order-btn {
         padding: 15px !important;
         font-size: 1rem !important;
