@@ -167,51 +167,35 @@ function updateCartUI() {
    تفاصيل الطلب توصل مع الإيميل اللي بيبعته Formspree. الكود آمن:
    لو الحقل مش موجود في الـ HTML، بيتجاهل الخطوة دي من غير أي مشاكل.
    ========================================================== */
+// وظيفة إتمام الطلب من السلة
 function checkout() {
-    if (cart.length === 0) return alert("السلة فارغة!");
-
-    const summaryField = document.getElementById('orderSummary');
-    if (summaryField) {
-        const lines = cart.map(item => `${item.name} × ${item.qty} = ${item.price}`);
-        const total = cart.reduce((sum, item) => {
-            const priceNum = parseFloat(item.price.toString().replace(/[^\d.]/g, ''));
-            return sum + (priceNum * item.qty);
-        }, 0);
-        summaryField.value = lines.join('\n') + `\n\nالإجمالي: ${total.toLocaleString()} ج.م`;
+    if (cart.length === 0) {
+        alert("السلة فارغة!");
+        return;
     }
+    
+    // 1. تجميع المنتجات في نص واحد
+    let itemsSummary = cart.map(item => `${item.name} (عدد ${item.quantity})`).join(' + ');
+    
+    // 2. جلب إجمالي السعر من الشاشة
+    let totalValue = document.getElementById('cartTotal').innerText;
 
-    // قفل السلة ورجوع السكرول قبل فتح الأبلكيشن
-    document.body.classList.remove('stop-scrolling');
-    const cartOverlay = document.getElementById('cartOverlay');
-    if (cartOverlay) cartOverlay.classList.remove('active');
+    // 3. وضع البيانات في الخانات المخفية (تأكد من الـ IDs)
+    document.getElementById('hiddenProd').value = itemsSummary;
+    document.getElementById('hiddenPrice').value = totalValue;
 
-    // فتح الأبلكيشن
-    const modal = document.getElementById('orderModal');
-    if (modal) modal.style.display = 'flex';
+    // 4. قفل السلة وفتح الأبلكيشن
+    toggleCart(); 
+    document.getElementById('orderModal').style.display = 'flex';
 }
 
-/* ==========================================================
-   10) إغلاق فورم بيانات الطلب
-   ========================================================== */
-function closeOrderForm() {
-    const modal = document.getElementById('orderModal');
-    if (modal) modal.style.display = 'none';
-}
-
-/* ==========================================================
-   11) إرسال البيانات النهائية لـ Formspree (بيوصل أوتوماتيك للجيميل)
-   🐞 تم إصلاح: بعد نجاح الإرسال كان بيمسح مفتاح localStorage غلط
-   ("TOHFA_STORE_CART" بدل "TOHFA_CART")، فالسلة ما كانتش بتتصفر
-   فعلياً بعد إتمام الطلب. دلوقتي بيستخدم نفس CART_STORAGE_KEY
-   المستخدم في كل الملف، وأضفنا try/catch عشان لو النت فصل أثناء
-   الإرسال الكود ميعلقش ويظهر رسالة خطأ واضحة بدل ما يفضل معلق.
-   ========================================================== */
+// إرسال البيانات لـ Web3Forms
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
 
-    if (form.checkValidity()) {
-        btn.innerText = "جاري إرسال الطلب...";
+    if(form.checkValidity()) {
+        btn.innerText = "جاري الإرسال...";
         btn.disabled = true;
 
         const formData = new FormData(form);
@@ -221,35 +205,28 @@ async function sendFinalOrder() {
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
+                headers: { "Content-Type": "application/json", "Accept": "application/json" },
                 body: json
             });
 
             const result = await response.json();
-
             if (result.success) {
-                alert("تم استلام طلبك بنجاح! شكراً لثقتك في تحفة.");
-                // مسح السلة بعد نجاح الطلب
-                localStorage.removeItem('TOHFA_STORE_CART');
-                localStorage.removeItem('IQ_CART');
+                alert("تم استلام طلبك بنجاح!");
+                localStorage.removeItem('TOHFA_STORE_CART'); // تصفير السلة
                 window.location.reload(); 
             } else {
-                alert("حدث خطأ: " + result.message);
+                alert("حدث خطأ في السيرفر");
             }
         } catch (error) {
-            alert("عذراً، فشل الاتصال بالسيرفر.");
+            alert("فشل الاتصال بالإنترنت");
         } finally {
             btn.innerText = "تأكيد وإرسال الطلب";
             btn.disabled = false;
         }
     } else {
-        alert("برجاء ملء كافة البيانات المطلوبة");
+        alert("برجاء ملء كافة البيانات");
     }
 }
-
 // وظيفة فتح الصورة
 function openLightbox(src) {
     const modal = document.getElementById('imageModal');
