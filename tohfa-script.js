@@ -241,37 +241,31 @@ async function sendFinalOrder() {
         btn.disabled = false;
     }
 }
-// وظيفة فتح الصورة الكبيرة
+// وظيفة فتح الصورة
 function openLightbox(src) {
     const modal = document.getElementById('imageModal');
     const fullImg = document.getElementById('fullImage');
-    
+    if(!modal || !fullImg) return; // حماية لو الكود مش موجود في الصفحة
+
     fullImg.src = src;
     modal.style.display = 'flex';
-    
-    // تأخير بسيط عشان الأنيميشن يظهر
-    setTimeout(() => {
-        modal.classList.add('active');
-    }, 10);
-    
-    document.body.classList.add('stop-scrolling'); // قفل سكرول الصفحة
+    setTimeout(() => modal.classList.add('active'), 10);
+    document.body.style.overflow = 'hidden'; // قفل سكرول الصفحة
 }
 
-// وظيفة قفل الصورة
 function closeLightbox() {
     const modal = document.getElementById('imageModal');
+    if(!modal) return;
     modal.classList.remove('active');
-    
     setTimeout(() => {
         modal.style.display = 'none';
-        document.body.classList.remove('stop-scrolling');
+        document.body.style.overflow = 'auto'; // رجوع السكرول
     }, 400);
 }
 
-// إضافة الأمر لأي صورة في الجاليري أو المنتجات تلقائياً
-document.querySelectorAll('.gallery-item img, .product-img img').forEach(image => {
-    image.style.cursor = 'zoom-in';
-    image.onclick = function() {
-        openLightbox(this.src);
+// تشغيل الميزة على كل الصور تلقائياً
+document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'IMG' && (e.target.closest('.gallery-item') || e.target.closest('.product-img'))) {
+        openLightbox(e.target.src);
     }
 });
