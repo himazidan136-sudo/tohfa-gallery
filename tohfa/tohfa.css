@@ -1,699 +1,130 @@
-    :root {
-        --primary: #A04035; 
-        --glass: rgba(255, 255, 255, 0.1);
-        --glass-border: rgba(255, 255, 255, 0.2);
-        --bg-color: #0d0d12;
-        --text-color: #ffffff;
-    }
-
-    body.light-theme {
-        --bg-color: #f4f4f9;
-        --text-color: #1a1a1a;
-        --glass: rgba(255, 255, 255, 0.6);
-        --glass-border: rgba(0, 0, 0, 0.1);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; transition: 0.5s ease; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-/* الكلاس ده بيقفل سكرول الصفحة تماماً */
-body.stop-scrolling {
-    overflow: hidden;
+:root {
+    --primary: #A04035; 
+    --glass: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --bg-color: #0d0d12;
+    --text-color: #ffffff;
 }
 
-/* تأكد إن حاوية المنتجات جوه السلة ليها سكرول خاص بيها */
-.cart-items-container {
-    overflow-y: auto; /* يسمح بالسكرول جوه السلة */
-    max-height: 70vh; /* طول مناسب عشان الفوتر يفضل باين */
+body.light-theme {
+    --bg-color: #f4f4f9;
+    --text-color: #1a1a1a;
+    --glass: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
 }
-    /* الخلفية السائلة */
-    .liquid-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; filter: blur(80px); }
-    .blob { position: absolute; width: 500px; height: 500px; background: var(--primary); border-radius: 50%; opacity: 0.4; animation: move 15s infinite alternate; }
-    .blob:nth-child(2) { background: #5c2a24; left: -10%; top: -10%; animation-duration: 20s; }
-    .blob:nth-child(3) { background: #d4a373; right: -5%; bottom: -5%; animation-duration: 12s; }
-    @keyframes move { from { transform: translate(0, 0); } to { transform: translate(100px, 50px); } }
-/* --- الناف بار العائم المطور (Floating Pill Navbar) --- */
+
+* { margin: 0; padding: 0; box-sizing: border-box; transition: 0.5s ease; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; }
+
+/* كلاس قفل سكرول الصفحة (يُضاف بالـ JS عند فتح السلة) */
+body.stop-scrolling { overflow: hidden !important; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* الخلفية السائلة */
+.liquid-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; filter: blur(80px); }
+.blob { position: absolute; width: 500px; height: 500px; background: var(--primary); border-radius: 50%; opacity: 0.4; animation: move 15s infinite alternate; }
+.blob:nth-child(2) { background: #5c2a24; left: -10%; top: -10%; animation-duration: 20s; }
+.blob:nth-child(3) { background: #d4a373; right: -5%; bottom: -5%; animation-duration: 12s; }
+@keyframes move { from { transform: translate(0, 0); } to { transform: translate(100px, 50px); } }
+
+/* الناف بار (Floating Pill) */
 .navbar {
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    max-width: 1100px;
-    z-index: 2000;
-    background: rgba(255, 255, 255, 0.03); /* زجاجي شفاف جداً */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px; /* شكل كبسولة */
-    padding: 8px 0;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
+    width: 95%; max-width: 1100px; z-index: 2000;
+    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px;
+    padding: 10px 0; transition: 0.5s ease;
 }
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
 
-.nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-/* تنسيق اللوجو */
-.logo {
-    font-family: 'Reem Kufi';
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    white-space: nowrap;
-}
+.logo { font-family: 'Reem Kufi'; font-size: 20px; font-weight: bold; color: #fff; white-space: nowrap; }
 .logo span { color: var(--primary); font-size: 14px; margin-right: 4px; }
 
-/* الروابط (الكلام) */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-.nav-btn-text {
-    color: #fff !important;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
+.nav-links { list-style: none; display: flex; gap: 15px; }
+.nav-btn-text, .glass-btn {
+    color: #fff !important; font-size: 13px; font-weight: 600;
+    padding: 6px 15px; border-radius: 20px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none !important; cursor: pointer;
 }
 
-/* أزرار الأيقونات (السلة والمود) */
-.nav-left { display: flex; align-items: center; gap: 10px; }
-.iq-btn-icon {
-    position: relative;
-    width: 38px; height: 38px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 16px;
-    overflow: hidden;
-}
+.iq-btn-icon { position: relative; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
 
-/* ⚡ أنيميشن البرق عند الضغط */
-.nav-btn-text:active::after, .iq-btn-icon:active::after {
-    content: ''; position: absolute; top: 50%; left: 50%;
-    width: 200%; height: 200%;
+/* ⚡ أنيميشن البرق */
+.nav-btn-text:active::after, .iq-btn-icon:active::after, .order-btn:active::after {
+    content: ''; position: absolute; top: 50%; left: 50%; width: 200%; height: 200%;
     background: radial-gradient(circle, #fff 10%, var(--primary) 40%, transparent 60%);
-    transform: translate(-50%, -50%);
-    animation: lightning-strike 0.4s ease-out;
+    transform: translate(-50%, -50%); animation: lightning-strike 0.4s ease-out;
 }
-@keyframes lightning-strike {
-    0% { opacity: 0; scale: 0; }
-    30% { opacity: 1; }
-    100% { opacity: 0; scale: 1.5; }
-}
-/* --- تنسيق السلة الموحد (للرئيسية والسكاشن) --- */
-.cart-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 12px;
-    border-radius: 15px;
-    margin-bottom: 12px;
-    border: 1px solid var(--glass-border);
-    direction: rtl; /* التأكد من الاتجاه العربي */
-}
+@keyframes lightning-strike { 0% { opacity: 0; scale: 0; } 30% { opacity: 1; } 100% { opacity: 0; scale: 1.5; } }
 
-/* تصحيح شكل الصورة المكسورة */
-.cart-item img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--primary);
-    background: #222; /* لون احتياطي لو الصورة محملتش */
-}
+/* الهيرو */
+.hero { height: 100vh; width: 100%; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('9.jpg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center; }
+.hero-content { text-align: center; color: white; max-width: 900px; background: transparent; }
+.hero-content h1 { font-family: 'Reem Kufi'; font-size: clamp(2rem, 8vw, 3.5rem); text-shadow: 2px 2px 20px rgba(0,0,0,0.8); margin-bottom: 20px; }
+.hero-content p { font-size: 1.5rem; text-shadow: 1px 1px 10px rgba(0,0,0,0.8); margin-bottom: 35px; }
+.btn-main { padding: 15px 45px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.4s; }
 
-.item-info-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: right;
-}
+/* الأقسام والجاليري */
+.categories, .gallery, .products-area { padding: 80px 0; border-top: 1px solid var(--glass-border); }
+.section-title { text-align: center; font-family: 'Reem Kufi'; font-size: 32px; margin-bottom: 50px; color: #fff; }
+.category-grid, .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
 
-.item-info-box h4 {
-    font-size: 0.9rem;
-    color: #fff;
-    margin: 0;
-}
+.glass-card { background: var(--glass); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); border-radius: 25px; }
+.cat-card, .product-card { padding: 25px; text-align: center; transition: 0.5s; cursor: pointer; color: #fff; }
+.cat-card:hover, .product-card:hover { transform: translateY(-10px) !important; border-color: var(--primary); }
+.cat-card .icon { font-size: 45px; margin-bottom: 15px; display: block; }
 
-.item-info-box .price {
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 0.95rem;
-}
+/* المنتجات الصغيرة */
+.product-img { width: 100%; height: 160px; object-fit: cover; border-radius: 15px; margin-bottom: 12px; }
+.product-name { font-size: 1rem; font-weight: bold; display: block; margin-bottom: 5px; }
+.product-price { font-size: 1.1rem; color: var(--primary); font-weight: bold; display: block; margin-bottom: 15px; }
+.order-btn { display: block; background: var(--primary); color: white !important; padding: 10px; border-radius: 12px; font-size: 0.85rem; font-weight: bold; cursor: pointer; border: none; width: 100%; transition: 0.3s; }
+.order-btn:hover { background: #fff; color: var(--primary) !important; }
 
-/* تظبيط أزرار الكمية الراقية */
-.qty-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.qty-controls button {
-    width: 26px;
-    height: 26px;
-    background: transparent;
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    border-radius: 50%; /* دائرية */
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-.qty-controls button:hover {
-    background: var(--primary);
-    color: #fff;
-}
-
-.qty-num {
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.remove-item-btn {
-    color: #ff4d4d;
-    cursor: pointer;
-    font-size: 1.5rem;
-    padding: 5px;
-}
-/* ستايل الـ Badge بتاع السلة */
-.cart-badge {
-    position: absolute; top: -5px; right: -5px;
-    background: var(--primary); color: #fff;
-    font-size: 9px; width: 16px; height: 16px;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-}
-
-/* --- 📱 الموبايل (إصلاح التداخل نهائياً) --- */
-@media screen and (max-width: 768px) {
-    .navbar { top: 10px; padding: 6px 0; }
-    .nav-wrapper { padding: 0 12px; }
-    
-    .logo { font-size: 16px; }
-    .logo span { display: none; } /* إخفاء كلمة تحفة في الموبايل لتوفير مساحة */
-    
-    .nav-links { gap: 8px; }
-    .nav-btn-text { font-size: 11px; padding: 5px 10px; }
-    
-    .nav-left { gap: 8px; }
-    .iq-btn-icon { width: 34px; height: 34px; font-size: 14px; }
-}
-    /* الهيرو */
-    .hero { height: 100vh; width: 100%; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('9.jpg.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; align-items: center; justify-content: center; }
-    .hero-content { text-align: center; color: white; max-width: 900px; background: transparent; }
-    .hero-content h1 { font-family: 'Reem Kufi'; font-size: clamp(2rem, 8vw, 3.5rem); text-shadow: 2px 2px 20px rgba(0,0,0,0.8); margin-bottom: 20px; }
-    .hero-content p { font-size: 1.5rem; text-shadow: 1px 1px 10px rgba(0,0,0,0.8); margin-bottom: 35px; }
-    .btn-main { padding: 15px 45px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; transition: 0.4s; }
-
-    /* الأقسام والجاليري */
-    .categories, .gallery { padding: 80px 0; }
-    .section-title { text-align: center; font-family: 'Reem Kufi'; font-size: 40px; margin-bottom: 60px; }
-    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-    .glass-card { background: var(--glass); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); border-radius: 25px; }
-    .cat-card { padding: 40px 20px; text-align: center; transition: 0.5s; cursor: pointer; }
-    .cat-card:hover { transform: translateY(-15px) !important; background: var(--primary); color: white; }
-    .cat-card .icon { font-size: 45px; margin-bottom: 15px; display: block; }
-
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .gallery-item { height: 350px; overflow: hidden; padding: 10px; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: 0.6s; }
-    .gallery-item:hover img { transform: scale(1.1); }
-
-    /* زرار واتساب */
-    .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; border-radius: 50px; display: flex; align-items: center; justify-content: center; z-index: 2000; animation: pulse 2s infinite; }
-    .whatsapp-float img { width: 35px; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
-
-    /* تعديلات الموبايل */
-    @media screen and (max-width: 768px) {
-        .hero-content h1 { font-size: 2.2rem !important; }
-        .hero-content p { font-size: 1.1rem !important; }
-        .section-title { font-size: 28px; }
-        .gallery-item { height: 250px; }
-        .category-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } 
-        .nav-links { gap: 10px; }
-        .glass-btn { padding: 6px 12px; font-size: 12px; }
-    }
-
-    footer { padding: 40px; text-align: center; border-top: 1px solid var(--glass-border); }
-
-    /* أنيميشن */
-    .animate-reveal { animation: reveal 1.5s ease-out; }
-    @keyframes reveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .float-anim { animation: float 4s ease-in-out infinite; }
-    .delay-1 { animation-delay: 0.5s; }
-    .delay-2 { animation-delay: 1s; }
-    .delay-3 { animation-delay: 1.5s; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-
-    /* =========================================
-    إضافة: تنسيق المنتجات (للصفحات الخارجية)
-    ========================================= */
-
-    /* شبكة المنتجات الصغير */
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* تصغير المساحة ليظهر عدد أكبر */
-        gap: 20px;
-        margin-top: 30px;
-    }
-
-    /* كارت المنتج بحجم صغير */
-    .product-card {
-        background: var(--glass);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 12px;
-        text-align: center;
-        transition: 0.3s ease;
-    }
-
-    .product-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--primary);
-    }
-
-    /* تصغير صورة المنتج */
-    .product-img {
-        width: 100%;
-        height: 140px; /* حجم صغير جداً ومناسب */
-        object-fit: cover;
-        border-radius: 12px;
-        margin-bottom: 10px;
-    }
-
-    .product-name {
-        font-size: 0.9rem;
-        font-weight: bold;
-        margin-bottom: 5px;
-        display: block;
-    }
-
-    .product-price {
-        color: var(--primary);
-        font-weight: bold;
-        font-size: 1.1rem;
-        margin-bottom: 10px;
-        display: block;
-    }
-
-    /* زرار الطلب داخل الكارت */
-    .order-btn {
-        display: block;
-        background: var(--primary);
-        color: white;
-        text-decoration: none;
-        padding: 6px;
-        border-radius: 10px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .order-btn:hover {
-        background: white;
-        color: var(--primary);
-    }
-
-    /* تعديل الموبايل للمنتجات */
-    @media screen and (max-width: 768px) {
-        .product-grid {
-            grid-template-columns: repeat(2, 1fr); /* منتجين جنب بعض في الموبايل */
-            gap: 10px;
-        }
-        .product-img {
-            height: 110px; /* أصغر في الموبايل */
-        }
-    }
-    /* تنسيق المنتجات الصغير */
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* بيخلي كذا منتج يظهر جنب بعض */
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    .product-card {
-        background: var(--glass);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 15px;
-        text-align: center;
-        transition: 0.3s ease;
-    }
-
-    .product-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--primary);
-    }
-
-    /* أهم جزء لتصغير الصورة */
-    .product-img {
-        width: 100%;
-        height: 160px; /* الحجم الصغير الطبيعي */
-        object-fit: cover;
-        border-radius: 15px;
-        margin-bottom: 12px;
-    }
-
-    .product-name {
-        font-size: 1rem;
-        font-weight: bold;
-        color: var(--text-color);
-        margin-bottom: 5px;
-        display: block;
-    }
-
-    .product-price {
-        color: var(--primary);
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-bottom: 12px;
-        display: block;
-    }
-
-    .order-btn {
-        display: block;
-        background: var(--primary);
-        color: white;
-        text-decoration: none;
-        padding: 8px;
-        border-radius: 12px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .order-btn:hover {
-        background: white;
-        color: var(--primary);
-    }
-    /* إلغاء اللون الأزرق والخط تحت اللينكات في الموقع كله */
-    a {
-        text-decoration: none !important; /* بيشيل الخط اللي تحت الكلام */
-        color: inherit !important;       /* بيخلي اللينك ياخد نفس لون الكلام اللي حواليه */
-    }
-
-    /* تنسيق خاص لكروت الأقسام عشان نأكد إن الكلام مش هيتغير لونه */
-    .category-grid a, .cat-card {
-        color: white !important; /* أو غير white للون اللي تحبه */
-        text-decoration: none !important;
-    }
-
-    .cat-card h3, .cat-card p {
-        color: white; /* بيخلي العناوين والوصف باللون الأبيض */
-        margin: 5px 0;
-    }
-
-    /* تأثير اختياري: لما تلمس الكارت بالماوس يغير لون العنوان بس */
-    .cat-card:hover h3 {
-        color: var(--primary); /* يغير اللون للدرجة الطوبية اللي اخترناها */
-        transition: 0.3s;
-    }
-    /* لازم دي تكون موجودة في products.css */
-/* --- الإصلاح النهائي لأبلكيشن الطلب على الموبايل --- */
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9); /* خلفية سوداء أغمق للتركيز */
-    display: none; /* بيفتح بـ flex عن طريق الـ JS */
-    align-items: center;
-    justify-content: center;
-    z-index: 10000; /* أعلى حاجة في الصفحة */
-    backdrop-filter: blur(15px);
-    padding: 15px;
-}
-
-.modal-content {
-    width: 100%;
-    max-width: 400px; /* عرضه في الكمبيوتر */
-    background: rgba(255, 255, 255, 0.05); /* زجاجي */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
-    padding: 30px 20px;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column; /* ترتيب العناصر تحت بعض */
-    align-items: center;
-}
-
-.modal-content h3 {
-    font-family: 'Reem Kufi';
-    color: var(--primary);
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    text-align: center;
-}
-
-#orderForm {
-    width: 100%;
-    display: flex;
-    flex-direction: column; /* يضمن إن الخانات تترص تحت بعض */
-    gap: 15px; /* مسافة ثابتة بين كل خانة والتانية */
-}
-
-#orderForm input, #orderForm textarea {
-    width: 100%; /* العرض كامل */
-    padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: #fff;
-    font-family: 'Cairo';
-    font-size: 16px; /* مقاس الخط المثالي للموبايل عشان ميعملش Zoom */
-    outline: none;
-    text-align: right; /* كتابة من اليمين */
-}
-
-/* زرار الإرسال جوه الأبلكيشن */
-#orderForm .order-btn {
-    margin-top: 10px;
-    padding: 15px;
-    font-size: 1rem;
-    width: 100%;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    left: 20px; /* لليسار عشان الموقع عربي */
-    font-size: 28px;
-    color: var(--primary);
-    cursor: pointer;
-    line-height: 1;
-}
-
-/* تعديل مخصوص للموبايلات الصغيرة جداً */
-@media screen and (max-width: 480px) {
-    .modal-content {
-        padding: 25px 15px;
-    }
-    .modal-content h3 {
-        font-size: 1.1rem;
-    }
-}/* --- سلة المشتريات (تفعيل السكرول الداخلي) --- */
+/* 🛒 السلة الجانبية (إصلاح السكرول والفوتر) */
 .cart-overlay {
-    display: flex !important;
-    flex-direction: column; /* ترتيب: رأس - منتجات - فوتر */
-    height: 100vh;                                                                             
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 350px;
-    height: 100vh;
-    background: rgba(15, 15, 15, 0.98);
-    backdrop-filter: blur(20px);
-    border-right: 1px solid var(--primary);
-    z-index: 5000;
-    transition: 0.5s ease;
-    
-    /* السطرين دول هما اللي بيخلوا التقسيم يشتغل */
-    display: flex;
-    flex-direction: column; 
+    position: fixed; top: 0; left: -100%; width: 350px; height: 100vh;
+    background: rgba(10, 10, 12, 0.98); backdrop-filter: blur(20px);
+    border-right: 1px solid var(--primary); z-index: 5000;
+    transition: 0.5s ease; display: flex; flex-direction: column;
 }
-
 .cart-overlay.active { left: 0; }
+.cart-header { padding: 20px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.cart-items-list, .cart-items-container { flex: 1; overflow-y: auto !important; padding: 15px; -webkit-overflow-scrolling: touch; }
+.cart-footer { padding: 20px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1); margin-top: auto; }
+.cart-badge { position: absolute; top: -5px; right: -5px; background: var(--primary); color: #fff; font-size: 9px; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
-/* 1. رأس السلة (يفضل ثابت فوق) */
-.cart-header {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+/* 📋 الأبلكيشن (المودال المظبوط في النص) */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); display: none; align-items: center; justify-content: center; z-index: 10000; backdrop-filter: blur(15px); padding: 15px; }
+.modal-content { width: 100%; max-width: 400px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 25px; padding: 30px; position: relative; display: flex; flex-direction: column; align-items: center; }
+#orderForm { width: 100%; display: flex; flex-direction: column; gap: 15px; }
+#orderForm input, #orderForm textarea { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #333; background: rgba(255,255,255,0.05); color: #fff; font-family: 'Cairo'; outline: none; text-align: right; }
 
-/* 2. منطقة المنتجات (المتحركة - السكرول هنا) */
-.cart-items-container {
-    flex: 1; /* بياخد كل المساحة المتاحة في النص */
-    overflow-y: auto !important; /* تفعيل السكرول للطول */
-    padding: 15px;
-    /* سكرول ناعم للموبايل */
-    -webkit-overflow-scrolling: touch; 
-}
-
-/* 3. أسفل السلة (يفضل ثابت تحت) */
-.cart-footer {
-    padding: 20px;
-    background: rgba(0,0,0,0.2);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: auto; /* يزق نفسه لتحت خالص */
-}
-
-/* كلاس قفل سكرول الصفحة الرئيسية (يُضاف للـ body) */
-body.stop-scrolling {
-    overflow: hidden !important;
-    height: 100vh;
-}
-
-/* --- 📱 تعديلات الموبايل (تصغير الحجم) --- */
+/* 📱 الموبايل (إصلاح تداخل الناف بار) */
 @media screen and (max-width: 768px) {
-    .cart-overlay {
-        width: 85%; /* صغرنا العرض عشان متبقاش ضخمة واخدة الشاشة كلها */
-        max-width: 320px;
-    }
+    .navbar { top: 10px; width: 98%; padding: 5px 0; }
+    .nav-wrapper { padding: 0 10px !important; }
+    .logo { font-size: 16px !important; }
+    .logo span { display: none; }
+    .nav-links { gap: 6px !important; }
+    .nav-btn-text, .glass-btn { padding: 6px 8px !important; font-size: 11px !important; }
 
-    .cart-item {
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .cart-item img {
-        width: 45px; /* تصغير صور المنتجات جوه السلة */
-        height: 45px;
-    }
-
-    .item-info-box h4 { font-size: 0.8rem; }
-    .item-info-box .price { font-size: 0.9rem; }
+    .cart-overlay { width: 85% !important; max-width: 320px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .product-img { height: 120px !important; }
+    .hero-content h1 { font-size: 1.8rem !important; }
 }
 
-/* منع سكرول الصفحة الرئيسية لما السلة تفتح */
-body.stop-scrolling {
-    overflow: hidden;
-}
+/* واتساب وأنيميشن */
+.whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; border-radius: 50px; display: flex; align-items: center; justify-content: center; z-index: 2000; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+.animate-reveal { animation: reveal 1.5s ease-out; }
+@keyframes reveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.float-anim { animation: float 4s ease-in-out infinite; }
+.delay-1 { animation-delay: 0.5s; } .delay-2 { animation-delay: 1s; } .delay-3 { animation-delay: 1.5s; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-
-
-
-
-@media screen and (max-width: 768px) {
-    /* 1. تظبيط الناف بار (منع تداخل اللوجو والزراير) */
-    .navbar {
-        top: 10px;
-        width: 98%;
-        padding: 5px 0;
-        border-radius: 15px;
-    }
-
-    .nav-wrapper {
-        padding: 0 10px !important;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    /* تصغير اللوجو عشان ميزحمش الدنيا */
-    .logo {
-        font-size: 16px !important;
-        white-space: nowrap;
-    }
-
-    /* تصغير الزراير في الموبايل */
-    .nav-links {
-        gap: 5px !important;
-    }
-
-    .glass-btn {
-        padding: 6px 8px !important;
-        font-size: 11px !important;
-        border-radius: 8px;
-    }
-
-    /* 2. إظهار السلة وتظبيط مكانها */
-    .cart-nav-item {
-        margin-left: 5px;
-    }
-
-    /* 3. تظبيط السلة الجانبية (عشان زرار إتمام الطلب يبان) */
-    .cart-overlay {
-        width: 100% !important; /* تاخد الشاشة كلها في الموبايل */
-        padding: 20px;
-    }
-
-    .cart-items-container {
-        max-height: 60vh; /* تحديد طول قايمة المنتجات عشان الفوتر يظهر */
-        overflow-y: auto;
-    }
-
-    /* أهم جزء: زرار إتمام الطلب في السلة */
-    .cart-footer {
-        padding-top: 15px;
-        margin-top: auto; /* يزق نفسه لتحت خالص */
-        padding-bottom: 20px;
-    }
-
-    .cart-footer .order-btn {
-        padding: 15px !important;
-        font-size: 1rem !important;
-    }
-
-    /* 4. تظبيط كروت المنتجات (اتنين في السطر) */
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-        padding: 10px !important;
-    }
-
-    .product-img {
-        height: 120px !important; /* حجم صغير ومنظم */
-    }
-
-    /* 5. تظبيط الأبلكيشن (استمارة البيانات) */
-    .modal-content {
-        padding: 25px 15px !important;
-        margin-top: 20px;
-    }
-    
-    #orderForm input, #orderForm textarea {
-        font-size: 16px !important; /* تمنع الزووم في الأيفون */
-    }
-}
-
-/* تعديل خاص للهيرو (عالم من الجمال) عشان ميبقاش كبير */
-@media screen and (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8rem !important;
-        line-height: 1.3;
-    }
-    .hero-content p {
-        font-size: 0.9rem !important;
-    }
-}
+footer { padding: 40px; text-align: center; border-top: 1px solid var(--glass-border); }
