@@ -435,19 +435,38 @@ a {
 /* ==========================================================
    13) سلة التسوق الجانبية (Cart Sidebar)
    ========================================================== */
+/* --- تفعيل السكرول داخل السلة في الصفحة الرئيسية --- */
 .cart-overlay {
+    display: flex !important; /* ضروري لتقسيم السلة */
+    flex-direction: column;
+    height: 100vh;
     position: fixed;
     top: 0;
-    left: -100%; /* مخفية بره الشاشة، بتتحرك بالكلاس active */
+    left: -100%;
     width: 350px;
-    height: 100vh;
-    background: rgba(15, 15, 15, 0.98);
+    z-index: 5000;
+    background: rgba(10, 10, 12, 0.98);
     backdrop-filter: blur(20px);
     border-right: 1px solid var(--primary);
-    z-index: 5000;
     transition: 0.5s ease;
-    display: flex;
-    flex-direction: column; /* ترتيب: رأس - منتجات - فوتر */
+}
+
+/* المنطقة اللي فيها المنتجات (دي اللي هتعمل سكرول) */
+#cartItemsList, .cart-items-container {
+    flex: 1; /* تاخد كل المساحة المتاحة في النص */
+    overflow-y: auto !important; /* تشغيل السكرول للطول */
+    padding: 20px 15px;
+    /* سكرول ناعم للموبايل */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* قفل سكرول الموقع نفسه لما السلة تفتح */
+body.stop-scrolling {
+    overflow: hidden !important;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-overlay { width: 85%; }
 }
 .cart-overlay.active { left: 0; }
 
