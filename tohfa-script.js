@@ -236,6 +236,27 @@ async function sendFinalOrder() {
         alert("برجاء ملء البيانات كاملة");
     }
 }
+// الوظيفة الموحدة لقفل الأبلكيشن
+function closeOrderForm() {
+    // بنجيب المربع الكبير
+    const modal = document.getElementById('orderModal');
+    
+    if (modal) {
+        modal.style.display = 'none'; // إخفاء المربع
+        
+        // مهم جداً: رجوع سكرول الصفحة الرئيسية اللي كنا قفلناه
+        document.body.classList.remove('stop-scrolling');
+        document.body.style.overflow = 'auto'; 
+    }
+}
+
+// زيادة تأكيد: قفل المودال لو الزبون داس في أي حتة فاضية بره المربع
+window.onclick = function(event) {
+    const modal = document.getElementById('orderModal');
+    if (event.target == modal) {
+        closeOrderForm();
+    }
+}
 // وظيفة فتح الصورة
 function openLightbox(src) {
     const modal = document.getElementById('imageModal');
