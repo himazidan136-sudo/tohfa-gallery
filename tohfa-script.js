@@ -177,6 +177,7 @@ function openOrderForm(name, price) {
 }
 
 // 2. وظيفة إتمام الطلب من السلة (الزرار اللي جوه السلة)
+// وظيفة إتمام الطلب من السلة
 function checkout() {
     if (cart.length === 0) {
         alert("السلة فارغة!");
@@ -196,7 +197,7 @@ function checkout() {
     document.getElementById('orderModal').style.display = 'flex'; // فتح الأبلكيشن
 }
 
-// 3. وظيفة الإرسال النهائية لـ Web3Forms
+// الوظيفة المنقذة لإرسال البيانات بدون أخطاء
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
@@ -205,28 +206,28 @@ async function sendFinalOrder() {
         btn.innerText = "جاري الإرسال...";
         btn.disabled = true;
 
+        // إرسال البيانات كـ FormData (أضمن طريقة)
         const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
-                headers: { "Content-Type": "application/json", "Accept": "application/json" },
-                body: json
+                body: formData
             });
 
             const result = await response.json();
+
             if (result.success) {
                 alert("تم استلام طلبك بنجاح! شكراً لك.");
-                // تصفير السلة بعد نجاح الطلب
+                // تصفير السلة
                 localStorage.removeItem('TOHFA_STORE_CART');
+                localStorage.removeItem('IQ_CART');
                 window.location.reload(); 
             } else {
-                alert("خطأ في السيرفر: تأكد من تفعيل الـ Access Key");
+                alert("فشل الإرسال: " + result.message);
             }
         } catch (error) {
-            alert("فشل الاتصال: تأكد من الإنترنت");
+            alert("خطأ في الشبكة، تأكد من اتصالك بالإنترنت");
         } finally {
             btn.innerText = "تأكيد وإرسال الطلب";
             btn.disabled = false;
