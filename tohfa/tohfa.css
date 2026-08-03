@@ -527,56 +527,22 @@ body.stop-scrolling {
 .item-info-box .price { color: var(--primary); font-weight: bold; font-size: 0.95rem; }
 
 /* أزرار التحكم في الكمية (+ / -) */
-/* --- تنسيق أزرار التحكم في الكمية (التحول للشكل الدائري) --- */
-.qty-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* المسافة بين الزرار والرقم */
-    margin-top: 10px;
-}
-
-.qty-controls button {
-    /* 1. جعل الزرار دائري تماماً */
-    width: 30px;
-    height: 30px;
-    border-radius: 50%; 
-    
-    /* 2. الألوان والبرواز (زي الصورة التانية) */
-    background: transparent; /* خلفية شفافة */
-    border: 1.5px solid var(--primary); /* برواز بلون تحفة الطوبي */
-    color: var(--primary); /* لون العلامة (+ أو -) */
-    
-    /* 3. محاذاة العلامة في النص بالظبط */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* 4. لمسات إضافية */
+.qty-btn-group { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.qty-btn-group button {
+    width: 26px; height: 26px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: 0.3s ease;
-    outline: none;
-    padding: 0; /* إلغاء أي مسافات داخلية من المتصفح */
+    transition: 0.3s;
 }
+.qty-btn-group button:hover { background: var(--primary); color: #fff; }
 
-/* تأثير عند الوقوف بالماوس */
-.qty-controls button:hover {
-    background: var(--primary);
-    color: #fff; /* يقلب أبيض لما تقف عليه */
-    box-shadow: 0 0 10px var(--primary);
-}
+.remove-item { color: #ff4d4d; cursor: pointer; font-size: 1.3rem; transition: 0.3s; }
+.remove-item:hover { color: #ff1a1a; transform: scale(1.1); }
 
-/* تنسيق الرقم اللي في النص */
-.qty-num {
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: bold;
-    min-width: 20px;
-    text-align: center;
-}
-}
+
 .qty-controls button:hover { background: var(--primary); color: #fff; }
 .qty-num { color: #fff; font-weight: bold; font-size: 0.9rem; }
 
