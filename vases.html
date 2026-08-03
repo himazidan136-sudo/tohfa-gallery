@@ -56,27 +56,22 @@
     </div>
 </div>
 <!-- أبلكيشن طلب المقتنيات (Modal) -->
-<div id="orderModal" class="modal-overlay">
-    <div class="modal-content glass-card">
-        <span class="close-btn" onclick="closeOrderForm()">&times;</span>
-        <h3 id="mTitle">استمارة طلب</h3>
-        
-        <form id="orderForm">
-            <!-- المفتاح بتاعك -->
-            <input type="hidden" name="access_key" value="e199e4c7-3195-4345-9a40-9a2065ea8204">
-            
-            <input type="text" name="customer_name" id="cName" placeholder="الاسم بالكامل" required>
-            <input type="tel" name="phone_number" id="cPhone" placeholder="رقم الهاتف" required>
-            <textarea name="address" id="cAddr" rows="3" placeholder="العنوان بالتفصيل" required></textarea>
-            
-            <!-- الخانات اللي كانت عاملة مشكلة (تم توحيد الأسامي) -->
-            <input type="hidden" name="order_details" id="hiddenProd">
-            <input type="hidden" name="total_price" id="hiddenPrice">
+<form id="orderForm">
+    <!-- المفتاح -->
+    <input type="hidden" name="access_key" value="e199e4c7-3195-4345-9a40-9a2065ea8204">
+    
+    <!-- حقل الحماية السحري (مخفي للروبوتات فقط) -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-            <button type="button" id="submitBtn" class="order-btn" onclick="sendFinalOrder()">تأكيد وإرسال الطلب</button>
-        </form>
-    </div>
-</div>
+    <input type="text" name="customer_name" id="cName" placeholder="الاسم بالكامل" required>
+    <input type="tel" name="phone_number" id="cPhone" placeholder="رقم الهاتف" required>
+    <textarea name="address" id="cAddr" rows="3" placeholder="العنوان بالتفصيل" required></textarea>
+    
+    <input type="hidden" name="order_details" id="hiddenProd">
+    <input type="hidden" name="total_price" id="hiddenPrice">
+
+    <button type="button" id="submitBtn" class="order-btn" onclick="sendOrder()">تأكيد وإرسال الطلب</button>
+</form>
 <!-- ربط ملف الجافا سكريبت الجديد -->
 <script src="tohfa-script.js"></script>
 <!-- نافذة تكبير الصور (Lightbox) -->
