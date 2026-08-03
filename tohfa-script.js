@@ -168,33 +168,40 @@ function updateCartUI() {
    لو الحقل مش موجود في الـ HTML، بيتجاهل الخطوة دي من غير أي مشاكل.
    ========================================================== */
 // وظيفة إتمام الطلب من السلة
+// 1. وظيفة طلب منتج واحد مباشرة (الزرار اللي تحت الصورة)
+function openOrderForm(name, price) {
+    document.getElementById('hiddenProd').value = name;
+    document.getElementById('hiddenPrice').value = price;
+    document.getElementById('mTitle').innerText = "طلب: " + name;
+    document.getElementById('orderModal').style.display = 'flex';
+}
+
+// 2. وظيفة إتمام الطلب من السلة (الزرار اللي جوه السلة)
 function checkout() {
     if (cart.length === 0) {
         alert("السلة فارغة!");
         return;
     }
     
-    // 1. تجميع المنتجات في نص واحد
-    let itemsSummary = cart.map(item => `${item.name} (عدد ${item.quantity})`).join(' + ');
-    
-    // 2. جلب إجمالي السعر من الشاشة
+    // تجميع المنتجات
+    let itemsSummary = cart.map(item => `${item.name} (x${item.quantity})`).join(' + ');
     let totalValue = document.getElementById('cartTotal').innerText;
 
-    // 3. وضع البيانات في الخانات المخفية (تأكد من الـ IDs)
+    // ملى الخانات المخفية
     document.getElementById('hiddenProd').value = itemsSummary;
     document.getElementById('hiddenPrice').value = totalValue;
+    document.getElementById('mTitle').innerText = "إتمام طلب السلة";
 
-    // 4. قفل السلة وفتح الأبلكيشن
-    toggleCart(); 
-    document.getElementById('orderModal').style.display = 'flex';
+    toggleCart(); // قفل السلة
+    document.getElementById('orderModal').style.display = 'flex'; // فتح الأبلكيشن
 }
 
-// إرسال البيانات لـ Web3Forms
+// 3. وظيفة الإرسال النهائية لـ Web3Forms
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
 
-    if(form.checkValidity()) {
+    if (form.checkValidity()) {
         btn.innerText = "جاري الإرسال...";
         btn.disabled = true;
 
@@ -211,20 +218,21 @@ async function sendFinalOrder() {
 
             const result = await response.json();
             if (result.success) {
-                alert("تم استلام طلبك بنجاح!");
-                localStorage.removeItem('TOHFA_STORE_CART'); // تصفير السلة
+                alert("تم استلام طلبك بنجاح! شكراً لك.");
+                // تصفير السلة بعد نجاح الطلب
+                localStorage.removeItem('TOHFA_STORE_CART');
                 window.location.reload(); 
             } else {
-                alert("حدث خطأ في السيرفر");
+                alert("خطأ في السيرفر: تأكد من تفعيل الـ Access Key");
             }
         } catch (error) {
-            alert("فشل الاتصال بالإنترنت");
+            alert("فشل الاتصال: تأكد من الإنترنت");
         } finally {
             btn.innerText = "تأكيد وإرسال الطلب";
             btn.disabled = false;
         }
     } else {
-        alert("برجاء ملء كافة البيانات");
+        alert("برجاء ملء البيانات كاملة");
     }
 }
 // وظيفة فتح الصورة
