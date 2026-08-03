@@ -304,20 +304,6 @@ body.stop-scrolling {
 }
 
 /* ==========================================================
-   6) زرار واتساب العائم
-   ========================================================== */
-.whatsapp-float {
-    position: fixed;
-    width: 60px; height: 60px;
-    bottom: 30px; right: 30px;
-    background-color: #25d366;
-    border-radius: 50px;
-    display: flex; align-items: center; justify-content: center;
-    z-index: 2000;
-}
-.whatsapp-float img { width: 35px; }
-
-/* ==========================================================
    7) سلة المشتريات الجانبية
    ⚠️ ملاحظة: الملف ده بيستخدم اسمين مختلفين لحاوية عناصر السلة:
    .cart-items-list (هنا) و .cart-items-container (في ملف style.css).
