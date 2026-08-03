@@ -575,7 +575,7 @@ body.stop-scrolling {
     font-weight: bold;
     min-width: 20px;
     text-align: center;
-
+}
 }
 .qty-controls button:hover { background: var(--primary); color: #fff; }
 .qty-num { color: #fff; font-weight: bold; font-size: 0.9rem; }
