@@ -38,7 +38,13 @@ function toggleCart() {
     if (!cartOverlay) return;
 
     cartOverlay.classList.toggle('active');
-    document.body.classList.toggle('stop-scrolling', cartOverlay.classList.contains('active'));
+    
+    // لو السلة فتحت، اقفل سكرول الصفحة الرئيسية
+    if (cartOverlay.classList.contains('active')) {
+        document.body.classList.add('stop-scrolling');
+    } else {
+        document.body.classList.remove('stop-scrolling');
+    }
 }
 
 /* ==========================================================
