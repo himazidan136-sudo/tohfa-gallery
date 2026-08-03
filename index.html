@@ -134,24 +134,22 @@
         <button class="order-btn" onclick="checkout()" style="width:100%">إتمام الطلب</button>
     </div>
 </div>
-<!-- الأبلكيشن (Modal) الموحد -->
 <div id="orderModal" class="modal-overlay">
     <div class="modal-content glass-card">
         <span class="close-btn" onclick="closeOrderForm()">&times;</span>
         <h3 id="mTitle">استمارة طلب</h3>
         
-        <!-- تأكد إن id هو orderForm -->
         <form id="orderForm">
-            <!-- المفتاح بتاعك (لازم يفضل هنا وميتحذفش) -->
+            <!-- المفتاح بتاعك -->
             <input type="hidden" name="access_key" value="e199e4c7-3195-4345-9a40-9a2065ea8204">
             
-            <input type="text" name="الاسم" id="cName" placeholder="الاسم بالكامل" required>
-            <input type="tel" name="الهاتف" id="cPhone" placeholder="رقم الهاتف" required>
-            <textarea name="العنوان" id="cAddr" rows="3" placeholder="العنوان بالتفصيل" required></textarea>
+            <input type="text" name="customer_name" id="cName" placeholder="الاسم بالكامل" required>
+            <input type="tel" name="phone_number" id="cPhone" placeholder="رقم الهاتف" required>
+            <textarea name="address" id="cAddr" rows="3" placeholder="العنوان بالتفصيل" required></textarea>
             
-            <!-- دي الخانات اللي الجافا سكريبت بيملاها أوتوماتيك (تأكد من الـ IDs) -->
-            <input type="hidden" name="تفاصيل_الطلب" id="hiddenProd">
-            <input type="hidden" name="إجمالي_الحساب" id="hiddenPrice">
+            <!-- الخانات اللي كانت عاملة مشكلة (تم توحيد الأسامي) -->
+            <input type="hidden" name="order_details" id="hiddenProd">
+            <input type="hidden" name="total_price" id="hiddenPrice">
 
             <button type="button" id="submitBtn" class="order-btn" onclick="sendFinalOrder()">تأكيد وإرسال الطلب</button>
         </form>
