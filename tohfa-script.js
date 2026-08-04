@@ -207,10 +207,9 @@ async function sendFinalOrder() {
     const btn = document.getElementById('submitBtn');
 
     if(form.checkValidity()) {
-        btn.innerText = "جاري الحفظ...";
+        btn.innerText = "جاري الإرسال...";
         btn.disabled = true;
 
-        // إرسال البيانات كفورم حقيقية مش نص JSON
         const formData = new FormData(form);
 
         try {
@@ -222,15 +221,14 @@ async function sendFinalOrder() {
             const result = await response.json();
 
             if (result.success) {
-                alert("تم استلام طلبك بنجاح! شكراً لثقتك في تحفة.");
-                localStorage.removeItem('TOHFA_STORE_CART'); // مسح السلة
+                alert("تم استلام طلبك بنجاح! شكراً لك.");
+                localStorage.removeItem('TOHFA_STORE_CART'); // تصفير السلة
                 window.location.reload(); 
             } else {
-                // لو السيرفر رفض، هيطلع لك رسالة السبب الحقيقية من الموقع نفسه
-                alert("خطأ من السيرفر: " + result.message);
+                alert("السيرفر رفض الطلب: " + result.message);
             }
         } catch (error) {
-            alert("خطأ في الشبكة، جرب استخدام بيانات الهاتف (4G).");
+            alert("فشل الاتصال، جرب استخدام بيانات الهاتف (4G).");
         } finally {
             btn.innerText = "تأكيد وإرسال الطلب";
             btn.disabled = false;
