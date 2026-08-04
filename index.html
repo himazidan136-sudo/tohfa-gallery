@@ -120,21 +120,20 @@
 
         
 </script>
-<form id="orderForm">
-    <!-- مفتاحك الخاص -->
-    <input type="hidden" name="access_key" value="e199e4c7-3195-4345-9a40-9a2065ea8204">
-    
-    <!-- بيانات العميل بأسمائها القياسية -->
-    <input type="text" name="name" id="cName" placeholder="الاسم بالكامل" required>
-    <input type="tel" name="phone" id="cPhone" placeholder="رقم الهاتف" required>
-    <textarea name="address" id="cAddr" rows="3" placeholder="العنوان بالتفصيل" required></textarea>
-    
-    <!-- بيانات الطلبية -->
-    <input type="hidden" name="items" id="hiddenProd">
-    <input type="hidden" name="total" id="hiddenPrice">
-
-    <button type="button" id="submitBtn" class="order-btn" onclick="sendFinalOrder()">تأكيد وإرسال الطلب</button>
-</form>
+<div id="cartOverlay" class="cart-overlay">
+    <div class="cart-header">
+        <h2>سلة المقتنيات</h2>
+        <div onclick="toggleCart()" style="cursor:pointer; font-size:30px; color:var(--primary)">&times;</div>
+    </div>
+    <div class="cart-items-list" id="cartItemsList"></div>
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>الإجمالي:</span>
+            <span id="cartTotal">0 ج.م</span>
+        </div>
+        <button class="order-btn" onclick="checkout()" style="width:100%">إتمام الطلب</button>
+    </div>
+</div>
 <!-- أبلكيشن طلب المقتنيات (Modal) -->
 <div id="orderModal" class="modal-overlay">
     <div class="modal-content glass-card">
