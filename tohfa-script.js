@@ -206,10 +206,11 @@ async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
 
-    if (form.checkValidity()) {
-        btn.innerText = "جاري التوصيل بالسيرفر...";
+    if(form.checkValidity()) {
+        btn.innerText = "جاري الحفظ...";
         btn.disabled = true;
 
+        // إرسال البيانات كفورم حقيقية مش نص JSON
         const formData = new FormData(form);
 
         try {
@@ -225,9 +226,8 @@ async function sendFinalOrder() {
                 localStorage.removeItem('TOHFA_STORE_CART'); // مسح السلة
                 window.location.reload(); 
             } else {
-                // لو السيرفر رفض، هيقولنا السبب هنا
-                console.log("Error Detail:", result);
-                alert("عذراً، نظام الأمان رفض الطلب. جرب مرة أخرى ببيانات حقيقية.");
+                // لو السيرفر رفض، هيطلع لك رسالة السبب الحقيقية من الموقع نفسه
+                alert("خطأ من السيرفر: " + result.message);
             }
         } catch (error) {
             alert("خطأ في الشبكة، جرب استخدام بيانات الهاتف (4G).");
