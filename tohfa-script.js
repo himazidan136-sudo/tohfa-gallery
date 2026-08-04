@@ -202,14 +202,17 @@ function checkout() {
     toggleCart(); // قفل السلة
     document.getElementById('orderModal').style.display = 'flex'; // فتح الأبلكيشن
 }
+
+// الوظيفة المنقذة لإرسال البيانات بدون أخطاء
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
 
     if (form.checkValidity()) {
-        btn.innerText = "جاري التوصيل بالسيرفر...";
+        btn.innerText = "جاري الإرسال...";
         btn.disabled = true;
 
+        // إرسال البيانات كـ FormData (أضمن طريقة)
         const formData = new FormData(form);
 
         try {
@@ -221,16 +224,16 @@ async function sendFinalOrder() {
             const result = await response.json();
 
             if (result.success) {
-                alert("تم استلام طلبك بنجاح! شكراً لثقتك في تحفة.");
-                localStorage.removeItem('TOHFA_STORE_CART'); // مسح السلة
+                alert("تم استلام طلبك بنجاح! شكراً لك.");
+                // تصفير السلة
+                localStorage.removeItem('TOHFA_STORE_CART');
+                localStorage.removeItem('IQ_CART');
                 window.location.reload(); 
             } else {
-                // لو السيرفر رفض، هيقولنا السبب هنا
-                console.log("Error Detail:", result);
-                alert("عذراً، نظام الأمان رفض الطلب. جرب مرة أخرى ببيانات حقيقية.");
+                alert("فشل الإرسال: " + result.message);
             }
         } catch (error) {
-            alert("خطأ في الشبكة، جرب استخدام بيانات الهاتف (4G).");
+            alert("خطأ في الشبكة، تأكد من اتصالك بالإنترنت");
         } finally {
             btn.innerText = "تأكيد وإرسال الطلب";
             btn.disabled = false;
