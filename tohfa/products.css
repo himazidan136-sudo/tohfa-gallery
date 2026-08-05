@@ -123,71 +123,7 @@ body.stop-scrolling {
     transition: 0.5s;
 }
 
-/* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
-/* =========================================
-   الإصلاح الجذري للموبايل (Full Width Layout)
-   ========================================= */
 
-@media screen and (max-width: 768px) {
-    /* 1. جعل الصفحة تملأ العرض بالكامل */
-    .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 5px !important; /* مسافة أمان صغيرة جداً من الجوانب */
-        margin: 0 !important;
-    }
-
-    /* 2. توسيع الشبكة لتأخذ عرض الشاشة */
-    #products-list, .product-grid {
-        grid-template-columns: 1fr 1fr !important; /* عمودين متساويين */
-        gap: 8px !important; /* تقليل الفراغ بين الكرتين */
-        padding: 5px !important;
-        width: 100% !important;
-    }
-
-    /* 3. تعديل الكارت عشان "يتنفس" بالعرض */
-    .product-card {
-        padding: 8px !important; /* تقليل الحشو الداخلي عشان الصورة تكبر */
-        width: 100% !important;
-        max-width: none !important;
-        border-radius: 12px !important; /* حواف أنعم للموبايل */
-        height: auto !important;
-    }
-
-    /* 4. تظبيط الصورة (أهم جزء) */
-    .product-img {
-        height: 150px !important; /* ارتفاع ثابت يخلي الكارت شكله متناسق */
-        margin-bottom: 5px !important;
-        border-radius: 10px !important;
-    }
-
-    /* 5. تصغير الخطوط عشان مياكلوش مساحة الكارت */
-    .product-name {
-        font-size: 0.8rem !important;
-        margin-bottom: 3px !important;
-        line-height: 1.2;
-        min-height: 32px; /* توحيد الطول عشان الكروت تبدأ من نفس السطر */
-    }
-
-    .product-price {
-        font-size: 0.95rem !important;
-        margin-bottom: 8px !important;
-    }
-
-    /* 6. تظبيط الأزرار (نخليها جنب بعض أو رفيعة جداً) */
-    .btn-group {
-        display: flex !important;
-        flex-direction: row !important; /* نخليهم جنب بعض برضه في الموبايل */
-        gap: 4px !important;
-    }
-
-    .order-btn, .add-to-cart-btn {
-        padding: 6px 2px !important; /* تصغير الزرار جداً */
-        font-size: 0.75rem !important;
-        border-radius: 6px !important;
-    }
-}
-/* ==========================================================
    4) لايت بوكس تكبير صورة المنتج (يفتح في نص الشاشة عند الضغط)
    محتاج شوية جافاسكريبت بسيطة عشان تفعيل الفتح والقفل — شوف ملف
    products-lightbox.js اللي جنب الملف ده
@@ -486,6 +422,13 @@ body.stop-scrolling {
     .modal-content h3 { font-size: 1.1rem; }
     .hero-content h1 { font-size: 1.8rem !important; line-height: 1.3; }
     .hero-content p { font-size: 0.9rem !important; }
+
+    /* الكارت ياخد عرض الشاشة كاملة (عمود واحد) بدل منتجين جنب بعض */
+    .product-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .product-card { padding: 14px !important; }
+    .product-img { height: 260px !important; }
+    .product-name { font-size: 1rem !important; }
+    .product-price { font-size: 1.15rem !important; }
 }
 /* --- تنسيق نافذة تكبير الصور --- */
 .image-lightbox {
