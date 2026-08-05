@@ -304,6 +304,7 @@ const allProducts = [
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg" },
     { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg" },
+    { name: "ساعه تقديم  ", price:350 , img: "tohfa/sa3a.jpeg" },
 
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
