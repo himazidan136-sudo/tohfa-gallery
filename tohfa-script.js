@@ -305,6 +305,8 @@ const allProducts = [
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg" },
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg" },
     { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
+        { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg" },
+
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg" },
     { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg" },
     { name: "صينيه معدن ورقه صغير  ", price:300 , img: "tohfa/shayala2.jpeg" },
