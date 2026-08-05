@@ -306,7 +306,7 @@ const allProducts = [
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg" },
     { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg" },
     { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg" },
-    { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg" },
+    { name: "ساعه    ", price:735 , img: "tohfa/sa3a2.jpeg" },
 
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
