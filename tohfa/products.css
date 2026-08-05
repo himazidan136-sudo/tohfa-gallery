@@ -82,54 +82,59 @@ body.stop-scrolling {
     align-items: stretch; /* يوحّد ارتفاع كل الكروت في نفس الصف */
 }
 
-/* --- ضبط شبكة المنتجات لتظهر بجانب بعضها --- */
-#products-list, .product-grid {
-    display: grid !important; /* تفعيل الشبكة */
-    
-    /* السطر ده هو اللي بيخليهم جنب بعض:
-       بيقول للمتصفح املأ السطر بمنتجات عرضها بيبدأ من 160 بكسل */
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
-    
-    gap: 20px; /* مسافة بين كل منتج والتاني */
-    padding: 20px 10px;
-    justify-items: center; /* توسيط الكروت داخل السطر */
-    align-items: start;    /* محاذاة الكروت من الأعلى */
+/* --- الحل النهائي لترتيب المنتجات جنب بعض --- */
+
+/* 1. الحاوية الكبيرة لازم تكون Grid وبكامل عرض الصفحة */
+#products-list {
+    display: grid !important;
+    /* ده السطر السحري: بيقول للمتصفح رصهم جنب بعض بمساحة 180 بكسل لكل منتج */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 1200px !important; /* عرض مريح للعين */
+    margin: 50px auto !important; /* توسيط السكشن كله في نص الصفحة */
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
 }
 
-/* تأكيد مقاس الكارت عشان ميكبرش بزيادة ويملأ الشاشة */
+/* 2. الكارت نفسه لازم يكون عرضه مرن عشان يملأ مكانه في الشبكة */
 .product-card {
-    width: 100%;
-    max-width: 220px; /* أقصى عرض للكارت الواحد */
+    width: 100% !important; /* بياخد عرض العمود المخصص له */
+    max-width: 250px !important; /* ميكبرش أوي في الشاشات الواسعة */
     background: var(--glass);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 15px;
     text-align: center;
-    transition: 0.4s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    transition: 0.4s ease;
+    margin: 0 auto !important; /* توسيط الكارت جوه العمود بتاعه */
 }
 
-/* تصغير برواز الصورة */
-.product-img {
-    width: 100%;
-    height: 150px; /* ارتفاع ثابت صغير وشيك */
-    overflow: hidden;
-    border-radius: 15px;
-    margin-bottom: 10px;
-}
-
-/* تعديل الموبايل (عشان يظهر 2 في السطر) */
+/* 3. تعديل الموبايل (عشان يظهر 2 جنب بعض بشكل شيك) */
 @media screen and (max-width: 768px) {
-    #products-list, .product-grid {
+    #products-list {
         grid-template-columns: repeat(2, 1fr) !important; /* عمودين في الموبايل */
-        gap: 12px;
+        gap: 10px !important;
+        padding: 0 10px !important;
     }
     
     .product-img {
-        height: 120px; /* أصغر شوية في الموبايل */
+        height: 130px !important; /* تصغير الصورة شوية للموبايل */
     }
+}
+
+/* صندوق الصورة: مقاس ثابت وموحّد لكل الكروت */
+.product-img {
+    width: 100%;
+    height: 200px; /* ارتفاع ثابت = كل صناديق الصور بنفس الحجم بالظبط */
+    margin-bottom: 12px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04); /* خلفية خفيفة تظهر جوانب الصورة لو مقاسها مش مربّع */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .product-img img {
