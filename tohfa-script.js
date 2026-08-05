@@ -289,8 +289,8 @@ document.addEventListener('click', function(e) {
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
-    { name: "طفايه كلاسيك", price: 950, img: "tohfa/2.jpg.jpeg" },
-    { name: "فازة إيطالي", price: 1500, img: "tohfa/3.jpg.jpeg" },
+    { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
+    { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/mab5ara.jpg.jpeg" },
     { name: "ورد مجفف", price: 600, img: "tohfa/4.jpg.jpeg" },
     { name: "تمثال أنتيك", price: 2800, img: "tohfa/5.jpg.jpeg" },
     { name: "ساعة كلاسيك", price: 1100, img: "tohfa/9.jpg.jpeg" },
