@@ -299,7 +299,7 @@ const allProducts = [
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg" },
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg" },
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg" },
-    { name: "بنت عوسه  ", price:500 , img: "tohfa/decor3w.jpeg" },
+    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
 
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
