@@ -125,31 +125,47 @@ body.stop-scrolling {
 
 /* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
 @media screen and (max-width: 768px) {
-    .product-grid, #products-list {
-        /* السطر ده بيجبر المتصفح يعمل عمودين قد بعض بالظبط */
-        grid-template-columns: 1fr 1fr !important; 
-        gap: 10px !important; /* تقليل المسافة عشان المساحة في الموبايل */
-        padding: 10px !important; /* تقليل الهوامش الجانبية */
+    /* 1. تحرير الحاوية الكبيرة من أي قيود عرض */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important; /* إلغاء المساحة الجانبية تماماً */
+        margin: 0 !important;
     }
-}
-/* اسم المنتج: line-clamp بسطرين يمنع إن اسم طويل يكسّر توحيد حجم الكارت */
-.product-name {
-    font-size: 1rem;
-    font-weight: bold;
-    padding-top: 4px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 2.4em; /* مساحة ثابتة حتى لو الاسم سطر واحد بس */
-}
 
-.product-price {
-    font-size: 1.2rem;
-    color: var(--primary);
-    font-weight: bold;
-    display: block;
-    margin-top: 8px;
-    margin-bottom: 15px;
+    /* 2. ضبط الشبكة لتمتد بعرض الشاشة */
+    #products-list, .product-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* عمودين متساويين */
+        gap: 8px !important; /* مسافة صغيرة جداً بين الكروت */
+        width: 100% !important;
+        padding: 8px !important; /* مسافة أمان صغيرة جداً من حافة التليفون */
+        box-sizing: border-box !important;
+    }
+
+    /* 3. جعل الكارت يملأ نصف الشاشة المخصص له بالكامل */
+    .product-card {
+        width: 100% !important;
+        max-width: none !important; /* إلغاء أي حد أقصى للعرض */
+        padding: 10px !important;
+        margin: 0 !important; /* التأكد إن مفيش margin جانبي */
+    }
+
+    /* 4. تظبيط الصورة لتناسب العرض الجديد */
+    .product-img {
+        height: 150px !important; /* ارتفاع مناسب للعمودين */
+        width: 100% !important;
+    }
+
+    /* تصغير الخطوط عشان المساحة */
+    .product-name { font-size: 0.8rem !important; }
+    .product-price { font-size: 0.9rem !important; }
+    
+    /* تظبيط الزراير لملء عرض الكارت الصغير */
+    .btn-group {
+        flex-direction: column; /* لو الأزرار زحمة خليهم تحت بعض */
+        gap: 5px;
+    }
 }
 
 /* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
