@@ -133,7 +133,6 @@ body.stop-scrolling {
         height: 150px !important; /* نصغر الصورة شوية للموبايل عشان المساحة */
     }
 }
-.product-img img:hover { transform: scale(1.03); }
 
 /* اسم المنتج: line-clamp بسطرين يمنع إن اسم طويل يكسّر توحيد حجم الكارت */
 .product-name {
