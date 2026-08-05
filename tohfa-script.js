@@ -296,7 +296,7 @@ const allProducts = [
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg" },
     { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg" },
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg" },
-        { name: " اباجوره ليد سمارت", price:845 , img: "tohfa/decora.jpeg" },
+        { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" },
 
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg" },
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg" },
