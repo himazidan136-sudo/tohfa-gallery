@@ -307,7 +307,8 @@ const allProducts = [
     { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg" },
     { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg" },
-    { name: "صينيه ابيض  ", price:1100 , img: "tohfa/shayala2.jpeg" },
+    { name: "صينيه معدن ورقه صغير  ", price:300 , img: "tohfa/shayala2.jpeg" },
+    { name: "صينيه معدن ورقه كبير  ", price:400 , img: "tohfa/shayala3.jpeg" },
 
     { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg" },
     { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg" },
