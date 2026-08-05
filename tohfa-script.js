@@ -290,7 +290,7 @@ document.addEventListener('click', function(e) {
 const allProducts = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
-    { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpg.jpeg" },
+    { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpeg" },
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg" },
     { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg" },
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg" },
