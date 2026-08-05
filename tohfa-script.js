@@ -294,6 +294,8 @@ const allProducts = [
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg" },
     { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg" },
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg" },
+    { name: " ", price: , img: "" },
+
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
 
