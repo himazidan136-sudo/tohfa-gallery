@@ -296,6 +296,7 @@ const allProducts = [
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg" },
     { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg" },
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg" },
+    { name: "انتيكه اقراص ملونه", price: 500, img: "tohfa/decoran.jpeg" },
     { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg" },
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg" },
     { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" },
