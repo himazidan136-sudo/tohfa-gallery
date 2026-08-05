@@ -82,44 +82,18 @@ body.stop-scrolling {
     align-items: stretch; /* يوحّد ارتفاع كل الكروت في نفس الصف */
 }
 
-/* --- الحل النهائي لترتيب المنتجات جنب بعض --- */
-
-/* 1. الحاوية الكبيرة لازم تكون Grid وبكامل عرض الصفحة */
-#products-list {
-    display: grid !important;
-    /* ده السطر السحري: بيقول للمتصفح رصهم جنب بعض بمساحة 180 بكسل لكل منتج */
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
-    gap: 20px !important;
-    width: 100% !important;
-    max-width: 1200px !important; /* عرض مريح للعين */
-    margin: 50px auto !important; /* توسيط السكشن كله في نص الصفحة */
-    padding: 0 20px !important;
-    box-sizing: border-box !important;
-}
-
-/* 2. الكارت نفسه لازم يكون عرضه مرن عشان يملأ مكانه في الشبكة */
 .product-card {
-    width: 100% !important; /* بياخد عرض العمود المخصص له */
-    max-width: 250px !important; /* ميكبرش أوي في الشاشات الواسعة */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: var(--glass);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 15px;
     text-align: center;
-    transition: 0.4s ease;
-    margin: 0 auto !important; /* توسيط الكارت جوه العمود بتاعه */
-}
-
-/* 3. تعديل الموبايل (عشان يظهر 2 جنب بعض بشكل شيك) */
-@media screen and (max-width: 768px) {
-    #products-list {
-        grid-template-columns: repeat(2, 1fr) !important; /* عمودين في الموبايل */
-        gap: 10px !important;
-        padding: 0 10px !important;
-    }
-    
-    
+    transition: 0.4s;
+    height: 100%; /* يخلي الكارت ياخد كامل ارتفاع الصف اللي حدده الجريد */
 }
 
 /* صندوق الصورة: مقاس ثابت وموحّد لكل الكروت */
@@ -133,8 +107,6 @@ body.stop-scrolling {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 130px !important; /* تصغير الصورة شوية للموبايل */
-
 }
 
 .product-img img {
