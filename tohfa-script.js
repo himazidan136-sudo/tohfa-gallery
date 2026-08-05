@@ -292,8 +292,8 @@ const allProducts = [
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
     { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpg.jpeg" },
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg" },
-    { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/5.jpg.jpeg" },
-    { name: "ساعة كلاسيك", price: 1100, img: "tohfa/9.jpg.jpeg" },
+    { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg" },
+    { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg" },
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
 
