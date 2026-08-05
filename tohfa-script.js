@@ -307,6 +307,8 @@ const allProducts = [
     { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
         { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg" },
     { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg" },
+    { name: "مركب بحري ديكور صغير  ", price:250 , img: "tohfa/decormr.jpeg" },
+    { name: "مركب بحري ديكور كبير  ", price:720 , img: "tohfa/decormr.jpeg" },
 
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg" },
     { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg" },
