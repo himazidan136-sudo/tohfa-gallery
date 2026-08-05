@@ -320,7 +320,7 @@ const allProducts = [
     { name: "طقم ستاند قطعتين ميرور  ", price:2600 , img: "tohfa/shayala4.jpeg" },
     { name: "بوله ميرور ", price:685 , img: "tohfa/shayala5.jpeg" },
     { name: "طبق ميرور", price:850 , img: "tohfa/shayala6.jpeg" },
-    { name: "طبق ميرور", price:850 , img: "tohfa/shayala7.jpeg" },
+    { name: "طبق الترا", price:1450 , img: "tohfa/shayala7.jpeg" },
     { name: "طبق ميرور", price:850 , img: "tohfa/shayala8.jpeg" },
     { name: "طبق ميرور", price:850 , img: "tohfa/shayala9.jpeg" },
 
