@@ -311,7 +311,7 @@ const allProducts = [
     { name: "مركب بحري ديكور كبير  ", price:720 , img: "tohfa/decormr1.jpeg" },
     { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg" },
     { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg" },
-    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg" },
+    { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg" },
 
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg" },
     { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg" },
