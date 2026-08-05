@@ -128,7 +128,7 @@ body.stop-scrolling {
     .product-grid, #products-list {
         /* السطر ده بيجبر المتصفح يعمل عمودين قد بعض بالظبط */
         grid-template-columns: 1fr 1fr !important; 
-        gap: 10px !important; /* تقليل المسافة عشان المساحة في الموبايل */
+        gap: 2px !important; /* تقليل المسافة عشان المساحة في الموبايل */
         padding: 10px !important; /* تقليل الهوامش الجانبية */
     }
 }
