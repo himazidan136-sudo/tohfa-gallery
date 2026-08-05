@@ -126,6 +126,7 @@ body.stop-scrolling {
 /* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
 @media screen and (max-width: 768px) {
     .product-grid, #products-list {
+        grid-template-columns: repeat(2, 1fr) !important; /* يظهر 2 جنب بعض في الموبايل */
         gap: 10px !important;
     }
     .product-img {
