@@ -289,9 +289,8 @@ document.addEventListener('click', function(e) {
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
-     { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg" },
-     { name: "طقم شمعدان ميرور ورد ", price: 1100, img: "tohfa/sham3dan2.jpeg" },
-
+    { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg" },
+    { name: "طقم شمعدان ميرور ورد ", price: 1100, img: "tohfa/sham3dan2.jpeg" },
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
     { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpeg" },
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg" },
@@ -299,12 +298,12 @@ const allProducts = [
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg" },
     { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg" },
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg" },
-        { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" },
-
+    { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg" },
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg" },
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg" },
     { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
+    { name: "شياله عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
 
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
