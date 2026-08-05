@@ -124,7 +124,7 @@ body.stop-scrolling {
 }
 
 /* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100) {
     .product-grid, #products-list {
         /* السطر ده بيجبر المتصفح يعمل عمودين قد بعض بالظبط */
         grid-template-columns: 1fr 1fr !important; 
