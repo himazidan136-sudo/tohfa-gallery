@@ -82,31 +82,54 @@ body.stop-scrolling {
     align-items: stretch; /* يوحّد ارتفاع كل الكروت في نفس الصف */
 }
 
+/* --- ضبط شبكة المنتجات لتظهر بجانب بعضها --- */
+#products-list, .product-grid {
+    display: grid !important; /* تفعيل الشبكة */
+    
+    /* السطر ده هو اللي بيخليهم جنب بعض:
+       بيقول للمتصفح املأ السطر بمنتجات عرضها بيبدأ من 160 بكسل */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+    
+    gap: 20px; /* مسافة بين كل منتج والتاني */
+    padding: 20px 10px;
+    justify-items: center; /* توسيط الكروت داخل السطر */
+    align-items: start;    /* محاذاة الكروت من الأعلى */
+}
+
+/* تأكيد مقاس الكارت عشان ميكبرش بزيادة ويملأ الشاشة */
 .product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    max-width: 220px; /* أقصى عرض للكارت الواحد */
     background: var(--glass);
-    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 15px;
     text-align: center;
     transition: 0.4s;
-    height: 100%; /* يخلي الكارت ياخد كامل ارتفاع الصف اللي حدده الجريد */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* صندوق الصورة: مقاس ثابت وموحّد لكل الكروت */
+/* تصغير برواز الصورة */
 .product-img {
     width: 100%;
-    height: 200px; /* ارتفاع ثابت = كل صناديق الصور بنفس الحجم بالظبط */
-    margin-bottom: 12px;
+    height: 150px; /* ارتفاع ثابت صغير وشيك */
     overflow: hidden;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04); /* خلفية خفيفة تظهر جوانب الصورة لو مقاسها مش مربّع */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+/* تعديل الموبايل (عشان يظهر 2 في السطر) */
+@media screen and (max-width: 768px) {
+    #products-list, .product-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* عمودين في الموبايل */
+        gap: 12px;
+    }
+    
+    .product-img {
+        height: 120px; /* أصغر شوية في الموبايل */
+    }
 }
 
 .product-img img {
