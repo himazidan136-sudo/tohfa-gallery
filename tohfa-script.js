@@ -322,7 +322,7 @@ const allProducts = [
     { name: "طبق ميرور", price:850 , img: "tohfa/shayala6.jpeg" },
     { name: "طبق الترا", price:1450 , img: "tohfa/shayala7.jpeg" },
     { name: "طبق الترا عريض", price:1450 , img: "tohfa/shayala8.jpeg" },
-    { name: "طبق ميرور", price:850 , img: "tohfa/shayala9.jpeg" },
+    { name: "بونبونيره الترا", price:935 , img: "tohfa/shayala9.jpeg" },
 
     { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg" },
     { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg" },
