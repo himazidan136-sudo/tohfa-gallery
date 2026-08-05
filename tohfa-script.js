@@ -288,7 +288,7 @@ document.addEventListener('click', function(e) {
 });
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
-    { name: "تابلوه خط عربي", price: 1200, img: "tohfa/1.jpg.jpeg" },
+    { name: ">بونبنيره طفايه كلاسيك", price: 1045, img: "tohfa/1.jpg.jpeg" },
     { name: "برواز مودرن", price: 950, img: "tohfa/2.jpg.jpeg" },
     { name: "فازة إيطالي", price: 1500, img: "tohfa/3.jpg.jpeg" },
     { name: "ورد مجفف", price: 600, img: "tohfa/4.jpg.jpeg" },
