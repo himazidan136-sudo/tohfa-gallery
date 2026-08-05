@@ -123,7 +123,6 @@ body.stop-scrolling {
     transition: 0.5s;
 }
 
-/* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
 @media screen and (max-width: 768px) {
     .product-grid, #products-list {
         /* السطر ده بيجبر المتصفح يعمل عمودين قد بعض بالظبط */
@@ -131,25 +130,28 @@ body.stop-scrolling {
         gap: 10px !important; /* تقليل المسافة عشان المساحة في الموبايل */
         padding: 10px !important; /* تقليل الهوامش الجانبية */
     }
-}
-/* اسم المنتج: line-clamp بسطرين يمنع إن اسم طويل يكسّر توحيد حجم الكارت */
-.product-name {
-    font-size: 1rem;
-    font-weight: bold;
-    padding-top: 4px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 2.4em; /* مساحة ثابتة حتى لو الاسم سطر واحد بس */
-}
 
-.product-price {
-    font-size: 1.2rem;
-    color: var(--primary);
-    font-weight: bold;
-    display: block;
-    margin-top: 8px;
-    margin-bottom: 15px;
+    .product-card {
+        padding: 10px !important; /* تصغير الحشو الداخلي للكارت */
+        border-radius: 15px !important;
+    }
+
+    .product-img {
+        height: 140px !important; /* تصغير الارتفاع في الموبايل عشان يملوا الشاشة صح */
+    }
+
+    .product-name {
+        font-size: 0.85rem !important; /* تصغير الخط عشان مياخدش مساحة */
+    }
+    
+    .product-price {
+        font-size: 1rem !important;
+    }
+
+    /* تصغير الأزرار عشان تيجي جنب بعض في الموبايل */
+    .btn-group {
+        gap: 5px !important;
+    }
 }
 
 /* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
