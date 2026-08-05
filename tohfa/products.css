@@ -124,91 +124,69 @@ body.stop-scrolling {
 }
 
 /* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
+/* =========================================
+   الإصلاح الجذري للموبايل (Full Width Layout)
+   ========================================= */
+
 @media screen and (max-width: 768px) {
-    /* 1. تحرير الحاوية الكبيرة من أي قيود عرض */
+    /* 1. جعل الصفحة تملأ العرض بالكامل */
     .container {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 !important; /* إلغاء المساحة الجانبية تماماً */
+        padding: 0 5px !important; /* مسافة أمان صغيرة جداً من الجوانب */
         margin: 0 !important;
     }
 
-    /* 2. ضبط الشبكة لتمتد بعرض الشاشة */
+    /* 2. توسيع الشبكة لتأخذ عرض الشاشة */
     #products-list, .product-grid {
-        display: grid !important;
         grid-template-columns: 1fr 1fr !important; /* عمودين متساويين */
-        gap: 8px !important; /* مسافة صغيرة جداً بين الكروت */
+        gap: 8px !important; /* تقليل الفراغ بين الكرتين */
+        padding: 5px !important;
         width: 100% !important;
-        padding: 8px !important; /* مسافة أمان صغيرة جداً من حافة التليفون */
-        box-sizing: border-box !important;
     }
 
-    /* 3. جعل الكارت يملأ نصف الشاشة المخصص له بالكامل */
+    /* 3. تعديل الكارت عشان "يتنفس" بالعرض */
     .product-card {
+        padding: 8px !important; /* تقليل الحشو الداخلي عشان الصورة تكبر */
         width: 100% !important;
-        max-width: none !important; /* إلغاء أي حد أقصى للعرض */
-        padding: 10px !important;
-        margin: 0 !important; /* التأكد إن مفيش margin جانبي */
+        max-width: none !important;
+        border-radius: 12px !important; /* حواف أنعم للموبايل */
+        height: auto !important;
     }
 
-    /* 4. تظبيط الصورة لتناسب العرض الجديد */
+    /* 4. تظبيط الصورة (أهم جزء) */
     .product-img {
-        height: 150px !important; /* ارتفاع مناسب للعمودين */
-        width: 100% !important;
+        height: 150px !important; /* ارتفاع ثابت يخلي الكارت شكله متناسق */
+        margin-bottom: 5px !important;
+        border-radius: 10px !important;
     }
 
-    /* تصغير الخطوط عشان المساحة */
-    .product-name { font-size: 0.8rem !important; }
-    .product-price { font-size: 0.9rem !important; }
-    
-    /* تظبيط الزراير لملء عرض الكارت الصغير */
+    /* 5. تصغير الخطوط عشان مياكلوش مساحة الكارت */
+    .product-name {
+        font-size: 0.8rem !important;
+        margin-bottom: 3px !important;
+        line-height: 1.2;
+        min-height: 32px; /* توحيد الطول عشان الكروت تبدأ من نفس السطر */
+    }
+
+    .product-price {
+        font-size: 0.95rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* 6. تظبيط الأزرار (نخليها جنب بعض أو رفيعة جداً) */
     .btn-group {
-        flex-direction: column; /* لو الأزرار زحمة خليهم تحت بعض */
-        gap: 5px;
+        display: flex !important;
+        flex-direction: row !important; /* نخليهم جنب بعض برضه في الموبايل */
+        gap: 4px !important;
+    }
+
+    .order-btn, .add-to-cart-btn {
+        padding: 6px 2px !important; /* تصغير الزرار جداً */
+        font-size: 0.75rem !important;
+        border-radius: 6px !important;
     }
 }
-
-/* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
-.btn-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    margin-top: auto;
-}
-
-.order-btn {
-    flex: 2;
-    background: var(--primary);
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-}
-.order-btn:hover { background: white; color: var(--primary) !important; }
-
-.add-to-cart-btn {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--primary) !important;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid var(--glass-border);
-    cursor: pointer;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-.add-to-cart-btn:hover { background: var(--primary); color: white !important; }
-
 /* ==========================================================
    4) لايت بوكس تكبير صورة المنتج (يفتح في نص الشاشة عند الضغط)
    محتاج شوية جافاسكريبت بسيطة عشان تفعيل الفتح والقفل — شوف ملف
