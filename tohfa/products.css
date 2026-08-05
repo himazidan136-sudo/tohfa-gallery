@@ -131,6 +131,7 @@ body.stop-scrolling {
         gap: 10px !important; /* تقليل المسافة عشان المساحة في الموبايل */
         padding: 10px !important; /* تقليل الهوامش الجانبية */
     }
+}
 /* اسم المنتج: line-clamp بسطرين يمنع إن اسم طويل يكسّر توحيد حجم الكارت */
 .product-name {
     font-size: 1rem;
