@@ -286,3 +286,38 @@ document.addEventListener('click', function(e) {
         openLightbox(e.target.src);
     }
 });
+// 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
+const allProducts = [
+    { name: "تابلوه خط عربي", price: 1200, img: "tohfa/1.jpg.jpeg" },
+    { name: "برواز مودرن", price: 950, img: "tohfa/2.jpg.jpeg" },
+    { name: "فازة إيطالي", price: 1500, img: "tohfa/3.jpg.jpeg" },
+    { name: "ورد مجفف", price: 600, img: "tohfa/4.jpg.jpeg" },
+    { name: "تمثال أنتيك", price: 2800, img: "tohfa/5.jpg.jpeg" },
+    { name: "ساعة كلاسيك", price: 1100, img: "tohfa/9.jpg.jpeg" },
+    // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
+];
+
+// 2. وظيفة "رص" المنتجات تلقائياً في الصفحة
+function renderProducts() {
+    const container = document.getElementById('products-list');
+    if (!container) return; // حماية لو الصفحة مفيهاش المكان ده
+
+    container.innerHTML = ''; // تنظيف المكان الأول
+
+    allProducts.forEach(product => {
+        container.innerHTML += `
+            <div class="product-card glass-card">
+                <img src="${product.img}" class="product-img" loading="lazy">
+                <span class="product-name">${product.name}</span>
+                <span class="product-price">${product.price} ج.م</span>
+                <div class="btn-group">
+                    <button class="order-btn" onclick="openOrderForm('${product.name}', '${product.price} ج.م')">طلب</button>
+                    <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${product.price}, '${product.img}')">🛒</button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// تشغيل الوظيفة أول ما الصفحة تفتح
+document.addEventListener('DOMContentLoaded', renderProducts);
