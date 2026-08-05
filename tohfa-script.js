@@ -319,6 +319,7 @@ const allProducts = [
     { name: "صينيه معدن ورقه كبير  ", price:400 , img: "tohfa/shayala3.jpeg" },
     { name: "طقم ستاند قطعتين ميرور  ", price:2600 , img: "tohfa/shayala4.jpeg" },
     { name: "بوله ميرور ", price:685 , img: "tohfa/shayala5.jpeg" },
+    { name: "بوله ميرور ", price:685 , img: "tohfa/shayala6.jpeg" },
 
     { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg" },
     { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg" },
