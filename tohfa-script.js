@@ -290,7 +290,7 @@ document.addEventListener('click', function(e) {
 const allProducts = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
-    { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/mab5ara.jpg.jpeg" },
+    { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpg.jpeg" },
     { name: "ورد مجفف", price: 600, img: "tohfa/4.jpg.jpeg" },
     { name: "تمثال أنتيك", price: 2800, img: "tohfa/5.jpg.jpeg" },
     { name: "ساعة كلاسيك", price: 1100, img: "tohfa/9.jpg.jpeg" },
