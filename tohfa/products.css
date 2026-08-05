@@ -75,17 +75,23 @@ body.stop-scrolling {
    - صندوق الصورة بحجم ثابت وموحّد، والصورة جواه بـ object-fit:contain
      يعني بتفضل بنسبتها الطبيعية وميحصلهاش تمطيط، وبس بتتوسط جوه الصندوق
    ========================================================== */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
+/* --- تعديل الجريد ليكون جنب بعضه بالظبط بنفس مقاساتك --- */
+
+.product-grid, #products-list {
+    display: grid !important; /* تفعيل الشبكة بقوة */
+    /* السطر اللي جاي هو السر: بيوزع الكروت جنب بعضها بحد أدنى 180 بكسل للكارت */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important; /* يملأ عرض الصفحة */
+    max-width: 1200px; /* العرض الأقصى المريح للعين */
+    margin: 30px auto !important; /* توسيط السكشن كله */
     align-items: stretch; /* يوحّد ارتفاع كل الكروت في نفس الصف */
 }
 
 .product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     background: var(--glass);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
@@ -93,31 +99,39 @@ body.stop-scrolling {
     padding: 15px;
     text-align: center;
     transition: 0.4s;
-    height: 100%; /* يخلي الكارت ياخد كامل ارتفاع الصف اللي حدده الجريد */
+    height: 100% !important; /* يخلي الكارت ياخد كامل ارتفاع الصف */
+    width: 100% !important;
 }
 
-/* صندوق الصورة: مقاس ثابت وموحّد لكل الكروت */
+/* صندوق الصورة: مقاس ثابت وموحّد زي ما طلبت */
 .product-img {
-    width: 100%;
-    height: 200px; /* ارتفاع ثابت = كل صناديق الصور بنفس الحجم بالظبط */
+    width: 100% !important;
+    height: 200px !important; /* ارتفاع ثابت كما طلبت */
     margin-bottom: 12px;
     overflow: hidden;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04); /* خلفية خفيفة تظهر جوانب الصورة لو مقاسها مش مربّع */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: rgba(255, 255, 255, 0.04); 
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .product-img img {
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain; /* أهم سطر: الصورة بتاخد حجمها الطبيعي جوه الصندوق من غير تمطيط */
-    display: block;
-    cursor: zoom-in; /* يوضح إن الصورة قابلة للتكبير */
-    transition: 0.3s ease;
+    object-fit: contain; /* عشان المنتج يظهر كامل وميتقصش */
+    transition: 0.5s;
+}
+
+/* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
+@media screen and (max-width: 768px) {
+    .product-grid, #products-list {
+        grid-template-columns: repeat(2, 1fr) !important; /* يظهر 2 جنب بعض في الموبايل */
+        gap: 10px !important;
+    }
+    .product-img {
+        height: 150px !important; /* نصغر الصورة شوية للموبايل عشان المساحة */
+    }
 }
 .product-img img:hover { transform: scale(1.03); }
 
