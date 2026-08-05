@@ -122,6 +122,45 @@ body.stop-scrolling {
     object-fit: contain; /* عشان المنتج يظهر كامل وميتقصش */
     transition: 0.5s;
 }
+.btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.order-btn {
+    flex: 2;
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.order-btn:hover { background: white; color: var(--primary) !important; }
+
+.add-to-cart-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary) !important;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.add-to-cart-btn:hover { background: var(--primary); color: white !important; }
 
 /* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
 @media screen and (max-width: 768px) {
@@ -169,45 +208,6 @@ body.stop-scrolling {
 }
 
 /* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
-.btn-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    margin-top: auto;
-}
-
-.order-btn {
-    flex: 2;
-    background: var(--primary);
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-}
-.order-btn:hover { background: white; color: var(--primary) !important; }
-
-.add-to-cart-btn {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--primary) !important;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid var(--glass-border);
-    cursor: pointer;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-.add-to-cart-btn:hover { background: var(--primary); color: white !important; }
 
 /* ==========================================================
    4) لايت بوكس تكبير صورة المنتج (يفتح في نص الشاشة عند الضغط)
