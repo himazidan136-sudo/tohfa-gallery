@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', renderFlowers);
 
 const vasesProducts = [
 
-    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
+    { name: "مزهريه ذهبيه صغير", price: "580 ج.م", img: "tohfa/vasesm.jpeg" },
     
 
 
