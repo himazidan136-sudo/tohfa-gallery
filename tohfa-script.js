@@ -382,14 +382,6 @@ const flowerProducts = [
 
     { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg" },
 
-
-
-
-
-
-
-
-
 ];
 
 // 2. وظيفة عرض الورد تلقائياً
