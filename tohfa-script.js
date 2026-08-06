@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 
 // 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
 const flowerProducts = [
-    { name: "بوكيه لافندر مجفف", price: "600 ج.م", img: "tohfa/4.jpg.jpeg" },
+    { name: "بوكيه لافندر مجفف", price: "600 ج.م", img: "tohfa/flowersf.jpeg" },
     { name: "فازة ورد جوري أحمر", price: "450 ج.م", img: "tohfa/3.jpg.jpeg" },
     { name: "تنسيق توليب صناعي", price: "550 ج.م", img: "tohfa/7.jpg.jpeg" },
     { name: "ورد عباد الشمس دائم", price: "300 ج.م", img: "tohfa/6.jpg.jpeg" },
