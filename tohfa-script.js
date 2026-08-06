@@ -418,9 +418,9 @@ document.addEventListener('DOMContentLoaded', renderFlowers);
 
 const vasesProducts = [
 
-    { name: "مزهريه ذهبيه كبير", price: "580 ج.م", img: "tohfa/vasesm.jpeg" },
-    { name: "مزهريه ذهبيه وسط", price: "580 ج.م", img: "tohfa/vasesmm.jpeg" },
-    { name: "مزهريه ذهبيه صغير", price: "580 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه وسط", price: "620 ج.م", img: "tohfa/vasesmm.jpeg" },
+    { name: "مزهريه ذهبيه صغير", price: "580 ج.م", img: "tohfa/vasesms.jpeg" },
     
 
 
