@@ -356,3 +356,44 @@ function renderProducts() {
 
 // تشغيل الوظيفة أول ما الصفحة تفتح
 document.addEventListener('DOMContentLoaded', renderProducts);
+
+
+
+
+
+
+// 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
+const flowerProducts = [
+    { name: "بوكيه لافندر مجفف", price: "600 ج.م", img: "tohfa/4.jpg.jpeg" },
+    { name: "فازة ورد جوري أحمر", price: "450 ج.م", img: "tohfa/3.jpg.jpeg" },
+    { name: "تنسيق توليب صناعي", price: "550 ج.م", img: "tohfa/7.jpg.jpeg" },
+    { name: "ورد عباد الشمس دائم", price: "300 ج.م", img: "tohfa/6.jpg.jpeg" },
+    // أي وردة جديدة.. زود سطر هنا بس بنفس الشكل
+];
+
+// 2. وظيفة عرض الورد تلقائياً
+function renderFlowers() {
+    const container = document.getElementById('flowers-list');
+    
+    // لو إحنا في صفحة الورد (لقى الـ id المخصص للورد)
+    if (container) {
+        container.innerHTML = ''; 
+        
+        flowerProducts.forEach(item => {
+            container.innerHTML += `
+                <div class="product-card glass-card">
+                    <img src="${item.img}" class="product-img">
+                    <span class="product-name">${item.name}</span>
+                    <span class="product-price">${item.price}</span>
+                    <div class="btn-group">
+                        <button class="order-btn" onclick="openOrderForm('${item.name}', '${item.price}')">طلب</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">🛒</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+}
+
+// 3. التأكد من تشغيل الوظيفة
+document.addEventListener('DOMContentLoaded', renderFlowers);
