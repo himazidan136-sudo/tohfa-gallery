@@ -368,7 +368,17 @@ const flowerProducts = [
     { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
     { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
     { name: "صباره رخام ", price: "200 ج.م", img: "tohfa/flowerss.jpeg" },
-    { name: "وعاء نباتات سيراميك صغير ", price: "400 ج.م", img: "tohfa/flowerw0.jpeg" },
+    { name: "وعاء نباتات سيراميك صغير ", price: "400 ج.م", img: "tohfa/flowersw0.jpeg" },
+    { name: "وعاء نباتات سيراميك صغير ", price: "400 ج.م", img: "tohfa/flowersb.jpeg" },
+
+
+
+
+
+
+
+
+
 ];
 
 // 2. وظيفة عرض الورد تلقائياً
