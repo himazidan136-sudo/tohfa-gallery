@@ -124,103 +124,88 @@ body.stop-scrolling {
 }
 
 /* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
-/* =========================================
-   🚀 الإصلاح الجذري والنهائي للموبايل (TOHFA ULTRA)
-   ========================================= */
-
 @media screen and (max-width: 768px) {
-    /* 1. تحرير الحاوية الكبيرة (إلغاء أي هوامش خانقة) */
+    /* 1. تحرير الحاوية الكبيرة من أي قيود عرض */
     .container {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 10px !important; /* مسافة أمان صغيرة جداً من الجوانب */
+        padding: 0 !important; /* إلغاء المساحة الجانبية تماماً */
         margin: 0 !important;
     }
 
-    /* 2. الناف بار: ترتيب "الكبسولة" بنظام الصفين عشان الزحمة تروح */
-    .navbar {
-        top: 5px !important;
-        width: 96% !important;
-        padding: 5px 0 !important;
-        height: auto !important;
-    }
-
-    .nav-wrapper {
-        flex-direction: column !important; /* طابقين فوق بعض */
-        gap: 8px !important;
-        padding: 5px 10px !important;
-    }
-
-    .logo { 
-        font-size: 16px !important; 
-        text-align: center;
-        width: 100%;
-        order: 1;
-    }
-    .logo span { display: none; }
-
-    .nav-links {
-        width: 100%;
-        justify-content: center !important;
-        gap: 5px !important;
-        order: 3;
-    }
-
-    .nav-left, .nav-controls {
-        width: 100%;
-        justify-content: center !important;
-        order: 2;
-        gap: 20px !important;
-    }
-
-    /* 3. شبكة المنتجات: إجبار "كرتين" في السطر بعرض الشاشة */
+    /* 2. ضبط الشبكة لتمتد بعرض الشاشة */
     #products-list, .product-grid {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* عمودين متساويين بالملي */
-        gap: 10px !important; /* مسافة رفيعة بين الكروت */
+        grid-template-columns: 1fr 1fr !important; /* عمودين متساويين */
+        gap: 8px !important; /* مسافة صغيرة جداً بين الكروت */
         width: 100% !important;
-        padding: 10px 0 !important;
-        margin: 0 !important;
+        padding: 8px !important; /* مسافة أمان صغيرة جداً من حافة التليفون */
+        box-sizing: border-box !important;
     }
 
-    /* 4. الكارت: إلغاء الـ max-width عشان يفرش */
+    /* 3. جعل الكارت يملأ نصف الشاشة المخصص له بالكامل */
     .product-card {
         width: 100% !important;
-        max-width: none !important; /* أهم سطر لإلغاء الخنقة */
+        max-width: none !important; /* إلغاء أي حد أقصى للعرض */
         padding: 10px !important;
-        border-radius: 15px !important;
-        display: flex;
-        flex-direction: column;
-        height: 100% !important;
+        margin: 0 !important; /* التأكد إن مفيش margin جانبي */
     }
 
-    /* الصورة: مربعة ومنظمة */
+    /* 4. تظبيط الصورة لتناسب العرض الجديد */
     .product-img {
+        height: 150px !important; /* ارتفاع مناسب للعمودين */
         width: 100% !important;
-        height: 140px !important; /* ارتفاع ثابت يخلي كل الكروت سطر واحد */
-        margin-bottom: 8px !important;
-        border-radius: 10px !important;
     }
 
-    .product-name {
-        font-size: 0.8rem !important;
-        min-height: 35px; /* توحيد الطول */
-        margin: 5px 0 !important;
-    }
-
-    /* 5. الأزرار: جنب بعض بشكل شيك جداً */
+    /* تصغير الخطوط عشان المساحة */
+    .product-name { font-size: 0.8rem !important; }
+    .product-price { font-size: 0.9rem !important; }
+    
+    /* تظبيط الزراير لملء عرض الكارت الصغير */
     .btn-group {
-        display: flex !important;
-        gap: 5px !important;
-        width: 100% !important;
+        flex-direction: column; /* لو الأزرار زحمة خليهم تحت بعض */
+        gap: 5px;
     }
+}
 
-    .order-btn, .add-to-cart-btn, .order-btn-tech {
-        padding: 8px 2px !important;
-        font-size: 0.75rem !important;
-        border-radius: 8px !important;
-        flex: 1;
-    }
+/* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.order-btn {
+    flex: 2;
+    background: var(--primary);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.order-btn:hover { background: white; color: var(--primary) !important; }
+
+.add-to-cart-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary) !important;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
 }
 .add-to-cart-btn:hover { background: var(--primary); color: white !important; }
 
