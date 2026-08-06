@@ -507,4 +507,4 @@ function renderwall() {
 }
 
 // 3. التأكد من تشغيل الوظيفة
-document.addEventListener('DOMContentLoaded', rendervases);
+document.addEventListener('DOMContentLoaded', renderwall);
