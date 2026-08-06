@@ -17,27 +17,11 @@
 </div>
         </div>
     </nav>
-
-    <div class="container" style="margin-top: 120px;">
-        <div class="product-grid">
-            <!-- منتج 1 -->
-            <div class="product-card">
-                <img src="tohfa/1.jpg.jpeg" class="product-img">
-                <span class="product-name">تابلوه خط عربي فخم</span>
-                <span class="product-price">1255 ج.م</span>
-                <button class="order-btn" onclick="orderNow('تابلوه خط عربي فخم', 1255, 'tohfa/1.jpg.jpeg')">طلب المنتج</button>
-                <button class="order-btn" onclick="addToCart('تابلوه خط عربي فخم', 1255, 'tohfa/1.jpg.jpeg')">إضافة للسلة</button>
-            </div>
-            <!-- منتج 2 -->
-            <div class="product-card">
-                <img src="tohfa/2.jpg.jpeg" class="product-img">
-                <span class="product-name">برواز مودرن شيك</span>
-                <span class="product-price">800 ج.م</span>
-                <button class="order-btn" onclick="orderNow('برواز مودرن شيك', 800, 'tohfa/2.jpg.jpeg')">طلب المنتج</button>
-                <button class="order-btn" onclick="addToCart('برواز مودرن شيك', 800, 'tohfa/2.jpg.jpeg')">إضافة للسلة</button>
-            </div>
-        </div>
-    </div>
+<section class="container">
+    <h2 class="section-title">منتجاتنا</h2>
+    <!-- ده المكان اللي الجافا سكريبت هترص فيه المنتجات -->
+    <div id="wall-decor-list"></div> 
+</section>    <!-- الجافا سكريبت هيملا المكان ده فوراً -->
 
     <!-- 🐞 تم حذف نافذة ونظام الطلب القديمين من هنا (نفس سبب الحذف
          في باقي صفحات المنتجات: تعارض IDs مع نظام السلة تحت) -->
