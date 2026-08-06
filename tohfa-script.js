@@ -368,7 +368,7 @@ const flowerProducts = [
     { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
     { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
     { name: "صباره رخام ", price: "200 ج.م", img: "tohfa/flowerss.jpeg" },
-    // أي وردة جديدة.. زود سطر هنا بس بنفس الشكل
+    { name: "وعاء نباتات سيراميك صغير ", price: "400 ج.م", img: "tohfa/flowerw0.jpeg" },
 ];
 
 // 2. وظيفة عرض الورد تلقائياً
