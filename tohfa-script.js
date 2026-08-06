@@ -333,12 +333,12 @@ const allProducts = [
 ];
 
 ocument.addEventListener('click', function(e) {
-    if (e.target.tagName === 'IMG' && (e.target.closest('.gallery-item') || e.target.closest('.product-img'))) {
+    if (e.target.tagName === 'IMG' && (e.target.closest('.gallery-item') || e.target.closest('.flowers-img'))) {
         openLightbox(e.target.src);
     }
 });
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
-const allProducts = [
+const allflowers = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
 ];
 
