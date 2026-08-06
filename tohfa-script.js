@@ -372,6 +372,7 @@ const flowerProducts = [
     { name: "وعاء نباتات سيراميك صغير دهبي", price: "400 ج.م", img: "tohfa/flowersw1.jpeg" },
     { name: "وعاء نباتات سيراميك صغير ابيض", price: "400 ج.م", img: "tohfa/flowersw2.jpeg" },
     { name: "وعاء نباتات سيراميك كبير ابيض", price: "740 ج.م", img: "tohfa/flowerswl.jpeg" },
+    { name: "وعاء نباتات سيراميك كبير دهبي", price: "740 ج.م", img: "tohfa/flowerswl0.jpeg" },
 
     { name: "بوت زرع ديكور صغير ابيض", price: "250 ج.م", img: "tohfa/flowersb.jpeg" },
     { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg" },
