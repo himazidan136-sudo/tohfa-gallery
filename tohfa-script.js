@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 // 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
 const flowerProducts = [
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
-    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
+    { name: "صباره وش    استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
     // أي وردة جديدة.. زود سطر هنا بس بنفس الشكل
