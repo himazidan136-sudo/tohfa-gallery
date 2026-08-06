@@ -372,7 +372,7 @@ const flowerProducts = [
     { name: "وعاء نباتات سيراميك صغير دهبي", price: "400 ج.م", img: "tohfa/flowersw1.jpeg" },
    
     { name: "بوت زرع ديكور صغير ابيض", price: "250 ج.م", img: "tohfa/flowersb.jpeg" },
-    { name: "بوت زرع ديكور صغير اسود", price: "250 ج.م", img: "tohfa/flowersb0.jpeg" },
+    { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg" },
 
 
 
