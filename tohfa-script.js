@@ -442,12 +442,6 @@ const vasesProducts = [
     { name: "فاز نحاس مدهب ابيض صغير  ", price: "1700 ج.م", img: "tohfa/vasesn0.jpeg" },
     { name: "فاز نحاس شامبيه   ", price: "1400 ج.م", img: "tohfa/vasesn1.jpeg" },
 
-
-
-
-
-
-
 ];
 
 // 2. وظيفة عرض الورد تلقائياً
