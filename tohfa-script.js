@@ -410,3 +410,53 @@ function renderFlowers() {
 
 // 3. التأكد من تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', renderFlowers);
+
+
+
+const vasesProducts = [
+    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
+    { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
+    { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
+    { name: "صباره رخام اسود", price: "200 ج.م", img: "tohfa/flowerss.jpeg" },
+    { name: "صباره رخام ابيض", price: "200 ج.م", img: "tohfa/flowerss0.jpeg" },
+
+    { name: "وعاء نباتات سيراميك صغير اسود", price: "400 ج.م", img: "tohfa/flowersw0.jpeg" },
+    { name: "وعاء نباتات سيراميك صغير دهبي", price: "400 ج.م", img: "tohfa/flowersw1.jpeg" },
+    { name: "وعاء نباتات سيراميك صغير ابيض", price: "400 ج.م", img: "tohfa/flowersw2.jpeg" },
+    { name: "وعاء نباتات سيراميك كبير ابيض", price: "740 ج.م", img: "tohfa/flowerswl.jpeg" },
+    { name: "وعاء نباتات سيراميك كبير دهبي", price: "740 ج.م", img: "tohfa/flowerswl0.jpeg" },
+
+    { name: "بوت زرع ديكور صغير ابيض", price: "250 ج.م", img: "tohfa/flowersb.jpeg" },
+    { name: "بوت زرع ديكور صغير اسود", price: "250 ج.م", img: "tohfa/flowersb0.jpeg" },
+    { name: "بوت زرع ديكور صغير دهبي", price: "250 ج.م", img: "tohfa/flowersb1.jpeg" },
+
+    { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg" },
+
+];
+
+// 2. وظيفة عرض الورد تلقائياً
+function renderFlowers() {
+    const container = document.getElementById('flowers-list');
+    
+    // لو إحنا في صفحة الورد (لقى الـ id المخصص للورد)
+    if (container) {
+        container.innerHTML = ''; 
+        
+        flowerProducts.forEach(item => {
+            container.innerHTML += `
+                <div class="product-card glass-card">
+                    <img src="${item.img}" class="product-img">
+                    <span class="product-name">${item.name}</span>
+                    <span class="product-price">${item.price}</span>
+                    <div class="btn-group">
+                        <button class="order-btn" onclick="openOrderForm('${item.name}', '${item.price}')">طلب</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">🛒</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+}
+
+// 3. التأكد من تشغيل الوظيفة
+document.addEventListener('DOMContentLoaded', renderFlowers);
