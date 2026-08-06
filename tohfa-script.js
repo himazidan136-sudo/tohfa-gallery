@@ -435,8 +435,8 @@ const vasesProducts = [
 ];
 
 // 2. وظيفة عرض الورد تلقائياً
-function renderFlowers() {
-    const container = document.getElementById('flowers-list');
+function rendervases() {
+    const container = document.getElementById('vases-list');
     
     // لو إحنا في صفحة الورد (لقى الـ id المخصص للورد)
     if (container) {
