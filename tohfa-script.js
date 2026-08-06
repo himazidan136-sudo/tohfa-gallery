@@ -441,6 +441,9 @@ const vasesProducts = [
     { name: "فاز كريستال شاطئ  ", price: "1200 ج.م", img: "tohfa/vasess.jpeg" },
     { name: "فاز خشبي كرمزي  ", price: "1200 ج.م", img: "tohfa/vasess0.jpeg" },
     { name: "فاز كريستال صغير  ", price: "500 ج.م", img: "tohfa/vase.jpeg" },
+    { name: "فاز نحاس مدهب ابيض   ", price: "1900 ج.م", img: "tohfa/vasesn.jpeg" },
+    { name: "فاز نحاس مدهب ابيض صغير  ", price: "500 ج.م", img: "tohfa/vasesn0.jpeg" },
+    { name: "فاز نحاس شامبيه   ", price: "500 ج.م", img: "tohfa/vasesn1.jpeg" },
 
 
 
