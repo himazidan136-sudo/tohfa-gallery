@@ -332,24 +332,6 @@ const allProducts = [
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
 
-ocument.addEventListener('click', function(e) {
-    if (e.target.tagName === 'IMG' && (e.target.closest('.gallery-item') || e.target.closest('.flowers-img'))) {
-        openLightbox(e.target.src);
-    }
-});
-// 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
-const allflowers = [
-    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
-];
-
-
-
-
-
-
-
-
-
 // 2. وظيفة "رص" المنتجات تلقائياً في الصفحة
 function renderProducts() {
     const container = document.getElementById('products-list');
