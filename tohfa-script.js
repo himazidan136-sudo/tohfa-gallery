@@ -366,8 +366,8 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 const flowerProducts = [
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
     { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
-    { name: "حامل نباتات استانلس", price: "300 ج.م", img: "tohfa/flowersh.jpeg" },
-    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
+    { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
+    { name: "صباره رخام ", price: "200 ج.م", img: "tohfa/flowerss.jpeg" },
     // أي وردة جديدة.. زود سطر هنا بس بنفس الشكل
 ];
 
