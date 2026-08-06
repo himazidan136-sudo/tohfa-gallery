@@ -482,14 +482,14 @@ const wallProducts = [
    
 
 // 2. وظيفة عرض الورد تلقائياً
-function rendervases() {
-    const container = document.getElementById('vases-list');
+function renderwall() {
+    const container = document.getElementById('wall-list');
     
     // لو إحنا في صفحة الورد (لقى الـ id المخصص للورد)
     if (container) {
         container.innerHTML = ''; 
         
-        vasesProducts.forEach(item => {
+       wallProducts.forEach(item => {
             container.innerHTML += `
                 <div class="product-card glass-card">
                     <img src="${item.img}" class="product-img">
