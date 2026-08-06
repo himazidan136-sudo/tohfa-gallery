@@ -425,6 +425,7 @@ const vasesProducts = [
     { name: "مزهريه خزفيه ذهبيه وسط", price: "650 ج.م", img: "tohfa/vasesmkm.jpeg" },
     { name: "مزهريه خزفيه ذهبيه صغير", price: "550 ج.م", img: "tohfa/vasesmks.jpeg" },
     { name: "فاز زور اسود ", price: "1000 ج.م", img: "tohfa/vasesz.jpeg" },
+    { name: "فاز زور اسود ", price: "1000 ج.م", img: "tohfa/vasesmz.jpeg" },
 
 
 
