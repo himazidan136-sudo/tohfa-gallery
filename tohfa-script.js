@@ -459,4 +459,4 @@ function rendervases() {
 }
 
 // 3. التأكد من تشغيل الوظيفة
-document.addEventListener('DOMContentLoaded', renderFlowers);
+document.addEventListener('DOMContentLoaded', rendervases);
