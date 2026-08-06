@@ -470,3 +470,63 @@ function rendervases() {
 
 // 3. التأكد من تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', rendervases);
+
+
+
+
+
+
+const Products = [
+
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه وسط", price: "620 ج.م", img: "tohfa/vasesmm.jpeg" },
+    { name: "مزهريه ذهبيه صغير", price: "580 ج.م", img: "tohfa/vasesms.jpeg" },
+    { name: "مزهريه خزفيه ذهبيه كبير", price: "820 ج.م", img: "tohfa/vasesmk.jpeg" },
+    { name: "مزهريه خزفيه ذهبيه وسط", price: "650 ج.م", img: "tohfa/vasesmkm.jpeg" },
+    { name: "مزهريه خزفيه ذهبيه صغير", price: "550 ج.م", img: "tohfa/vasesmks.jpeg" },
+    { name: "فاز زور اسود ", price: "1000 ج.م", img: "tohfa/vasesz.jpeg" },
+    { name: "فاز زور اسود كبير", price: "1200 ج.م", img: "tohfa/vasesz0.jpeg" },
+    { name: "مزهريه زجاجيه قرع ", price: "720 ج.م", img: "tohfa/vasesmz0.jpeg" },
+    { name: "مزهريه زجاجيه قرع صغير", price: "580 ج.م", img: "tohfa/vasesmz.jpeg" },
+    { name: "مزهريه زجاجيه اسود صغير", price: "780 ج.م", img: "tohfa/vasesmz1.jpeg" },
+    { name: "مزهريه زجاجيه اسود ", price: "850 ج.م", img: "tohfa/vasesmz2.jpeg" },
+    { name: "مزهريه خزفي زيتي ", price: "599 ج.م", img: "tohfa/vasesk.jpeg" },
+    { name: "فاز اسود ميرور ", price: "1650 ج.م", img: "tohfa/vasesb.jpeg" },
+    { name: "فاز اسود مدهب ", price: "450 ج.م", img: "tohfa/vasesb0.jpeg" },
+    { name: "فاز اسود مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbm.jpeg" },
+    { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbg.jpeg" },
+    { name: "فاز كريستال شاطئ  ", price: "1200 ج.م", img: "tohfa/vasess.jpeg" },
+    { name: "فاز خشبي كرمزي  ", price: "1200 ج.م", img: "tohfa/vasess0.jpeg" },
+    { name: "فاز كريستال صغير  ", price: "500 ج.م", img: "tohfa/vase.jpeg" },
+    { name: "فاز نحاس مدهب ابيض   ", price: "1900 ج.م", img: "tohfa/vasesn.jpeg" },
+    { name: "فاز نحاس مدهب ابيض صغير  ", price: "1700 ج.م", img: "tohfa/vasesn0.jpeg" },
+    { name: "فاز نحاس شامبيه   ", price: "1400 ج.م", img: "tohfa/vasesn1.jpeg" },
+
+];
+
+// 2. وظيفة عرض الورد تلقائياً
+function rendervases() {
+    const container = document.getElementById('vases-list');
+    
+    // لو إحنا في صفحة الورد (لقى الـ id المخصص للورد)
+    if (container) {
+        container.innerHTML = ''; 
+        
+        vasesProducts.forEach(item => {
+            container.innerHTML += `
+                <div class="product-card glass-card">
+                    <img src="${item.img}" class="product-img">
+                    <span class="product-name">${item.name}</span>
+                    <span class="product-price">${item.price}</span>
+                    <div class="btn-group">
+                        <button class="order-btn" onclick="openOrderForm('${item.name}', '${item.price}')">طلب</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">🛒</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+}
+
+// 3. التأكد من تشغيل الوظيفة
+document.addEventListener('DOMContentLoaded', rendervases);
