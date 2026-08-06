@@ -433,6 +433,7 @@ const vasesProducts = [
 
     { name: "فاز اسود مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbm.jpeg" },
     { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbg.jpeg" },
+    { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasess.jpeg" },
 
 
 
