@@ -429,7 +429,7 @@ function rendervases() {
     if (container) {
         container.innerHTML = ''; 
         
-        flowerProducts.forEach(item => {
+        vasesProducts.forEach(item => {
             container.innerHTML += `
                 <div class="product-card glass-card">
                     <img src="${item.img}" class="product-img">
