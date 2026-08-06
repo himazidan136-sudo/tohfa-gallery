@@ -123,6 +123,51 @@ body.stop-scrolling {
     transition: 0.5s;
 }
 
+/* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
+@media screen and (max-width: 768px) {
+    /* 1. تحرير الحاوية الكبيرة من أي قيود عرض */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important; /* إلغاء المساحة الجانبية تماماً */
+        margin: 0 !important;
+    }
+
+    /* 2. ضبط الشبكة لتمتد بعرض الشاشة */
+    #products-list, .product-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* عمودين متساويين */
+        gap: 8px !important; /* مسافة صغيرة جداً بين الكروت */
+        width: 100% !important;
+        padding: 8px !important; /* مسافة أمان صغيرة جداً من حافة التليفون */
+        box-sizing: border-box !important;
+    }
+
+    /* 3. جعل الكارت يملأ نصف الشاشة المخصص له بالكامل */
+    .product-card {
+        width: 100% !important;
+        max-width: none !important; /* إلغاء أي حد أقصى للعرض */
+        padding: 10px !important;
+        margin: 0 !important; /* التأكد إن مفيش margin جانبي */
+    }
+
+    /* 4. تظبيط الصورة لتناسب العرض الجديد */
+    .product-img {
+        height: 150px !important; /* ارتفاع مناسب للعمودين */
+        width: 100% !important;
+    }
+
+    /* تصغير الخطوط عشان المساحة */
+    .product-name { font-size: 0.8rem !important; }
+    .product-price { font-size: 0.9rem !important; }
+    
+    /* تظبيط الزراير لملء عرض الكارت الصغير */
+    .btn-group {
+        flex-direction: column; /* لو الأزرار زحمة خليهم تحت بعض */
+        gap: 5px;
+    }
+}
+
 /* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
 .btn-group {
     display: flex;
@@ -463,13 +508,6 @@ body.stop-scrolling {
     .modal-content h3 { font-size: 1.1rem; }
     .hero-content h1 { font-size: 1.8rem !important; line-height: 1.3; }
     .hero-content p { font-size: 0.9rem !important; }
-
-    /* الكارت ياخد عرض الشاشة كاملة (عمود واحد) بدل منتجين جنب بعض */
-    .product-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-    .product-card { padding: 14px !important; }
-    .product-img { height: 260px !important; }
-    .product-name { font-size: 1rem !important; }
-    .product-price { font-size: 1.15rem !important; }
 }
 /* --- تنسيق نافذة تكبير الصور --- */
 .image-lightbox {
