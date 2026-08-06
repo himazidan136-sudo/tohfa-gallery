@@ -124,75 +124,115 @@ body.stop-scrolling {
 }
 
 /* تعديل الموبايل عشان يفضلوا برضه جنب بعض (2 في السطر) */
+/* =========================================
+   🚀 الإصلاح النهائي والشامل للموبايل (TOHFA MAX)
+   ========================================= */
+
 @media screen and (max-width: 768px) {
-    /* 1. تحرير الحاوية الكبيرة من أي قيود عرض */
+    /* 1. الناف بار: ترتيب "الكبسولة" بنظام الصفين */
+    .navbar {
+        top: 8px !important;
+        width: 96% !important;
+        padding: 8px 0 !important;
+        border-radius: 20px !important;
+    }
+
+    .nav-wrapper {
+        flex-direction: column !important; /* طابقين عشان الزحمة */
+        gap: 8px !important;
+        padding: 0 10px !important;
+    }
+
+    .logo { 
+        font-size: 16px !important; 
+        text-align: center;
+        width: 100%;
+    }
+    .logo span { display: none; } /* حذف الكلمة الصغيرة لتوفير مساحة */
+
+    .nav-links {
+        width: 100%;
+        justify-content: center !important;
+        gap: 5px !important;
+    }
+
+    .glass-btn, .nav-btn-text {
+        padding: 5px 10px !important;
+        font-size: 10px !important;
+        white-space: nowrap;
+    }
+
+    /* 2. الشبكة: عرض المنتجات (2 في السطر بدون فراغات ميتة) */
     .container {
         width: 100% !important;
         max-width: 100% !important;
-        padding: 0 !important; /* إلغاء المساحة الجانبية تماماً */
-        margin: 0 !important;
+        padding: 0 8px !important; /* تقليل الهوامش الجانبية جداً */
     }
 
-    /* 2. ضبط الشبكة لتمتد بعرض الشاشة */
     #products-list, .product-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* عمودين متساويين */
-        gap: 8px !important; /* مسافة صغيرة جداً بين الكروت */
-        width: 100% !important;
-        padding: 8px !important; /* مسافة أمان صغيرة جداً من حافة التليفون */
-        box-sizing: border-box !important;
+        grid-template-columns: 1fr 1fr !important; /* عمودين بالملي */
+        gap: 10px !important; /* مسافة رفيعة وشيك بين المنتجات */
+        padding: 10px 0 !important;
     }
 
-    /* 3. جعل الكارت يملأ نصف الشاشة المخصص له بالكامل */
+    /* 3. الكارت: تصميم "سمباتيك" واحترافي */
     .product-card {
-        width: 100% !important;
-        max-width: none !important; /* إلغاء أي حد أقصى للعرض */
-        padding: 10px !important;
-        margin: 0 !important; /* التأكد إن مفيش margin جانبي */
+        padding: 10px !important; /* تقليل الحشو الداخلي */
+        border-radius: 15px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100% !important;
     }
 
-    /* 4. تظبيط الصورة لتناسب العرض الجديد */
+    /* الصورة: أهم تعديل (مربعة ومنظمة) */
     .product-img {
-        height: 150px !important; /* ارتفاع مناسب للعمودين */
-        width: 100% !important;
+        height: 130px !important; /* ارتفاع ثابت يخلي كل الكروت طول واحد */
+        margin-bottom: 8px !important;
+        border-radius: 10px !important;
     }
 
-    /* تصغير الخطوط عشان المساحة */
-    .product-name { font-size: 0.8rem !important; }
-    .product-price { font-size: 0.9rem !important; }
-    
-    /* تظبيط الزراير لملء عرض الكارت الصغير */
+    .product-name {
+        font-size: 0.8rem !important;
+        line-height: 1.2;
+        min-height: 32px; /* توحيد مكان السعر تحت الاسم */
+        margin: 5px 0 !important;
+    }
+
+    .product-price {
+        font-size: 0.95rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* 4. الأزرار: جنب بعض بشكل شيك */
     .btn-group {
-        flex-direction: column; /* لو الأزرار زحمة خليهم تحت بعض */
-        gap: 5px;
+        display: flex !important;
+        gap: 5px !important;
+        margin-top: auto;
+    }
+
+    .order-btn, .order-btn-tech, .add-to-cart-btn {
+        padding: 8px 2px !important;
+        font-size: 0.75rem !important;
+        border-radius: 8px !important;
+        flex: 1; /* يخليهم نفس العرض جنب بعض */
+    }
+
+    .add-to-cart-btn {
+        max-width: 40px; /* زرار السلة يبقا أصغر */
+    }
+
+    /* 5. السلة: تملأ العرض مع سكرول داخلي */
+    .cart-overlay {
+        width: 85% !important;
+        max-width: 320px;
     }
 }
 
-/* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
-.btn-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    margin-top: auto;
+/* تعديل للهيرو عشان ميبقاش ضخم */
+@media screen and (max-width: 480px) {
+    .hero-content h1 { font-size: 1.8rem !important; }
 }
-
-.order-btn {
-    flex: 2;
-    background: var(--primary);
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-}
-.order-btn:hover { background: white; color: var(--primary) !important; }
-
 .add-to-cart-btn {
     flex: 1;
     background: rgba(255, 255, 255, 0.05);
