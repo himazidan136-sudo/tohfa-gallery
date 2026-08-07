@@ -191,7 +191,7 @@ function checkout() {
     }
     
     // تجميع المنتجات
-    let itemsSummary = cart.map(item => `${item.name} (x${item.quantity})`).join(' + ');
+    let itemsSummary = cart.map(item => `${item.name} (x${item.qty})`).join(' + ');
     let totalValue = document.getElementById('cartTotal').innerText;
 
     // ملى الخانات المخفية
@@ -199,7 +199,10 @@ function checkout() {
     document.getElementById('hiddenPrice').value = totalValue;
     document.getElementById('mTitle').innerText = "إتمام طلب السلة";
 
-    toggleCart(); // قفل السلة
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartOverlay) cartOverlay.classList.remove('active');
+    document.body.classList.remove('stop-scrolling');
+
     document.getElementById('orderModal').style.display = 'flex'; // فتح الأبلكيشن
 }
 async function sendFinalOrder() {
@@ -222,7 +225,7 @@ async function sendFinalOrder() {
 
             if (result.success) {
                 alert("تم استلام طلبك بنجاح! شكراً لك.");
-                localStorage.removeItem('TOHFA_STORE_CART'); // تصفير السلة
+                localStorage.removeItem(CART_STORAGE_KEY); // تصفير السلة
                 window.location.reload(); 
             } else {
                 alert("السيرفر رفض الطلب: " + result.message);
