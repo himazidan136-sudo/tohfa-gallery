@@ -88,6 +88,96 @@ function addToCart(name, price, img, btn) {
    getElementById بياخد أول عنصر بس - يعني زرار "إتمام الطلب" في
    السلة كان أحياناً بيفتح المودال أو يكتب في الفورم الغلط.
    الحل: نظام طلب واحد موحّد بس. الدالة دي بتضيف المنتج للسلة
+  // tohfa/tohfa-script.js
+
+/* ==========================================================
+   1) الإعدادات العامة وتحميل السلة من المتصفح
+   - CART_STORAGE_KEY: مفتاح واحد موحّد بنستخدمه في كل مكان بدل ما
+     نكتب النص "TOHFA_CART" يدوي في أكتر من دالة (زي ما كان بيحصل
+     قبل كده، وده اللي سبب باج إن السلة ما كانتش بتتمسح بعد الطلب
+     لأن مكان كان بيمسح مفتاح باسم مختلف "TOHFA_STORE_CART")
+   ========================================================== */
+const CART_STORAGE_KEY = 'TOHFA_CART';
+let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
+
+/* ==========================================================
+   2) تشغيل الكود عند تحميل الصفحة
+   ========================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartUI();
+
+    // 🐞 تم نقل تأثير النافبار عند السكرول هنا جوه DOMContentLoaded
+    // عشان نتأكد إن عنصر .navbar موجود فعلاً قبل ما نتعامل معاه
+    const nav = document.querySelector('.navbar');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    }
+});
+
+/* ==========================================================
+   3) فتح / قفل السلة الجانبية
+   🐞 تم إصلاح: كانت بتقفل سكرول الصفحة بـ inline style مباشر
+   (document.body.style.overflow) وده مش نفس الطريقة اللي باقي
+   الكود (checkout) بيستخدمها (كلاس stop-scrolling). دلوقتي الاتنين
+   بيستخدموا نفس الكلاس عشان يكونوا متسقين مع ملفات الـ CSS.
+   ========================================================== */
+function toggleCart() {
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (!cartOverlay) return;
+
+    cartOverlay.classList.toggle('active');
+    
+    // لو السلة فتحت، اقفل سكرول الصفحة الرئيسية
+    if (cartOverlay.classList.contains('active')) {
+        document.body.classList.add('stop-scrolling');
+    } else {
+        document.body.classList.remove('stop-scrolling');
+    }
+}
+
+/* ==========================================================
+   4) إضافة منتج للسلة
+   - لو المنتج موجود بالفعل بيزود الكمية بس، غير كده بيضيفه جديد
+   - بيعمل أنيميشن بسيط على زرار "أضف للسلة" (تمت الإضافة ✔)
+   🐞 تم إصلاح: كانت بتعتمد على المتغير العام event مباشرة، ده بيشتغل
+   بس لما الدالة متنادية من onclick="" جوه الـ HTML مباشرة. خليتها
+   تستقبل الزرار كباراميتر اختياري عشان تشتغل حتى لو اتنادت من
+   جافاسكريبت تاني (addEventListener مثلاً) من غير ما تتكسر.
+   ========================================================== */
+function addToCart(name, price, img, btn) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ name, price, img, qty: 1 });
+    }
+    saveAndRefresh();
+
+    // أنيميشن زرار الطلب: بيقبل الزرار كباراميتر، ولو مش موصول بيرجع
+    // لـ event.target (للتوافق مع onclick="addToCart(...)" القديمة)
+    const targetBtn = btn || (typeof event !== 'undefined' ? event.target : null);
+    if (targetBtn) {
+        const oldText = targetBtn.innerText;
+        targetBtn.innerText = "تمت الإضافة ✔";
+        targetBtn.disabled = true;
+        setTimeout(() => {
+            targetBtn.innerText = oldText;
+            targetBtn.disabled = false;
+        }, 1500);
+    }
+}
+
+/* ==========================================================
+   4-ب) طلب منتج واحد مباشرة ("طلب المنتج")
+   🐞 تم إصلاح: كل صفحات المنتجات كان فيها نظام طلب قديم منفصل
+   (openForm / closeForm / sendOrder) بيستخدم نفس الـ IDs بالظبط
+   اللي بيستخدمها نظام السلة الجديد (orderModal, orderForm, mTitle,
+   submitBtn...). لما يتكرر نفس الـ ID مرتين في نفس الصفحة،
+   getElementById بياخد أول عنصر بس - يعني زرار "إتمام الطلب" في
+   السلة كان أحياناً بيفتح المودال أو يكتب في الفورم الغلط.
+   الحل: نظام طلب واحد موحّد بس. الدالة دي بتضيف المنتج للسلة
    فوراً وتفتح فورم الطلب على طول، فبتدي نفس تجربة "اطلب دلوقتي"
    من غير ما يتكرر أي عنصر في الصفحة.
    ========================================================== */
@@ -191,7 +281,7 @@ function checkout() {
     }
     
     // تجميع المنتجات
-    let itemsSummary = cart.map(item => `${item.name} (x${item.quantity})`).join(' + ');
+    let itemsSummary = cart.map(item => `${item.name} (x${item.qty})`).join(' + ');
     let totalValue = document.getElementById('cartTotal').innerText;
 
     // ملى الخانات المخفية
@@ -199,17 +289,25 @@ function checkout() {
     document.getElementById('hiddenPrice').value = totalValue;
     document.getElementById('mTitle').innerText = "إتمام طلب السلة";
 
-    toggleCart(); // قفل السلة
+    // قفل السلة بشكل مباشر (بدل toggleCart اللي كانت ممكن تفتحها غلط
+    // لو اتنادت من "طلب المنتج" والسلة أصلاً كانت مقفولة)
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartOverlay) cartOverlay.classList.remove('active');
+    document.body.classList.remove('stop-scrolling');
+
     document.getElementById('orderModal').style.display = 'flex'; // فتح الأبلكيشن
 }
+
+// الوظيفة المنقذة لإرسال البيانات بدون أخطاء
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
 
-    if(form.checkValidity()) {
+    if (form.checkValidity()) {
         btn.innerText = "جاري الإرسال...";
         btn.disabled = true;
 
+        // إرسال البيانات كـ FormData (أضمن طريقة)
         const formData = new FormData(form);
 
         try {
@@ -222,13 +320,14 @@ async function sendFinalOrder() {
 
             if (result.success) {
                 alert("تم استلام طلبك بنجاح! شكراً لك.");
-                localStorage.removeItem('TOHFA_STORE_CART'); // تصفير السلة
+                // تصفير السلة
+                localStorage.removeItem(CART_STORAGE_KEY);
                 window.location.reload(); 
             } else {
-                alert("السيرفر رفض الطلب: " + result.message);
+                alert("فشل الإرسال: " + result.message);
             }
         } catch (error) {
-            alert("فشل الاتصال، جرب استخدام بيانات الهاتف (4G).");
+            alert("خطأ في الشبكة، تأكد من اتصالك بالإنترنت");
         } finally {
             btn.innerText = "تأكيد وإرسال الطلب";
             btn.disabled = false;
@@ -279,6 +378,13 @@ function closeLightbox() {
         document.body.style.overflow = 'auto'; // رجوع السكرول
     }, 400);
 }
+
+// تشغيل الميزة على كل الصور تلقائياً
+document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'IMG' && (e.target.closest('.gallery-item') || e.target.closest('.product-img'))) {
+        openLightbox(e.target.src);
+    }
+});
 
 // تشغيل الميزة على كل الصور تلقائياً
 document.addEventListener('click', function(e) {
