@@ -355,8 +355,8 @@ const allProducts = [
     { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 2 },
     { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 1  },
     { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg" , stock: 1 },
-    
-    { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala0.jpeg", stock: 2 },
+
+    { name: "شياله ميرور  ", price:1500 , img: "tohfa/shayala0.jpeg", stock: 2 },
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg", stock: 2 },
     { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg", stock: 2 },
     { name: "صينيه معدن ورقه صغير  ", price:300 , img: "tohfa/shayala2.jpeg", stock: 4 },
