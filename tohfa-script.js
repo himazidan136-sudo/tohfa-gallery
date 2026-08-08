@@ -56,12 +56,25 @@ function toggleCart() {
    تستقبل الزرار كباراميتر اختياري عشان تشتغل حتى لو اتنادت من
    جافاسكريبت تاني (addEventListener مثلاً) من غير ما تتكسر.
    ========================================================== */
-function addToCart(name, price, img, btn) {
+function addToCart(name, price, img, stock, btn) {
+    // stock: أقصى كمية متاحة من المنتج (لو مش متبعتة، بتتحسب لا نهائية
+    // يعني من غير حد أقصى - للتوافق مع أي استدعاء قديم للدالة)
+    const maxStock = (typeof stock === 'number') ? stock : Infinity;
+
     const existing = cart.find(item => item.name === name);
     if (existing) {
+        if (existing.qty + 1 > maxStock) {
+            alert(`متأسفين، الكمية المتاحة من "${name}" هي ${maxStock} بس ولسه عندك ${existing.qty} في السلة.`);
+            return;
+        }
         existing.qty += 1;
+        existing.stock = maxStock; // تحديث الحد الأقصى لو اتغير
     } else {
-        cart.push({ name, price, img, qty: 1 });
+        if (maxStock < 1) {
+            alert(`متأسفين، "${name}" خلصت الكمية.`);
+            return;
+        }
+        cart.push({ name, price, img, qty: 1, stock: maxStock });
     }
     saveAndRefresh();
 
@@ -102,6 +115,13 @@ function orderNow(name, price, img) {
    ========================================================== */
 function changeQty(index, delta) {
     if (!cart[index]) return;
+
+    // منع الزيادة فوق الكمية المتاحة فعليًا من المنتج
+    if (delta > 0 && typeof cart[index].stock === 'number' && cart[index].qty + delta > cart[index].stock) {
+        alert(`متأسفين، الكمية المتاحة من "${cart[index].name}" هي ${cart[index].stock} بس.`);
+        return;
+    }
+
     cart[index].qty += delta;
     if (cart[index].qty < 1) return removeFromCart(index);
     saveAndRefresh();
@@ -295,13 +315,23 @@ document.addEventListener('click', function(e) {
    - عشان تخلي منتج "خلصت كميته"، ضيف له: available: false
      مثال: { name: "...", price: 500, img: "...", available: false }
    ========================================================== */
+/* ==========================================================
+   🆕 دالة التحقق من توفر المنتج (نسخة محدّثة)
+   - لو المنتج فيه خانة stock (رقم الكمية المتاحة)، بيتقفل تلقائي
+     لما الرقم يوصل لصفر أو أقل، من غير ما تحتاج تكتب available:false
+     يدوي كل مرة. مثال: { name: "...", price: 500, img: "...", stock: 3 }
+   - لسه بتدعم الطريقة القديمة (available: false) لو حابب تستخدمها
+     لمنتج معينه من غير عد كمية.
+   - أي منتج من غير stock ومن غير available بيتحسب متاح تلقائيًا.
+   ========================================================== */
 function isAvailable(item) {
+    if (typeof item.stock === 'number') return item.stock > 0;
     return item.available !== false;
 }
 
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
-    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg",stock: 3 },
+    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg",stock: 1 },
     { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg" },
     { name: "طقم شمعدان ميرور ورد ", price: 1100, img: "tohfa/sham3dan2.jpeg" },
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
@@ -362,7 +392,7 @@ function renderProducts() {
                 <span class="product-price">${product.price} ج.م</span>
                 <div class="btn-group">
                     <button class="order-btn" ${available ? `onclick="openOrderForm('${product.name}', '${product.price} ج.م')"` : 'disabled'}>طلب</button>
-                    <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${product.name}', ${product.price}, '${product.img}')"` : 'disabled'}>🛒</button>
+                    <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${product.name}', ${product.price}, '${product.img}', ${typeof product.stock === 'number' ? product.stock : 'undefined'})"` : 'disabled'}>🛒</button>
                 </div>
             </div>
         `;
@@ -417,7 +447,7 @@ function renderFlowers() {
                     <span class="product-price">${item.price}</span>
                     <div class="btn-group">
                         <button class="order-btn" ${available ? `onclick="openOrderForm('${item.name}', '${item.price}')"` : 'disabled'}>طلب</button>
-                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}')"` : 'disabled'}>🛒</button>
+                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}', ${typeof item.stock === 'number' ? item.stock : 'undefined'})"` : 'disabled'}>🛒</button>
                     </div>
                 </div>
             `;
@@ -479,7 +509,7 @@ function rendervases() {
                     <span class="product-price">${item.price}</span>
                     <div class="btn-group">
                         <button class="order-btn" ${available ? `onclick="openOrderForm('${item.name}', '${item.price}')"` : 'disabled'}>طلب</button>
-                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}')"` : 'disabled'}>🛒</button>
+                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}', ${typeof item.stock === 'number' ? item.stock : 'undefined'})"` : 'disabled'}>🛒</button>
                     </div>
                 </div>
             `;
@@ -519,7 +549,7 @@ function renderwall() {
                     <span class="product-price">${item.price}</span>
                     <div class="btn-group">
                         <button class="order-btn" ${available ? `onclick="openOrderForm('${item.name}', '${item.price}')"` : 'disabled'}>طلب</button>
-                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}')"` : 'disabled'}>🛒</button>
+                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}', ${typeof item.stock === 'number' ? item.stock : 'undefined'})"` : 'disabled'}>🛒</button>
                     </div>
                 </div>
             `;
