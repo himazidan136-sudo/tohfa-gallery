@@ -530,7 +530,13 @@ document.addEventListener('DOMContentLoaded', rendervases);
 const wallProducts = [
 
     { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
-   
+       { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+
 ];
 
 // 2. وظيفة عرض الورد تلقائياً
