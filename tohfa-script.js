@@ -64,7 +64,7 @@ function addToCart(name, price, img, stock, btn) {
     const existing = cart.find(item => item.name === name);
     if (existing) {
         if (existing.qty + 1 > maxStock) {
-            alert(`متأسفين، الكمية المتاحة من "${name}" هي ${maxStock} بس ولسه عندك ${existing.qty} في السلة.`);
+            alert(`متأسفين، الكمية المتاحة من "${name}" هي ${maxStock} فقط ولسه عندك ${existing.qty} في السلة.`);
             return;
         }
         existing.qty += 1;
