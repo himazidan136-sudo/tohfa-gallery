@@ -118,7 +118,7 @@ function changeQty(index, delta) {
 
     // منع الزيادة فوق الكمية المتاحة فعليًا من المنتج
     if (delta > 0 && typeof cart[index].stock === 'number' && cart[index].qty + delta > cart[index].stock) {
-        alert(`متأسفين، الكمية المتاحة من "${cart[index].name}" هي ${cart[index].stock} بس.`);
+        alert(`متأسفين، الكمية المتاحة من "${cart[index].name}" هي ${cart[index].stock} فقط.`);
         return;
     }
 
