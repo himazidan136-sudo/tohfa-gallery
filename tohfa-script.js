@@ -411,21 +411,21 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 const flowerProducts = [
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg", stock: 2 },
     { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg", stock: 1  },
-    { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
-    { name: "صباره رخام اسود", price: "200 ج.م", img: "tohfa/flowerss.jpeg" },
-    { name: "صباره رخام ابيض", price: "200 ج.م", img: "tohfa/flowerss0.jpeg" },
+    { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg", stock: 1  },
+    { name: "صباره رخام اسود", price: "200 ج.م", img: "tohfa/flowerss.jpeg" , stock: 1 },
+    { name: "صباره رخام ابيض", price: "200 ج.م", img: "tohfa/flowerss0.jpeg", stock: 1  },
 
-    { name: "وعاء نباتات سيراميك صغير اسود", price: "400 ج.م", img: "tohfa/flowersw0.jpeg" },
-    { name: "وعاء نباتات سيراميك صغير دهبي", price: "400 ج.م", img: "tohfa/flowersw1.jpeg" },
-    { name: "وعاء نباتات سيراميك صغير ابيض", price: "400 ج.م", img: "tohfa/flowersw2.jpeg" },
-    { name: "وعاء نباتات سيراميك كبير ابيض", price: "740 ج.م", img: "tohfa/flowerswl.jpeg" },
-    { name: "وعاء نباتات سيراميك كبير دهبي", price: "740 ج.م", img: "tohfa/flowerswl0.jpeg" },
+    { name: "وعاء نباتات سيراميك صغير اسود", price: "400 ج.م", img: "tohfa/flowersw0.jpeg" , stock: 1 },
+    { name: "وعاء نباتات سيراميك صغير دهبي", price: "400 ج.م", img: "tohfa/flowersw1.jpeg" , stock: 1 },
+    { name: "وعاء نباتات سيراميك صغير ابيض", price: "400 ج.م", img: "tohfa/flowersw2.jpeg" , stock: 1 },
+    { name: "وعاء نباتات سيراميك كبير ابيض", price: "740 ج.م", img: "tohfa/flowerswl.jpeg" , stock: 1 },
+    { name: "وعاء نباتات سيراميك كبير دهبي", price: "740 ج.م", img: "tohfa/flowerswl0.jpeg" , stock: 1 },
 
-    { name: "بوت زرع ديكور صغير ابيض", price: "250 ج.م", img: "tohfa/flowersb.jpeg" },
-    { name: "بوت زرع ديكور صغير اسود", price: "250 ج.م", img: "tohfa/flowersb0.jpeg" },
-    { name: "بوت زرع ديكور صغير دهبي", price: "250 ج.م", img: "tohfa/flowersb1.jpeg" },
+    { name: "بوت زرع ديكور صغير ابيض", price: "250 ج.م", img: "tohfa/flowersb.jpeg" , stock: 1 },
+    { name: "بوت زرع ديكور صغير اسود", price: "250 ج.م", img: "tohfa/flowersb0.jpeg" , stock: 1 },
+    { name: "بوت زرع ديكور صغير دهبي", price: "250 ج.م", img: "tohfa/flowersb1.jpeg", stock: 1  },
 
-    { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg" },
+    { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg", stock: 2 },
 
 ];
 
