@@ -71,7 +71,7 @@ function addToCart(name, price, img, stock, btn) {
         existing.stock = maxStock; // تحديث الحد الأقصى لو اتغير
     } else {
         if (maxStock < 1) {
-            alert(`متأسفين، "${name}" خلصت الكمية.`);
+            alert(`متأسفين، "${name}" نفذت الكمية.`);
             return;
         }
         cart.push({ name, price, img, qty: 1, stock: maxStock });
