@@ -289,6 +289,16 @@ document.addEventListener('click', function(e) {
         openLightbox(e.target.src);
     }
 });
+/* ==========================================================
+   🆕 دالة التحقق من توفر المنتج
+   - أي منتج من غير خاصية available بيتحسب متاح تلقائيًا
+   - عشان تخلي منتج "خلصت كميته"، ضيف له: available: false
+     مثال: { name: "...", price: 500, img: "...", available: false }
+   ========================================================== */
+function isAvailable(item) {
+    return item.available !== false;
+}
+
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
@@ -343,14 +353,16 @@ function renderProducts() {
     container.innerHTML = ''; // تنظيف المكان الأول
 
     allProducts.forEach(product => {
+        const available = isAvailable(product);
         container.innerHTML += `
-            <div class="product-card glass-card">
+            <div class="product-card glass-card ${available ? '' : 'out-of-stock'}">
                 <img src="${product.img}" class="product-img" loading="lazy">
+                ${available ? '' : '<span class="out-of-stock-badge">الكمية خلصت</span>'}
                 <span class="product-name">${product.name}</span>
                 <span class="product-price">${product.price} ج.م</span>
                 <div class="btn-group">
-                    <button class="order-btn" onclick="openOrderForm('${product.name}', '${product.price} ج.م')">طلب</button>
-                    <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${product.price}, '${product.img}')">🛒</button>
+                    <button class="order-btn" ${available ? `onclick="openOrderForm('${product.name}', '${product.price} ج.م')"` : 'disabled'}>طلب</button>
+                    <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${product.name}', ${product.price}, '${product.img}')"` : 'disabled'}>🛒</button>
                 </div>
             </div>
         `;
@@ -396,14 +408,16 @@ function renderFlowers() {
         container.innerHTML = ''; 
         
         flowerProducts.forEach(item => {
+            const available = isAvailable(item);
             container.innerHTML += `
-                <div class="product-card glass-card">
+                <div class="product-card glass-card ${available ? '' : 'out-of-stock'}">
                     <img src="${item.img}" class="product-img">
+                    ${available ? '' : '<span class="out-of-stock-badge">الكمية خلصت</span>'}
                     <span class="product-name">${item.name}</span>
                     <span class="product-price">${item.price}</span>
                     <div class="btn-group">
-                        <button class="order-btn" onclick="openOrderForm('${item.name}', '${item.price}')">طلب</button>
-                        <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">🛒</button>
+                        <button class="order-btn" ${available ? `onclick="openOrderForm('${item.name}', '${item.price}')"` : 'disabled'}>طلب</button>
+                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}')"` : 'disabled'}>🛒</button>
                     </div>
                 </div>
             `;
@@ -456,14 +470,16 @@ function rendervases() {
         container.innerHTML = ''; 
         
         vasesProducts.forEach(item => {
+            const available = isAvailable(item);
             container.innerHTML += `
-                <div class="product-card glass-card">
+                <div class="product-card glass-card ${available ? '' : 'out-of-stock'}">
                     <img src="${item.img}" class="product-img">
+                    ${available ? '' : '<span class="out-of-stock-badge">الكمية خلصت</span>'}
                     <span class="product-name">${item.name}</span>
                     <span class="product-price">${item.price}</span>
                     <div class="btn-group">
-                        <button class="order-btn" onclick="openOrderForm('${item.name}', '${item.price}')">طلب</button>
-                        <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">🛒</button>
+                        <button class="order-btn" ${available ? `onclick="openOrderForm('${item.name}', '${item.price}')"` : 'disabled'}>طلب</button>
+                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}')"` : 'disabled'}>🛒</button>
                     </div>
                 </div>
             `;
@@ -494,14 +510,16 @@ function renderwall() {
         container.innerHTML = ''; 
         
        wallProducts.forEach(item => {
+            const available = isAvailable(item);
             container.innerHTML += `
-                <div class="product-card glass-card">
+                <div class="product-card glass-card ${available ? '' : 'out-of-stock'}">
                     <img src="${item.img}" class="product-img">
+                    ${available ? '' : '<span class="out-of-stock-badge">الكمية خلصت</span>'}
                     <span class="product-name">${item.name}</span>
                     <span class="product-price">${item.price}</span>
                     <div class="btn-group">
-                        <button class="order-btn" onclick="openOrderForm('${item.name}', '${item.price}')">طلب</button>
-                        <button class="add-to-cart-btn" onclick="addToCart('${item.name}', '${item.price}', '${item.img}')">🛒</button>
+                        <button class="order-btn" ${available ? `onclick="openOrderForm('${item.name}', '${item.price}')"` : 'disabled'}>طلب</button>
+                        <button class="add-to-cart-btn" ${available ? `onclick="addToCart('${item.name}', '${item.price}', '${item.img}')"` : 'disabled'}>🛒</button>
                     </div>
                 </div>
             `;
