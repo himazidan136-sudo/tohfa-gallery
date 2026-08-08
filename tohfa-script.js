@@ -409,8 +409,8 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 
 // 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
 const flowerProducts = [
-    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
-    { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
+    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg", stock: 2 },
+    { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg", stock: 1  },
     { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
     { name: "صباره رخام اسود", price: "200 ج.م", img: "tohfa/flowerss.jpeg" },
     { name: "صباره رخام ابيض", price: "200 ج.م", img: "tohfa/flowerss0.jpeg" },
