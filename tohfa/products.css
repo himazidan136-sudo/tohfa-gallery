@@ -466,7 +466,7 @@ body.stop-scrolling {
     .cart-nav-item { margin-left: 5px; }
 
     /* شبكة المنتجات: منتجين جنب بعض، والصندوق بيتصغر شوية بس يفضل موحّد */
-    .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+    .product-grid, #products-list { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
     .product-card { padding: 10px !important; }
     .product-img { height: 140px !important; }
     .product-name { font-size: 0.85rem !important; }
@@ -499,7 +499,7 @@ body.stop-scrolling {
     .hero-content p { font-size: 0.9rem !important; }
 
     /* كرتين جنب بعض في السطر، وبيتكرروا تحت بعض */
-    .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+    .product-grid, #products-list { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
     .product-card { padding: 10px !important; }
     .product-img { height: 150px !important; }
     .product-name { font-size: 0.85rem !important; }
