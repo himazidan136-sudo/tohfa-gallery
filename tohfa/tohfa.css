@@ -622,6 +622,7 @@ body.stop-scrolling {
     .cart-nav-item { margin-left: 5px; }
 
     /* الهيرو والعناوين */
+    .hero { height: 65vh !important; } /* بدل 100vh: عشان الفيديو الأفقي ميتقطعش بزيادة على شاشة طولية */
     .hero-content h1 { font-size: 2.2rem !important; }
     .hero-content p { font-size: 1.1rem !important; }
     .section-title { font-size: 28px; }
