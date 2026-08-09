@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOHFA | تحفة - الرئيسية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Reem+Kufi:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="tohfa/tohfa.css">
+    <link rel="stylesheet" href="tohfa/tohfa.css?v=3">
 </head>
 <body class="dark-theme">
 
@@ -39,6 +39,10 @@
     </div>
 </nav>
     <header id="home" class="hero">
+        <!-- 🆕 فيديو الخلفية بدل الصورة الثابتة -->
+        <video class="hero-video" autoplay muted loop playsinline poster="d:\تحفه\hero-video.mp4">
+            <source src="d:\تحفه\hero-video.mp4" type="video/mp4">
+        </video>
         <div class="hero-overlay">
             <div class="hero-content animate-reveal">
                 <h1>عالم من الجمال في بيتك</h1>
@@ -120,7 +124,7 @@
 
         
 </script>
-<div id="cartOverlay" class="cart-overlay">
+ <div id="cartOverlay" class="cart-overlay">
     <div class="cart-header">
         <h2>سلة المقتنيات</h2>
         <div onclick="toggleCart()" style="cursor:pointer; font-size:30px; color:var(--primary)">&times;</div>
@@ -160,7 +164,7 @@
 </div>
 
 <!-- ربط ملف الجافا سكريبت الجديد -->
-<script src="tohfa-script.js"></script>
+<script src="tohfa-script.js?v=2"></script>
 <!-- نافذة تكبير الصور (Lightbox) -->
 <div id="imageModal" class="image-lightbox">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
