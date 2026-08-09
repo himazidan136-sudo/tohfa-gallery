@@ -16,6 +16,29 @@ let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
 
+    // 🆕 إجبار فيديو الخلفية (الهيرو) على التشغيل، لأن بعض المتصفحات
+    // بتتجاهل خاصية autoplay في الـHTML أحيانًا. الكود ده بيحاول
+    // يشغّله يدوي، ولو المتصفح رفض (نادر جدًا مع فيديو مكتوم الصوت)
+    // بيسيب الصورة (poster) ظاهرة من غير ما يوقف باقي الكود.
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+        heroVideo.muted = true;
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // لو المتصفح رفض التشغيل التلقائي، نجرب تاني أول ما
+                // المستخدم يلمس/يدوس في أي حتة في الصفحة
+                const retryPlay = () => {
+                    heroVideo.play();
+                    document.removeEventListener('touchstart', retryPlay);
+                    document.removeEventListener('click', retryPlay);
+                };
+                document.addEventListener('touchstart', retryPlay, { once: true });
+                document.addEventListener('click', retryPlay, { once: true });
+            });
+        }
+    }
+
     // 🐞 تم نقل تأثير النافبار عند السكرول هنا جوه DOMContentLoaded
     // عشان نتأكد إن عنصر .navbar موجود فعلاً قبل ما نتعامل معاه
     const nav = document.querySelector('.navbar');
@@ -64,14 +87,14 @@ function addToCart(name, price, img, stock, btn) {
     const existing = cart.find(item => item.name === name);
     if (existing) {
         if (existing.qty + 1 > maxStock) {
-            alert(`متأسفين، الكمية المتاحة من "${name}" هي ${maxStock} فقط ولسه عندك ${existing.qty} في السلة.`);
+            alert(`متأسفين، الكمية المتاحة من "${name}" هي ${maxStock} بس ولسه عندك ${existing.qty} في السلة.`);
             return;
         }
         existing.qty += 1;
         existing.stock = maxStock; // تحديث الحد الأقصى لو اتغير
     } else {
         if (maxStock < 1) {
-            alert(`متأسفين، "${name}" نفذت الكمية.`);
+            alert(`متأسفين، "${name}" خلصت الكمية.`);
             return;
         }
         cart.push({ name, price, img, qty: 1, stock: maxStock });
@@ -118,7 +141,7 @@ function changeQty(index, delta) {
 
     // منع الزيادة فوق الكمية المتاحة فعليًا من المنتج
     if (delta > 0 && typeof cart[index].stock === 'number' && cart[index].qty + delta > cart[index].stock) {
-        alert(`متأسفين، الكمية المتاحة من "${cart[index].name}" هي ${cart[index].stock} فقط.`);
+        alert(`متأسفين، الكمية المتاحة من "${cart[index].name}" هي ${cart[index].stock} بس.`);
         return;
     }
 
@@ -331,48 +354,46 @@ function isAvailable(item) {
 
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
-    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg", stock: 1 },
-    { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg", stock: 2  },
-    { name: "طقم شمعدان ميرور ورد ", price: 1100, img: "tohfa/sham3dan2.jpeg", stock: 2  },
-    { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg", stock: 1  },
-    { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpeg", stock: 1  },
-    { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg", stock: 1  },
-    { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg", stock: 1  },
-    { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg", stock: 1  },
-    { name: "بلوره هلال", price: 485, img: "tohfa/decorb3.jpeg", stock: 1  },
-    { name: "انتيكه اقراص ملونه", price: 500, img: "tohfa/decoran.jpeg", stock: 4 },
-    { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg", stock: 2  },
-    { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg", stock: 2 },
-    { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg", stock: 1  },
-    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1  },
-    { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg", stock: 1  },
-    { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg", stock: 2  },
-    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg", stock: 1  },
-    { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg", stock: 1  },
-    { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg", stock: 1  },
-    { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg", stock: 1  },
-    { name: "مركب بحري ديكور كبير  ", price:720 , img: "tohfa/decormr1.jpeg", stock: 2 },
-    { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 2 },
-    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 1  },
-    { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg" , stock: 1 },
+    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
+    { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg" },
+    { name: "طقم شمعدان ميرور ورد ", price: 1100, img: "tohfa/sham3dan2.jpeg" },
+    { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
+    { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpeg" },
+    { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg" },
+    { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg" },
+    { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg" },
+    { name: "بلوره هلال", price: 485, img: "tohfa/decorb3.jpeg" },
+    { name: "انتيكه اقراص ملونه", price: 500, img: "tohfa/decoran.jpeg" },
+    { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg" },
+    { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg" },
+    { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg" },
+    { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg" },
+    { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg" },
+    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
+        { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg" },
+    { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg" },
+    { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg" },
+    { name: "مركب بحري ديكور كبير  ", price:720 , img: "tohfa/decormr1.jpeg" },
+    { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg" },
+    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg" },
+    { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg" },
 
-    { name: "شياله ميرور  ", price:1500 , img: "tohfa/shayala0.jpeg", stock: 2 },
-    { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg", stock: 2 },
-    { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg", stock: 2 },
-    { name: "صينيه معدن ورقه صغير  ", price:300 , img: "tohfa/shayala2.jpeg", stock: 4 },
-    { name: "صينيه معدن ورقه كبير  ", price:400 , img: "tohfa/shayala3.jpeg" , stock: 4},
-    { name: "طقم ستاند قطعتين ميرور  ", price:2600 , img: "tohfa/shayala4.jpeg", stock: 2  },
-    { name: "بوله ميرور ", price:685 , img: "tohfa/shayala5.jpeg", stock: 2 },
-    { name: "طبق ميرور", price:850 , img: "tohfa/shayala6.jpeg", stock: 1  },
-    { name: "طبق الترا", price:1450 , img: "tohfa/shayala7.jpeg", stock: 1  },
-    { name: "طبق الترا عريض", price:1450 , img: "tohfa/shayala8.jpeg" , stock: 1 },
-    { name: "بونبونيره الترا", price:935 , img: "tohfa/shayala9.jpeg" , stock: 1 },
-    { name: "طقم اوعيه زجاجي", price:600 , img: "tohfa/shayala10.jpeg" , stock: 2 },
+    { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg" },
+    { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg" },
+    { name: "صينيه معدن ورقه صغير  ", price:300 , img: "tohfa/shayala2.jpeg" },
+    { name: "صينيه معدن ورقه كبير  ", price:400 , img: "tohfa/shayala3.jpeg" },
+    { name: "طقم ستاند قطعتين ميرور  ", price:2600 , img: "tohfa/shayala4.jpeg" },
+    { name: "بوله ميرور ", price:685 , img: "tohfa/shayala5.jpeg" },
+    { name: "طبق ميرور", price:850 , img: "tohfa/shayala6.jpeg" },
+    { name: "طبق الترا", price:1450 , img: "tohfa/shayala7.jpeg" },
+    { name: "طبق الترا عريض", price:1450 , img: "tohfa/shayala8.jpeg" },
+    { name: "بونبونيره الترا", price:935 , img: "tohfa/shayala9.jpeg" },
 
-    { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg", stock: 1  },
-    { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg", stock: 1  },
-    { name: "ساعه منبه صغير  ", price:300 , img: "tohfa/sa3a2.jpeg", stock: 1  },
-    { name: "فاز فواحه معطر  ", price:485 , img: "tohfa/fowaha.jpeg" , stock: 3},
+    { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg" },
+    { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg" },
+    { name: "ساعه منبه صغير  ", price:300 , img: "tohfa/sa3a2.jpeg" },
+    { name: "فاز فواحه معطر  ", price:485 , img: "tohfa/fowaha.jpeg" },
 
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
@@ -411,23 +432,23 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 
 // 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
 const flowerProducts = [
-    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg", stock: 2 },
-    { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg", stock: 1  },
-    { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg", stock: 1  },
-    { name: "صباره رخام اسود", price: "200 ج.م", img: "tohfa/flowerss.jpeg" , stock: 1 },
-    { name: "صباره رخام ابيض", price: "200 ج.م", img: "tohfa/flowerss0.jpeg", stock: 1  },
+    { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
+    { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
+    { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
+    { name: "صباره رخام اسود", price: "200 ج.م", img: "tohfa/flowerss.jpeg" },
+    { name: "صباره رخام ابيض", price: "200 ج.م", img: "tohfa/flowerss0.jpeg" },
 
-    { name: "وعاء نباتات سيراميك صغير اسود", price: "400 ج.م", img: "tohfa/flowersw0.jpeg" , stock: 1 },
-    { name: "وعاء نباتات سيراميك صغير دهبي", price: "400 ج.م", img: "tohfa/flowersw1.jpeg" , stock: 1 },
-    { name: "وعاء نباتات سيراميك صغير ابيض", price: "400 ج.م", img: "tohfa/flowersw2.jpeg" , stock: 1 },
-    { name: "وعاء نباتات سيراميك كبير ابيض", price: "740 ج.م", img: "tohfa/flowerswl.jpeg" , stock: 1 },
-    { name: "وعاء نباتات سيراميك كبير دهبي", price: "740 ج.م", img: "tohfa/flowerswl0.jpeg" , stock: 1 },
+    { name: "وعاء نباتات سيراميك صغير اسود", price: "400 ج.م", img: "tohfa/flowersw0.jpeg" },
+    { name: "وعاء نباتات سيراميك صغير دهبي", price: "400 ج.م", img: "tohfa/flowersw1.jpeg" },
+    { name: "وعاء نباتات سيراميك صغير ابيض", price: "400 ج.م", img: "tohfa/flowersw2.jpeg" },
+    { name: "وعاء نباتات سيراميك كبير ابيض", price: "740 ج.م", img: "tohfa/flowerswl.jpeg" },
+    { name: "وعاء نباتات سيراميك كبير دهبي", price: "740 ج.م", img: "tohfa/flowerswl0.jpeg" },
 
-    { name: "بوت زرع ديكور صغير ابيض", price: "250 ج.م", img: "tohfa/flowersb.jpeg" , stock: 1 },
-    { name: "بوت زرع ديكور صغير اسود", price: "250 ج.م", img: "tohfa/flowersb0.jpeg" , stock: 1 },
-    { name: "بوت زرع ديكور صغير دهبي", price: "250 ج.م", img: "tohfa/flowersb1.jpeg", stock: 1  },
+    { name: "بوت زرع ديكور صغير ابيض", price: "250 ج.م", img: "tohfa/flowersb.jpeg" },
+    { name: "بوت زرع ديكور صغير اسود", price: "250 ج.م", img: "tohfa/flowersb0.jpeg" },
+    { name: "بوت زرع ديكور صغير دهبي", price: "250 ج.م", img: "tohfa/flowersb1.jpeg" },
 
-    { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg", stock: 2 },
+    { name: "نبتة صبار مدهب صغير اسود", price: "250 ج.م", img: "tohfa/flowersn.jpeg" },
 
 ];
 
@@ -467,29 +488,29 @@ document.addEventListener('DOMContentLoaded', renderFlowers);
 
 const vasesProducts = [
 
-    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" , stock: 1 },
-    { name: "مزهريه ذهبيه وسط", price: "620 ج.م", img: "tohfa/vasesmm.jpeg", stock: 1  },
-    { name: "مزهريه ذهبيه صغير", price: "580 ج.م", img: "tohfa/vasesms.jpeg", stock: 1  },
-    { name: "مزهريه خزفيه ذهبيه كبير", price: "820 ج.م", img: "tohfa/vasesmk.jpeg", stock: 1  },
-    { name: "مزهريه خزفيه ذهبيه وسط", price: "650 ج.م", img: "tohfa/vasesmkm.jpeg" , stock: 1 },
-    { name: "مزهريه خزفيه ذهبيه صغير", price: "550 ج.م", img: "tohfa/vasesmks.jpeg" , stock: 1 },
-    { name: "فاز زور اسود ", price: "1000 ج.م", img: "tohfa/vasesz.jpeg", stock: 1  },
-    { name: "فاز زور اسود كبير", price: "1200 ج.م", img: "tohfa/vasesz0.jpeg" , stock: 1 },
-    { name: "مزهريه زجاجيه قرع ", price: "720 ج.م", img: "tohfa/vasesmz0.jpeg" , stock: 1 },
-    { name: "مزهريه زجاجيه قرع صغير", price: "580 ج.م", img: "tohfa/vasesmz.jpeg" , stock: 1 },
-    { name: "مزهريه زجاجيه اسود صغير", price: "780 ج.م", img: "tohfa/vasesmz1.jpeg", stock: 1  },
-    { name: "مزهريه زجاجيه اسود ", price: "850 ج.م", img: "tohfa/vasesmz2.jpeg", stock: 1  },
-    { name: "مزهريه خزفي زيتي ", price: "599 ج.م", img: "tohfa/vasesk.jpeg", stock: 1  },
-    { name: "فاز اسود مدهب ", price: "450 ج.م", img: "tohfa/vasesb0.jpeg" , stock: 1 },
-    { name: "فاز اسود ميرور ", price: "1650 ج.م", img: "tohfa/vasesb.jpeg" , stock: 2},
-    { name: "فاز اسود مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbm.jpeg", stock: 1  },
-    { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbg.jpeg" , stock: 1 },
-    { name: "فاز كريستال شاطئ  ", price: "1200 ج.م", img: "tohfa/vasess.jpeg", stock: 1  },
-    { name: "فاز خشبي كرمزي  ", price: "1200 ج.م", img: "tohfa/vasess0.jpeg", stock: 1  },
-    { name: "فاز كريستال صغير  ", price: "500 ج.م", img: "tohfa/vase.jpeg" , stock: 1 },
-    { name: "فاز نحاس مدهب ابيض   ", price: "1900 ج.م", img: "tohfa/vasesn.jpeg" , stock: 1 },
-    { name: "فاز نحاس مدهب ابيض صغير  ", price: "1700 ج.م", img: "tohfa/vasesn0.jpeg", stock: 1  },
-    { name: "فاز نحاس شامبيه   ", price: "1400 ج.م", img: "tohfa/vasesn1.jpeg", stock: 1  },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه وسط", price: "620 ج.م", img: "tohfa/vasesmm.jpeg" },
+    { name: "مزهريه ذهبيه صغير", price: "580 ج.م", img: "tohfa/vasesms.jpeg" },
+    { name: "مزهريه خزفيه ذهبيه كبير", price: "820 ج.م", img: "tohfa/vasesmk.jpeg" },
+    { name: "مزهريه خزفيه ذهبيه وسط", price: "650 ج.م", img: "tohfa/vasesmkm.jpeg" },
+    { name: "مزهريه خزفيه ذهبيه صغير", price: "550 ج.م", img: "tohfa/vasesmks.jpeg" },
+    { name: "فاز زور اسود ", price: "1000 ج.م", img: "tohfa/vasesz.jpeg" },
+    { name: "فاز زور اسود كبير", price: "1200 ج.م", img: "tohfa/vasesz0.jpeg" },
+    { name: "مزهريه زجاجيه قرع ", price: "720 ج.م", img: "tohfa/vasesmz0.jpeg" },
+    { name: "مزهريه زجاجيه قرع صغير", price: "580 ج.م", img: "tohfa/vasesmz.jpeg" },
+    { name: "مزهريه زجاجيه اسود صغير", price: "780 ج.م", img: "tohfa/vasesmz1.jpeg" },
+    { name: "مزهريه زجاجيه اسود ", price: "850 ج.م", img: "tohfa/vasesmz2.jpeg" },
+    { name: "مزهريه خزفي زيتي ", price: "599 ج.م", img: "tohfa/vasesk.jpeg" },
+    { name: "فاز اسود ميرور ", price: "1650 ج.م", img: "tohfa/vasesb.jpeg" },
+    { name: "فاز اسود مدهب ", price: "450 ج.م", img: "tohfa/vasesb0.jpeg" },
+    { name: "فاز اسود مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbm.jpeg" },
+    { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vasesbg.jpeg" },
+    { name: "فاز كريستال شاطئ  ", price: "1200 ج.م", img: "tohfa/vasess.jpeg" },
+    { name: "فاز خشبي كرمزي  ", price: "1200 ج.م", img: "tohfa/vasess0.jpeg" },
+    { name: "فاز كريستال صغير  ", price: "500 ج.م", img: "tohfa/vase.jpeg" },
+    { name: "فاز نحاس مدهب ابيض   ", price: "1900 ج.م", img: "tohfa/vasesn.jpeg" },
+    { name: "فاز نحاس مدهب ابيض صغير  ", price: "1700 ج.م", img: "tohfa/vasesn0.jpeg" },
+    { name: "فاز نحاس شامبيه   ", price: "1400 ج.م", img: "tohfa/vasesn1.jpeg" },
 
 ];
 
@@ -531,12 +552,6 @@ const wallProducts = [
 
     { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
    
-
-
-
-
-
-    
 ];
 
 // 2. وظيفة عرض الورد تلقائياً
