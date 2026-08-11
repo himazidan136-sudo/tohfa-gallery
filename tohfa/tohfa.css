@@ -255,6 +255,49 @@ body.stop-scrolling {
 
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .gallery-item { height: 350px; overflow: hidden; padding: 10px; }
+
+/* 🆕 شرايط الصور المتحركة (Marquee) بدل الجريد الثابت */
+.marquee-row {
+    width: 100%;
+    overflow: hidden;
+    margin: 15px 0;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.marquee-track {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+    animation: marquee-scroll 35s linear infinite;
+}
+.marquee-row.marquee-reverse .marquee-track {
+    animation-direction: reverse;
+    animation-duration: 40s; /* سرعة مختلفة شوية عن الصفوف التانية عشان الحركة تبقى طبيعية */
+}
+.marquee-item {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.marquee-item img:hover { transform: scale(1.08); }
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* بما إن الصور متكررة مرتين، النص ده بيخلي اللفة تبقى ملساء */
+}
+@media screen and (max-width: 768px) {
+    .marquee-item { width: 150px; height: 150px; }
+    .marquee-track { animation-duration: 22s; }
+    .marquee-row.marquee-reverse .marquee-track { animation-duration: 26s; }
+}
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: 0.6s; }
 .gallery-item:hover img { transform: scale(1.1); }
 
@@ -622,6 +665,7 @@ body.stop-scrolling {
     .cart-nav-item { margin-left: 5px; }
 
     /* الهيرو والعناوين */
+    .hero { height: 65vh !important; } /* بدل 100vh: عشان الفيديو الأفقي ميتقطعش بزيادة على شاشة طولية */
     .hero-content h1 { font-size: 2.2rem !important; }
     .hero-content p { font-size: 1.1rem !important; }
     .section-title { font-size: 28px; }

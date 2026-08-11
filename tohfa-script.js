@@ -16,29 +16,6 @@ let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
 
-    // 🆕 إجبار فيديو الخلفية (الهيرو) على التشغيل، لأن بعض المتصفحات
-    // بتتجاهل خاصية autoplay في الـHTML أحيانًا. الكود ده بيحاول
-    // يشغّله يدوي، ولو المتصفح رفض (نادر جدًا مع فيديو مكتوم الصوت)
-    // بيسيب الصورة (poster) ظاهرة من غير ما يوقف باقي الكود.
-    const heroVideo = document.querySelector('.hero-video');
-    if (heroVideo) {
-        heroVideo.muted = true;
-        const playPromise = heroVideo.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                // لو المتصفح رفض التشغيل التلقائي، نجرب تاني أول ما
-                // المستخدم يلمس/يدوس في أي حتة في الصفحة
-                const retryPlay = () => {
-                    heroVideo.play();
-                    document.removeEventListener('touchstart', retryPlay);
-                    document.removeEventListener('click', retryPlay);
-                };
-                document.addEventListener('touchstart', retryPlay, { once: true });
-                document.addEventListener('click', retryPlay, { once: true });
-            });
-        }
-    }
-
     // 🐞 تم نقل تأثير النافبار عند السكرول هنا جوه DOMContentLoaded
     // عشان نتأكد إن عنصر .navbar موجود فعلاً قبل ما نتعامل معاه
     const nav = document.querySelector('.navbar');
@@ -582,3 +559,25 @@ function renderwall() {
 
 // 3. التأكد من تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', renderwall);
+
+/* ==========================================================
+   🆕 تعبئة شرايط الجاليري المتحركة في الصفحة الرئيسية
+   - كل شريط بياخد صور قسم مختلف (فلاورز/فازات/ديكور) من نفس
+     المصفوفات المستخدمة في صفحات المنتجات، فأي إضافة/حذف منتج
+     بتتحدث هنا تلقائي من غير أي تعديل يدوي على الجاليري.
+   - بنكرر الصور مرتين جوه كل شريط عشان حركة اللف (marquee) تبقى
+     متصلة من غير ما يبان فراغ لما الشريط يخلص.
+   ========================================================== */
+function fillMarquee(elementId, products) {
+    const track = document.getElementById(elementId);
+    if (!track || !products || !products.length) return;
+
+    const itemsHtml = products.map(p => `<div class="marquee-item"><img src="${p.img}" loading="lazy"></div>`).join('');
+    track.innerHTML = itemsHtml + itemsHtml; // تكرار للف المتصل
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof flowerProducts !== 'undefined') fillMarquee('marqueeFlowers', flowerProducts);
+    if (typeof vasesProducts !== 'undefined') fillMarquee('marqueeVases', vasesProducts);
+    if (typeof wallProducts !== 'undefined') fillMarquee('marqueeDecor', wallProducts);
+});
