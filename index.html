@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOHFA | تحفة - الرئيسية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Reem+Kufi:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="tohfa/tohfa.css?v=4">
+    <link rel="stylesheet" href="tohfa/tohfa.css?v=6">
 </head>
 <body class="dark-theme">
 
@@ -47,7 +47,6 @@
             <div class="hero-content animate-reveal">
                 <h1>عالم من الجمال في بيتك</h1>
                 <p>أنتيكات، تابلوهات، وأنظمة منزلية ذكية تعكس ذوقك</p>
-
                 <a href="#categories" class="btn-main">اكتشف الأقسام</a>
             </div>
         </div>
@@ -80,16 +79,18 @@
     <section id="gallery" class="gallery">
         <div class="container">
             <h2 class="section-title">من داخل الجاليري</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item glass-card"><img src="tohfa/9.jpg.jpeg"></div>
-                <div class="gallery-item glass-card"><img src="tohfa/sham3dan2.jpeg"></div>
-                <div class="gallery-item glass-card"><img src="tohfa/shayala0.jpeg"></div>
-                <div class="gallery-item glass-card"><img src="tohfa/vasesb.jpeg"></div>
-                  <div class="gallery-item glass-card"><img src="tohfa/vasess.jpeg"></div>
-                <div class="gallery-item glass-card"><img src="tohfa/shayala10.jpeg"></div>
-
-
-            </div>
+        </div>
+        <!-- 🆕 3 شرايط صور متحركة، كل شريط بيسحب صوره من قسم مختلف
+             تلقائيًا (فلاورز/فازات/ديكور) من نفس بيانات المنتجات في
+             tohfa-script.js، فأي تعديل على المنتجات بينعكس هنا لوحده -->
+        <div class="marquee-row">
+            <div class="marquee-track" id="marqueeFlowers"></div>
+        </div>
+        <div class="marquee-row marquee-reverse">
+            <div class="marquee-track" id="marqueeVases"></div>
+        </div>
+        <div class="marquee-row">
+            <div class="marquee-track" id="marqueeDecor"></div>
         </div>
     </section>
 
@@ -148,7 +149,7 @@
         
         <form id="orderForm">
     <!-- المفتاح الخاص بك -->
-    <input type="hidden" name="access_key" value="490a8acf-2b67-4b63-b6c6-41aa5f00ed09">
+    <input type="hidden" name="access_key" value="e199e4c7-3195-4345-9a40-9a2065ea8204">
     
     <!-- بيانات العميل -->
     <input type="text" name="الاسم" id="cName" placeholder="الاسم بالكامل" required>
@@ -165,7 +166,7 @@
 </div>
 
 <!-- ربط ملف الجافا سكريبت الجديد -->
-<script src="tohfa-script.js?v=3"></script>
+<script src="tohfa-script.js?v=4"></script>
 <!-- نافذة تكبير الصور (Lightbox) -->
 <div id="imageModal" class="image-lightbox">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
