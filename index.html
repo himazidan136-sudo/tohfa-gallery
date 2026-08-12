@@ -76,23 +76,65 @@
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2 class="section-title">من داخل الجاليري</h2>
+   <!-- قسم الجاليري بنظام الأشرطة المتحركة -->
+<section id="gallery" class="gallery-ticker">
+    <h2 class="section-title animate-reveal">جولة داخل تحفة</h2>
+
+    <div class="ticker-wrapper">
+        
+        <!-- الشريط الأول: بيتحرك لليسار -->
+        <div class="ticker-row move-left">
+            <div class="ticker-track">
+                <img src="tohfa/1.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/2.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/3.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/4.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/5.jpg.jpeg" alt="Tohfa">
+                <!-- تكرار الصور عشان اللوب يكمل -->
+                <img src="tohfa/1.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/2.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/3.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/4.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/5.jpg.jpeg" alt="Tohfa">
+            </div>
         </div>
-        <!-- 🆕 3 شرايط صور متحركة، كل شريط بيسحب صوره من قسم مختلف
-             تلقائيًا (فلاورز/فازات/ديكور) من نفس بيانات المنتجات في
-             tohfa-script.js، فأي تعديل على المنتجات بينعكس هنا لوحده -->
-        <div class="marquee-row">
-            <div class="marquee-track" id="marqueeFlowers"></div>
+
+        <!-- الشريط الثاني: بيتحرك لليمين (عكس الاتجاه) -->
+        <div class="ticker-row move-right">
+            <div class="ticker-track">
+                <img src="tohfa/9.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/10.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/8.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/7.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/1.jpg.jpeg" alt="Tohfa">
+                <!-- تكرار الصور -->
+                <img src="tohfa/9.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/10.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/8.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/7.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/1.jpg.jpeg" alt="Tohfa">
+            </div>
         </div>
-        <div class="marquee-row marquee-reverse">
-            <div class="marquee-track" id="marqueeVases"></div>
+
+        <!-- الشريط الثالث: بيتحرك لليسار -->
+        <div class="ticker-row move-left">
+            <div class="ticker-track">
+                <img src="tohfa/4.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/3.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/5.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/2.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/9.jpg.jpeg" alt="Tohfa">
+                <!-- تكرار الصور -->
+                <img src="tohfa/4.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/3.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/5.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/2.jpg.jpeg" alt="Tohfa">
+                <img src="tohfa/9.jpg.jpeg" alt="Tohfa">
+            </div>
         </div>
-        <div class="marquee-row">
-            <div class="marquee-track" id="marqueeDecor"></div>
-        </div>
-    </section>
+
+    </div>
+</section>
 
     <a href="https://wa.me/201003206544" class="whatsapp-float" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
 
