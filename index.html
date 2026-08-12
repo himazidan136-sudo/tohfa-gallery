@@ -76,54 +76,23 @@
         </div>
     </section>
 
-   <!-- قسم الجاليري بنظام الشريط اللا نهائي -->
-<section id="gallery" class="gallery-ticker">
-    <h2 class="section-title">جولة داخل تحفة</h2>
-
-    <div class="ticker-wrapper">
-        
-        <!-- الشريط الأول: بيتحرك للشمال -->
-        <div class="ticker-row move-left">
-            <div class="ticker-track">
-                <!-- المجموعة الأولى -->
-                <img src="tohfa/1.jpg.jpeg">
-                <img src="tohfa/2.jpg.jpeg">
-                <img src="tohfa/3.jpg.jpeg">
-                <img src="tohfa/4.jpg.jpeg">
-                <img src="tohfa/5.jpg.jpeg">
-                <img src="tohfa/9.jpg.jpeg">
-                <!-- المجموعة الثانية (تكرار طبق الأصل بدون فراغ) -->
-                <img src="tohfa/1.jpg.jpeg">
-                <img src="tohfa/2.jpg.jpeg">
-                <img src="tohfa/3.jpg.jpeg">
-                <img src="tohfa/4.jpg.jpeg">
-                <img src="tohfa/5.jpg.jpeg">
-                <img src="tohfa/9.jpg.jpeg">
-            </div>
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">من داخل الجاليري</h2>
         </div>
-
-        <!-- الشريط الثاني: بيتحرك لليمين (عكس الاتجاه) -->
-        <div class="ticker-row move-right">
-            <div class="ticker-track">
-                <!-- المجموعة الأولى -->
-                <img src="tohfa/5.jpg.jpeg">
-                <img src="tohfa/4.jpg.jpeg">
-                <img src="tohfa/9.jpg.jpeg">
-                <img src="tohfa/2.jpg.jpeg">
-                <img src="tohfa/3.jpg.jpeg">
-                <img src="tohfa/1.jpg.jpeg">
-                <!-- المجموعة الثانية (تكرار طبق الأصل) -->
-                <img src="tohfa/5.jpg.jpeg">
-                <img src="tohfa/4.jpg.jpeg">
-                <img src="tohfa/9.jpg.jpeg">
-                <img src="tohfa/2.jpg.jpeg">
-                <img src="tohfa/3.jpg.jpeg">
-                <img src="tohfa/1.jpg.jpeg">
-            </div>
+        <!-- 🆕 3 شرايط صور متحركة، كل شريط بيسحب صوره من قسم مختلف
+             تلقائيًا (فلاورز/فازات/ديكور) من نفس بيانات المنتجات في
+             tohfa-script.js، فأي تعديل على المنتجات بينعكس هنا لوحده -->
+        <div class="marquee-row">
+            <div class="marquee-track" id="marqueeFlowers"></div>
         </div>
-
-    </div>
-</section>  
+        <div class="marquee-row marquee-reverse">
+            <div class="marquee-track" id="marqueeVases"></div>
+        </div>
+        <div class="marquee-row">
+            <div class="marquee-track" id="marqueeDecor"></div>
+        </div>
+    </section>
 
     <a href="https://wa.me/201003206544" class="whatsapp-float" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
 
