@@ -743,3 +743,78 @@ body.stop-scrolling {
     color: var(--primary); /* يقلب طوبي عند الوقوف عليه */
     transform: rotate(90deg);
 }
+/* --- ستايل الأشرطة المتحركة (Infinite Ticker) --- */
+.gallery-ticker {
+    padding: 100px 0;
+    overflow: hidden; /* عشان الصور متخرجش بره الصفحة */
+    background: rgba(0,0,0,0.2);
+}
+
+.ticker-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* مسافة بين الأشرطة الثلاثة */
+}
+
+.ticker-row {
+    width: 100%;
+    display: flex;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content; /* بيخلي الشريط ياخد عرض الصور كلها جنب بعض */
+    gap: 20px;
+}
+
+.ticker-track img {
+    width: 280px; /* عرض الصورة جوه الشريط */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    backdrop-filter: blur(5px);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+/* تكبير الصورة لما الماوس ييجي عليها ويوقف الحركة */
+.ticker-row:hover .ticker-track {
+    animation-play-state: paused; /* يوقف الحركة لما الزبون يحب يشوف صورة */
+}
+
+.ticker-track img:hover {
+    transform: scale(1.05);
+    border-color: var(--primary);
+}
+
+/* --- أنيميشن الحركة --- */
+
+/* الشريط الأول والثالث (لليسار) */
+.move-left .ticker-track {
+    animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* بيتحرك لحد نص النسخة المكررة */
+}
+
+/* الشريط الثاني (لليمين) */
+.move-right .ticker-track {
+    animation: scroll-right 30s linear infinite;
+}
+
+@keyframes scroll-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
+/* تظبيط الموبايل */
+@media screen and (max-width: 768px) {
+    .ticker-track img {
+        width: 180px;
+        height: 120px;
+    }
+}
