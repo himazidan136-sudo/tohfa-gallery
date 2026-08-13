@@ -743,3 +743,76 @@ body.stop-scrolling {
     color: var(--primary); /* يقلب طوبي عند الوقوف عليه */
     transform: rotate(90deg);
 }
+/* --- ستايل الأشرطة الذكية --- */
+.gallery-ticker {
+    padding: 80px 0;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+}
+
+.ticker-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ticker-row {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content; /* مهم جداً لرص الصور بالعرض */
+    gap: 15px;
+}
+
+.ticker-img {
+    width: 260px; /* المقاس اللي ظبطناه للموبايل والكمبيوتر */
+    height: 170px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+    cursor: zoom-in;
+}
+
+/* توقيف الحركة عند اللمس */
+.ticker-row:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+.ticker-img:hover {
+    transform: scale(1.05);
+    border-color: var(--primary);
+}
+
+/* --- أنيميشن الحركة اللا نهائية (Seamless) --- */
+
+/* الشريط الأول والثالث: لليسار */
+.move-left .ticker-track {
+    animation: scroll-left 40s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* بيوصل للنص ويرجع للصفر فوراً */
+}
+
+/* الشريط الثاني: لليمين */
+.move-right .ticker-track {
+    animation: scroll-right 40s linear infinite;
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* الموبايل */
+@media (max-width: 768px) {
+    .ticker-img { width: 180px; height: 120px; }
+}
