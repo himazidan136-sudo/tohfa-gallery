@@ -560,3 +560,31 @@ function renderwall() {
 // 3. التأكد من تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', renderwall);
 
+// وظيفة بناء الأشرطة اللا نهائية
+function setupTickers() {
+    const rows = [
+        { id: 'row-wall', data: decorProducts },    // الأول: تابلوهات
+        { id: 'row-flowers', data: flowerProducts }, // الثاني: ورد
+        { id: 'row-decor', data: vasesProducts }     // الثالث: فازات
+    ];
+
+    rows.forEach(row => {
+        const container = document.getElementById(row.id);
+        if (container && row.data) {
+            // السر هنا: تكرار البيانات 3 مرات لضمان عدم وجود فراغ أبداً
+            const tripleData = [...row.data, ...row.data, ...row.data];
+            
+            let htmlContent = '<div class="ticker-track">';
+            tripleData.forEach(item => {
+                // استخدمنا كلاس ticker-img عشان م نلغبطش مقاسات الموقع
+                htmlContent += `<img src="${item.img}" class="ticker-img">`;
+            });
+            htmlContent += '</div>';
+            
+            container.innerHTML = htmlContent;
+        }
+    });
+}
+
+// تشغيل الوظيفة
+document.addEventListener('DOMContentLoaded', setupTickers);
