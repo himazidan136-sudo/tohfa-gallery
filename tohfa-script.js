@@ -560,24 +560,35 @@ function renderwall() {
 // 3. التأكد من تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', renderwall);
 
-/* ==========================================================
-   🆕 تعبئة شرايط الجاليري المتحركة في الصفحة الرئيسية
-   - كل شريط بياخد صور قسم مختلف (فلاورز/فازات/ديكور) من نفس
-     المصفوفات المستخدمة في صفحات المنتجات، فأي إضافة/حذف منتج
-     بتتحدث هنا تلقائي من غير أي تعديل يدوي على الجاليري.
-   - بنكرر الصور مرتين جوه كل شريط عشان حركة اللف (marquee) تبقى
-     متصلة من غير ما يبان فراغ لما الشريط يخلص.
-   ========================================================== */
-function fillMarquee(elementId, products) {
-    const track = document.getElementById(elementId);
-    if (!track || !products || !products.length) return;
+// وظيفة توليد أشرطة الجاليري أوتوماتيكياً
+function initGalleryTicker() {
+    // 1. الربط مع الأشرطة في HTML
+    const rowWall = document.getElementById('row-wall');
+    const rowVases = document.getElementById('row-vases');
+    const rowDecor = document.getElementById('row-decor');
 
-    const itemsHtml = products.map(p => `<div class="marquee-item"><img src="${p.img}" loading="lazy"></div>`).join('');
-    track.innerHTML = itemsHtml + itemsHtml; // تكرار للف المتصل
+    // دالة مساعدة لرسم الشريط
+    function buildRow(container, productArray) {
+        if (!container || !productArray) return;
+
+        // بنكرر المصفوفة مرتين عشان اللوب يبقا Seamless (بدون نهاية)
+        const doubleProducts = [...productArray, ...productArray];
+        
+        let content = '<div class="ticker-track">';
+        doubleProducts.forEach(item => {
+            content += `<img src="${item.img}" alt="${item.name}" class="ticker-img">`;
+        });
+        content += '</div>';
+        
+        container.innerHTML = content;
+    }
+
+    // 2. التنفيذ: كل شريط بياخد من "مخزن" معين عملناه قبل كدة
+    // تأكد إن أسامي الـ Arrays دي مطابقة للي عندك (vasesProducts, decorProducts, etc)
+    buildRow(rowWall, vasesProducts);   // الشريط الأول: فازات
+    buildRow(rowVases, flowerProducts); // الشريط الثاني: ورد (بيتحرك عكس)
+    buildRow(rowDecor, decorProducts);  // الشريط الثالث: ديكور
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof flowerProducts !== 'undefined') fillMarquee('marqueeFlowers', flowerProducts);
-    if (typeof vasesProducts !== 'undefined') fillMarquee('marqueeVases', vasesProducts);
-    if (typeof wallProducts !== 'undefined') fillMarquee('marqueeDecor', wallProducts);
-});
+// تشغيل الجاليري أول ما الصفحة تحمل
+document.addEventListener('DOMContentLoaded', initGalleryTicker);
