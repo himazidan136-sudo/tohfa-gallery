@@ -560,39 +560,3 @@ function renderwall() {
 // 3. التأكد من تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', renderwall);
 
-// وظيفة بناء الأشرطة اللا نهائية
-function setupTickers() {
-    // تأكد إن أسامي المصفوفات دي هي اللي عندك بالظبط (vasesProducts, decorProducts, flowerProducts)
-    // لو الأسامي عندك مختلفة، غير الكلمات اللي باللون البرتقالي دي
-    const rows = [
-        { id: 'row-wall', data: typeof decorProducts !== 'undefined' ? decorProducts : [] },
-        { id: 'row-flowers', data: typeof flowerProducts !== 'undefined' ? flowerProducts : [] },
-        { id: 'row-decor', data: typeof vasesProducts !== 'undefined' ? vasesProducts : [] }
-    ];
-
-    rows.forEach(row => {
-        const container = document.getElementById(row.id);
-        // لو السطر موجود وفيه بيانات، ارسمه
-        if (container && row.data.length > 0) {
-            // تكرار البيانات 4 مرات لضمان ملء أي شاشة (Seamless)
-            const repeatedData = [...row.data, ...row.data, ...row.data, ...row.data];
-            
-            let htmlContent = '<div class="ticker-track">';
-            repeatedData.forEach(item => {
-                htmlContent += `<img src="${item.img}" class="ticker-img" onclick="openLightbox('${item.img}')">`;
-            });
-            htmlContent += '</div>';
-            
-            container.innerHTML = htmlContent;
-        } else {
-            console.error("شريط الجاليري: لم يتم العثور على القسم أو البيانات فارغة لـ " + row.id);
-        }
-    });
-}
-
-// تشغيل الوظيفة فور تحميل الصفحة
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupTickers);
-} else {
-    setupTickers();
-}
