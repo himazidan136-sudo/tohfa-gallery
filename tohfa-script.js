@@ -560,3 +560,24 @@ function renderwall() {
 // 3. التأكد من تشغيل الوظيفة
 document.addEventListener('DOMContentLoaded', renderwall);
 
+/* ==========================================================
+   🆕 تعبئة شرايط الجاليري المتحركة في الصفحة الرئيسية
+   - كل شريط بياخد صور قسم مختلف (فلاورز/فازات/ديكور) من نفس
+     المصفوفات المستخدمة في صفحات المنتجات، فأي إضافة/حذف منتج
+     بتتحدث هنا تلقائي من غير أي تعديل يدوي على الجاليري.
+   - بنكرر الصور مرتين جوه كل شريط عشان حركة اللف (marquee) تبقى
+     متصلة من غير ما يبان فراغ لما الشريط يخلص.
+   ========================================================== */
+function fillMarquee(elementId, products) {
+    const track = document.getElementById(elementId);
+    if (!track || !products || !products.length) return;
+
+    const itemsHtml = products.map(p => `<div class="marquee-item"><img src="${p.img}" loading="lazy"></div>`).join('');
+    track.innerHTML = itemsHtml + itemsHtml; // تكرار للف المتصل
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof flowerProducts !== 'undefined') fillMarquee('marqueeFlowers', flowerProducts);
+    if (typeof vasesProducts !== 'undefined') fillMarquee('marqueeVases', vasesProducts);
+    if (typeof wallProducts !== 'undefined') fillMarquee('marqueeDecor', wallProducts);
+});
