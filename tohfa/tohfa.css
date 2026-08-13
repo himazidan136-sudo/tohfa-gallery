@@ -743,33 +743,36 @@ body.stop-scrolling {
     color: var(--primary); /* يقلب طوبي عند الوقوف عليه */
     transform: rotate(90deg);
 }
-/* --- Ticker Full Logic --- */
+/* --- Ticker Full Logic (Final Fix) --- */
 .gallery-ticker {
     padding: 60px 0;
     overflow: hidden;
     background: rgba(0,0,0,0.1);
+    min-height: 400px; /* ضمان ظهور السكشن حتى لو فاضي */
 }
 
 .ticker-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* المسافة بين الأشرطة الثلاثة */
+    gap: 20px;
 }
 
 .ticker-row {
     width: 100%;
     display: flex;
     overflow: hidden;
+    padding: 5px 0;
 }
 
 .ticker-track {
     display: flex;
     width: max-content;
-    gap: 15px; /* المسافة بين الصور جوه الشريط */
+    gap: 15px;
+    will-change: transform; /* تحسين أداء الأنيميشن */
 }
 
 .ticker-img {
-    width: 250px; /* العرض الثابت */
+    width: 250px; 
     height: 170px;
     object-fit: cover;
     border-radius: 15px;
@@ -779,26 +782,22 @@ body.stop-scrolling {
     cursor: zoom-in;
 }
 
-/* --- الأنيميشن السلس (بدون فراغ نهائياً) --- */
-
-/* الشريط 1 و 3 بيتحركوا لليسار */
+/* --- الأنيميشن السلس جداً --- */
 .move-left .ticker-track {
-    animation: scroll-left-seamless 40s linear infinite;
+    animation: scroll-left-new 40s linear infinite;
 }
 
-@keyframes scroll-left-seamless {
+@keyframes scroll-left-new {
     0% { transform: translateX(0); }
-    /* بنحركه لـ 1/3 المسافة بالظبط (لأننا كررنا الصور 3 مرات) وبيرجع للصفر */
-    100% { transform: translateX(-33.333%); } 
+    100% { transform: translateX(-25%); } /* لأننا كررنا الصور 4 مرات، الـ 25% هي اللفة الواحدة الكاملة */
 }
 
-/* الشريط 2 بيتحرك لليمين */
 .move-right .ticker-track {
-    animation: scroll-right-seamless 40s linear infinite;
+    animation: scroll-right-new 40s linear infinite;
 }
 
-@keyframes scroll-right-seamless {
-    0% { transform: translateX(-33.333%); }
+@keyframes scroll-right-new {
+    0% { transform: translateX(-25%); }
     100% { transform: translateX(0); }
 }
 
@@ -809,5 +808,6 @@ body.stop-scrolling {
 
 /* تظبيط الموبايل */
 @media (max-width: 768px) {
-    .ticker-img { width: 180px; height: 120px; }
+    .ticker-img { width: 160px; height: 110px; }
+    .gallery-ticker { padding: 40px 0; }
 }

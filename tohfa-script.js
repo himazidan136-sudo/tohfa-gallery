@@ -562,29 +562,37 @@ document.addEventListener('DOMContentLoaded', renderwall);
 
 // وظيفة بناء الأشرطة اللا نهائية
 function setupTickers() {
+    // تأكد إن أسامي المصفوفات دي هي اللي عندك بالظبط (vasesProducts, decorProducts, flowerProducts)
+    // لو الأسامي عندك مختلفة، غير الكلمات اللي باللون البرتقالي دي
     const rows = [
-        { id: 'row-wall', data: decorProducts },    // الأول: تابلوهات
-        { id: 'row-flowers', data: flowerProducts }, // الثاني: ورد
-        { id: 'row-decor', data: vasesProducts }     // الثالث: فازات
+        { id: 'row-wall', data: typeof decorProducts !== 'undefined' ? decorProducts : [] },
+        { id: 'row-flowers', data: typeof flowerProducts !== 'undefined' ? flowerProducts : [] },
+        { id: 'row-decor', data: typeof vasesProducts !== 'undefined' ? vasesProducts : [] }
     ];
 
     rows.forEach(row => {
         const container = document.getElementById(row.id);
-        if (container && row.data) {
-            // السر هنا: تكرار البيانات 3 مرات لضمان عدم وجود فراغ أبداً
-            const tripleData = [...row.data, ...row.data, ...row.data];
+        // لو السطر موجود وفيه بيانات، ارسمه
+        if (container && row.data.length > 0) {
+            // تكرار البيانات 4 مرات لضمان ملء أي شاشة (Seamless)
+            const repeatedData = [...row.data, ...row.data, ...row.data, ...row.data];
             
             let htmlContent = '<div class="ticker-track">';
-            tripleData.forEach(item => {
-                // استخدمنا كلاس ticker-img عشان م نلغبطش مقاسات الموقع
-                htmlContent += `<img src="${item.img}" class="ticker-img">`;
+            repeatedData.forEach(item => {
+                htmlContent += `<img src="${item.img}" class="ticker-img" onclick="openLightbox('${item.img}')">`;
             });
             htmlContent += '</div>';
             
             container.innerHTML = htmlContent;
+        } else {
+            console.error("شريط الجاليري: لم يتم العثور على القسم أو البيانات فارغة لـ " + row.id);
         }
     });
 }
 
-// تشغيل الوظيفة
-document.addEventListener('DOMContentLoaded', setupTickers);
+// تشغيل الوظيفة فور تحميل الصفحة
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTickers);
+} else {
+    setupTickers();
+}
