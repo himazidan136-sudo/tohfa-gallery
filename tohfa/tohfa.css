@@ -743,3 +743,71 @@ body.stop-scrolling {
     color: var(--primary); /* يقلب طوبي عند الوقوف عليه */
     transform: rotate(90deg);
 }
+/* --- Ticker Full Logic --- */
+.gallery-ticker {
+    padding: 60px 0;
+    overflow: hidden;
+    background: rgba(0,0,0,0.1);
+}
+
+.ticker-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* المسافة بين الأشرطة الثلاثة */
+}
+
+.ticker-row {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    gap: 15px; /* المسافة بين الصور جوه الشريط */
+}
+
+.ticker-img {
+    width: 250px; /* العرض الثابت */
+    height: 170px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    transition: 0.3s;
+    cursor: zoom-in;
+}
+
+/* --- الأنيميشن السلس (بدون فراغ نهائياً) --- */
+
+/* الشريط 1 و 3 بيتحركوا لليسار */
+.move-left .ticker-track {
+    animation: scroll-left-seamless 40s linear infinite;
+}
+
+@keyframes scroll-left-seamless {
+    0% { transform: translateX(0); }
+    /* بنحركه لـ 1/3 المسافة بالظبط (لأننا كررنا الصور 3 مرات) وبيرجع للصفر */
+    100% { transform: translateX(-33.333%); } 
+}
+
+/* الشريط 2 بيتحرك لليمين */
+.move-right .ticker-track {
+    animation: scroll-right-seamless 40s linear infinite;
+}
+
+@keyframes scroll-right-seamless {
+    0% { transform: translateX(-33.333%); }
+    100% { transform: translateX(0); }
+}
+
+/* توقيف الحركة عند الوقوف بالماوس */
+.ticker-row:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+/* تظبيط الموبايل */
+@media (max-width: 768px) {
+    .ticker-img { width: 180px; height: 120px; }
+}
