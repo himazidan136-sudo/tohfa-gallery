@@ -1,66 +1,169 @@
-/* tohfa/products.css */
-
 /* ==========================================================
-   1) المتغيرات العامة + إعدادات أساسية
+   1) المتغيرات العامة (الألوان - الزجاج - الخلفية)
+   الوضع الافتراضي (Dark Theme)
    ========================================================== */
 :root {
     --primary: #A04035;
     --glass: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
-    --dark-bg: #0d0d12;
+    --bg-color: #0d0d12;
+    --text-color: #ffffff;
 }
 
+/* الوضع الفاتح: بيغيّر المتغيرات لما يتحط كلاس light-theme على الـ body */
+body.light-theme {
+    --bg-color: #f4f4f9;
+    --text-color: #1a1a1a;
+    --glass: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================
+   2) إعدادات أساسية عامة لكل عناصر الصفحة
+   ========================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none !important;
+    transition: 0.5s ease; /* حركة ناعمة لأي تغيير (هوفر، ثيم...) */
+}
+
+html {
+    scroll-behavior: smooth; /* سكرول ناعم لما يحصل انتقال بين السكاشن */
 }
 
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: var(--dark-bg);
-    color: white;
-    overflow-x: hidden;
-    direction: rtl;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* يمنع ظهور سكرول أفقي */
 }
 
-/* قفل سكرول الصفحة (بيتفعل لما السلة أو اللايت بوكس أو المودال يفتحوا) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* قفل سكرول الصفحة بالكامل (بيتفعل لما تفتح السلة أو المودال) */
 body.stop-scrolling {
     overflow: hidden !important;
     height: 100vh;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+/* ==========================================================
+   3) الخلفية السائلة المتحركة (Liquid Background Blobs)
+   ========================================================== */
+.liquid-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    filter: blur(80px);
+}
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: move 15s infinite alternate;
+}
+.blob:nth-child(2) { background: #5c2a24; left: -10%; top: -10%; animation-duration: 20s; }
+.blob:nth-child(3) { background: #d4a373; right: -5%; bottom: -5%; animation-duration: 12s; }
+
+@keyframes move {
+    from { transform: translate(0, 0); }
+    to { transform: translate(100px, 50px); }
+}
 
 /* ==========================================================
-   2) الناف بار
+   4) الناف بار العائم (Floating Pill Navbar)
    ========================================================== */
 .navbar {
-    padding: 15px 0;
     position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: rgba(0,0,0,0.5);
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1100px;
+    z-index: 2000;
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--glass-border);
-}
-.nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: 'Reem Kufi'; font-size: 24px; font-weight: bold; }
-.logo span { color: var(--primary); }
-.glass-btn {
-    color: white !important;
-    padding: 8px 20px;
-    border-radius: 10px;
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    font-weight: bold;
-    font-size: 14px;
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px; /* شكل كبسولة */
+    padding: 8px 0;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* أيقونة السلة في الناف بار + البادج بتاعها */
-.cart-btn-nav { position: relative; cursor: pointer; margin-left: 15px; }
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* اللوجو */
+.logo {
+    font-family: 'Reem Kufi';
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+.logo span { color: var(--primary); font-size: 14px; margin-right: 4px; }
+
+/* روابط النص في النافبار */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+.nav-btn-text {
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* أزرار الأيقونات (زي السلة وزرار الثيم) */
+.nav-left { display: flex; align-items: center; gap: 10px; }
+.iq-btn-icon {
+    position: relative;
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px;
+    overflow: hidden;
+}
+
+/* تأثير البرق (Lightning) عند الضغط على أي زرار في النافبار */
+.nav-btn-text:active::after,
+.iq-btn-icon:active::after {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, #fff 10%, var(--primary) 40%, transparent 60%);
+    transform: translate(-50%, -50%);
+    animation: lightning-strike 0.4s ease-out;
+}
+@keyframes lightning-strike {
+    0% { opacity: 0; scale: 0; }
+    30% { opacity: 1; }
+    100% { opacity: 0; scale: 1.5; }
+}
+
+/* بادج عداد عدد المنتجات فوق أيقونة السلة */
 .cart-badge {
     position: absolute; top: -5px; right: -5px;
     background: var(--primary); color: #fff;
@@ -70,187 +173,266 @@ body.stop-scrolling {
 }
 
 /* ==========================================================
-   3) شبكة المنتجات وكارت المنتج
-   - كل الكروت في نفس الصف بتاخد نفس الطول بالظبط (align-items: stretch)
-   - صندوق الصورة بحجم ثابت وموحّد، والصورة جواه بـ object-fit:contain
-     يعني بتفضل بنسبتها الطبيعية وميحصلهاش تمطيط، وبس بتتوسط جوه الصندوق
+   5) الهيرو (القسم الرئيسي في أول الصفحة)
    ========================================================== */
-/* --- تعديل الجريد ليكون جنب بعضه بالظبط بنفس مقاساتك --- */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative; /* عشان الفيديو يتموضع فوقه بالظبط */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 🆕 فيديو الخلفية: بياخد الهيرو كامل ووراء المحتوى */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55); /* نفس التظليل اللي كان على الصورة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-content { text-align: center; color: white; max-width: 900px; background: transparent; }
+.hero-content h1 {
+    font-family: 'Reem Kufi';
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+    margin-bottom: 20px;
+}
+.hero-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+    margin-bottom: 35px;
+}
+.btn-main {
+    padding: 15px 45px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.4s;
+}
 
-.product-grid, #products-list {
-    display: grid !important; /* تفعيل الشبكة بقوة */
-    /* السطر اللي جاي هو السر: بيوزع الكروت جنب بعضها بحد أدنى 180 بكسل للكارت */
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
-    gap: 20px !important;
-    width: 100% !important; /* يملأ عرض الصفحة */
-    max-width: 1200px; /* العرض الأقصى المريح للعين */
-    margin: 30px auto !important; /* توسيط السكشن كله */
-    align-items: stretch; /* يوحّد ارتفاع كل الكروت في نفس الصف */
+/* ==========================================================
+   6) قسم الأقسام (Categories) وقسم الجاليري (الصور)
+   ========================================================== */
+.categories, .gallery { padding: 80px 0; }
+.section-title { text-align: center; font-family: 'Reem Kufi'; font-size: 40px; margin-bottom: 60px; }
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* كارت زجاجي عام (مستخدم في الأقسام وغيرها) */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+}
+.cat-card { padding: 40px 20px; text-align: center; transition: 0.5s; cursor: pointer; }
+.cat-card:hover { transform: translateY(-15px) !important; background: var(--primary); color: white; }
+.cat-card .icon { font-size: 45px; margin-bottom: 15px; display: block; }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.gallery-item { height: 350px; overflow: hidden; padding: 10px; }
+
+/* 🆕 شرايط الصور المتحركة (Marquee) بدل الجريد الثابت */
+.marquee-row {
+    width: 100%;
+    overflow: hidden;
+    margin: 15px 0;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-right 35s linear infinite;
+    will-change: transform;
+}
+.marquee-row.marquee-reverse .marquee-track {
+    animation-name: marquee-left;
+    animation-duration: 40s; /* سرعة مختلفة شوية عن الصفوف التانية عشان الحركة تبقى طبيعية */
+}
+.marquee-item {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 220px;
+    margin-inline-end: 15px; /* margin بدل gap: كده كل صورة (حتى آخر واحدة) بتاخد نفس المسافة بالظبط، فنقطة 50% بتقع في المكان الصح تمامًا ومفيش أي قفزة أو وقفة عند نهاية الدورة */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.marquee-item img:hover { transform: scale(1.08); }
+@keyframes marquee-right {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* بما إن الصور متكررة مرتين، النص ده بيخلي اللفة تبقى ملساء */
+}
+@keyframes marquee-left {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); } /* اتجاه معاكس بدون الاعتماد على animation-direction */
+}
+@media screen and (max-width: 768px) {
+    .marquee-item { width: 150px; height: 150px; }
+    .marquee-track { animation-duration: 22s; }
+    .marquee-row.marquee-reverse .marquee-track { animation-duration: 26s; }
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: 0.6s; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* ==========================================================
+   7) زرار واتساب العائم
+   ========================================================== */
+.whatsapp-float {
+    position: fixed;
+    width: 60px; height: 60px;
+    bottom: 30px; right: 30px;
+    background-color: #25d366;
+    border-radius: 50px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2000;
+    animation: pulse 2s infinite;
+}
+.whatsapp-float img { width: 35px; }
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==========================================================
+   8) الفوتر
+   ========================================================== */
+footer { padding: 40px; text-align: center; border-top: 1px solid var(--glass-border); }
+
+/* ==========================================================
+   9) أنيميشنز عامة (ظهور تدريجي + تعويم)
+   ========================================================== */
+.animate-reveal { animation: reveal 1.5s ease-out; }
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.float-anim { animation: float 4s ease-in-out infinite; }
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+.delay-3 { animation-delay: 1.5s; }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* ==========================================================
+   10) شبكة المنتجات وكارت المنتج (كان مكرر مرتين - اتحد في مكان واحد)
+   ========================================================== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
 }
 
 .product-card {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
     background: var(--glass);
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 15px;
     text-align: center;
-    transition: 0.4s;
-    height: 100% !important; /* يخلي الكارت ياخد كامل ارتفاع الصف */
-    width: 100% !important;
+    transition: 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
 }
 
-/* صندوق الصورة: مقاس ثابت وموحّد زي ما طلبت */
 .product-img {
-    width: 100% !important;
-    height: 200px !important; /* ارتفاع ثابت كما طلبت */
-    margin-bottom: 12px;
-    overflow: hidden;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04); 
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.product-img img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* عشان المنتج يظهر كامل وميتقصش */
-    transition: 0.5s;
-}
-
-/* 🆕 كارت المنتج اللي "نفذت الكمية" بتاعه */
-.product-card {
-    position: relative; /* عشان الشارة تتموضع فوق الصورة بالظبط */
-}
-.product-card.out-of-stock {
-    opacity: 0.55;
-}
-.product-card.out-of-stock .product-img,
-.product-card.out-of-stock .product-img img {
-    filter: grayscale(85%);
-}
-.out-of-stock-badge {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-8deg);
-    background: #d9363e;
-    color: #fff;
-    font-weight: bold;
-    font-size: 0.85rem;
-    padding: 6px 14px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    z-index: 5;
-    white-space: nowrap;
-}
-.product-card.out-of-stock .order-btn,
-.product-card.out-of-stock .add-to-cart-btn {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-
-/* الأزرار بتتزق لتحت الكارت دايمًا بفضل margin-top:auto */
-.btn-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
     width: 100%;
-    margin-top: auto;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 12px;
 }
 
+.product-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.product-price {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* زرار الطلب داخل كارت المنتج */
 .order-btn {
-    flex: 2;
+    display: block;
     background: var(--primary);
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-size: 0.85rem;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 0.9rem;
     font-weight: bold;
     transition: 0.3s;
-    border: none;
-    cursor: pointer;
-    text-align: center;
 }
-.order-btn:hover { background: white; color: var(--primary) !important; }
-
-.add-to-cart-btn {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--primary) !important;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid var(--glass-border);
-    cursor: pointer;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-.add-to-cart-btn:hover { background: var(--primary); color: white !important; }
+.order-btn:hover { background: white; color: var(--primary); }
 
 /* ==========================================================
-   4) لايت بوكس تكبير صورة المنتج (يفتح في نص الشاشة عند الضغط)
-   محتاج شوية جافاسكريبت بسيطة عشان تفعيل الفتح والقفل — شوف ملف
-   products-lightbox.js اللي جنب الملف ده
+   11) إلغاء تنسيق اللينكات الافتراضي (اللون الأزرق والخط تحته) في كل الموقع
    ========================================================== */
-.image-lightbox-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.92);
-    display: none; /* بيتفتح بكلاس active عن طريق الجافاسكريبت */
-    align-items: center;
-    justify-content: center;
-    z-index: 10500;
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    cursor: zoom-out;
+a {
+    text-decoration: none !important;
+    color: inherit !important;
 }
-.image-lightbox-overlay.active { display: flex; }
-
-.image-lightbox-overlay img {
-    max-width: 90%;
-    max-height: 90vh;
-    object-fit: contain; /* برضو من غير تمطيط وهي مكبّرة */
-    border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    animation: lightboxZoom 0.3s ease;
-    cursor: default;
+.category-grid a, .cat-card {
+    color: white !important;
+    text-decoration: none !important;
 }
-@keyframes lightboxZoom {
-    from { transform: scale(0.85); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.image-lightbox-close {
-    position: absolute;
-    top: 20px; left: 20px;
-    font-size: 34px;
-    color: #fff;
-    cursor: pointer;
-    z-index: 10600;
-    line-height: 1;
-}
+.cat-card h3, .cat-card p { color: white; margin: 5px 0; }
+.cat-card:hover h3 { color: var(--primary); transition: 0.3s; }
 
 /* ==========================================================
-   5) المودال (نافذة استمارة الطلب)
+   12) المودال (نافذة استمارة الطلب المنبثقة)
    ========================================================== */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.9);
-    display: none;
+    display: none; /* بتتفتح flex عن طريق الجافاسكريبت */
     align-items: center;
     justify-content: center;
     z-index: 10000;
@@ -293,7 +475,7 @@ body.stop-scrolling {
     border-radius: 12px;
     color: #fff;
     font-family: 'Cairo';
-    font-size: 16px; /* عشان الآيفون ميعملش زووم تلقائي */
+    font-size: 16px; /* عشان الآيفون ميعملش زووم تلقائي على الخانة */
     outline: none;
     text-align: right;
 }
@@ -320,67 +502,101 @@ body.stop-scrolling {
 }
 
 /* ==========================================================
-   7) سلة المشتريات الجانبية
-   ⚠️ ملاحظة: الملف ده بيستخدم اسمين مختلفين لحاوية عناصر السلة:
-   .cart-items-list (هنا) و .cart-items-container (في ملف style.css).
-   لو الاتنين مستخدمين فعلاً في نفس الـ HTML سيبهم زي ما هم، بس
-   لو واحد بس منهم مستخدم يفضل توحيد الاسم في كل الملفات بعدين.
+   13) سلة التسوق الجانبية (Cart Sidebar)
    ========================================================== */
+/* --- تفعيل السكرول داخل السلة في الصفحة الرئيسية --- */
 .cart-overlay {
+    display: flex !important; /* ضروري لتقسيم السلة */
+    flex-direction: column;
+    height: 100vh;
     position: fixed;
     top: 0;
-    left: -100%; /* تظهر من اليمين للشمال عن طريق كلاس active */
+    left: -100%;
     width: 350px;
-    height: 100vh;
-    background: rgba(15, 15, 15, 0.98);
+    z-index: 5000;
+    background: rgba(10, 10, 12, 0.98);
     backdrop-filter: blur(20px);
     border-right: 1px solid var(--primary);
-    z-index: 5000;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
+    transition: 0.5s ease;
+}
+
+/* المنطقة اللي فيها المنتجات (دي اللي هتعمل سكرول) */
+#cartItemsList, .cart-items-container {
+    flex: 1; /* تاخد كل المساحة المتاحة في النص */
+    overflow-y: auto !important; /* تشغيل السكرول للطول */
+    padding: 20px 15px;
+    /* سكرول ناعم للموبايل */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* قفل سكرول الموقع نفسه لما السلة تفتح */
+body.stop-scrolling {
+    overflow: hidden !important;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-overlay { width: 85%; }
 }
 .cart-overlay.active { left: 0; }
 
+/* رأس السلة (ثابت فوق) */
 .cart-header {
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 15px;
 }
-.cart-header h2 { font-family: 'Reem Kufi'; color: var(--primary); font-size: 1.5rem; }
 
-/* منطقة عرض المنتجات جوه السلة (فيها السكرول) */
-.cart-items-list {
+/* منطقة المنتجات جوه السلة (فيها السكرول) */
+.cart-items-container {
     flex: 1;
-    overflow-y: auto;
-    padding-left: 5px;
-    -webkit-overflow-scrolling: touch;
+    overflow-y: auto !important;
+    padding: 15px;
+    -webkit-overflow-scrolling: touch; /* سكرول ناعم في الموبايل */
 }
 
+/* فوتر السلة (ثابت تحت، فيه زرار إتمام الطلب) */
+.cart-footer {
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: auto; /* يزق نفسه لتحت خالص */
+}
+
+/* كارت المنتج الواحد جوه السلة */
 .cart-item {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255, 255, 255, 0.03);
     padding: 12px;
     border-radius: 15px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(255,255,255,0.05);
+    margin-bottom: 12px;
+    border: 1px solid var(--glass-border);
+    direction: rtl;
 }
 .cart-item img {
-    width: 60px; height: 60px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 10px;
     border: 1px solid var(--primary);
+    background: #222; /* لون احتياطي لو الصورة متحملتش */
 }
-.item-details { flex: 1; }
-.item-details h4 { font-size: 0.95rem; margin-bottom: 5px; color: #fff; }
-.item-details .price-tag { color: var(--primary); font-weight: bold; font-size: 1rem; }
 
-/* أزرار التحكم في الكمية */
+.item-info-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: right;
+}
+.item-info-box h4 { font-size: 0.9rem; color: #fff; margin: 0; }
+.item-info-box .price { color: var(--primary); font-weight: bold; font-size: 0.95rem; }
+
+/* أزرار التحكم في الكمية (+ / -) */
+/* --- تنسيق أزرار التحكم في الكمية (التحول للشكل الدائري) --- */
 .qty-btn-group {
     display: flex;
     align-items: center;
@@ -437,73 +653,54 @@ body.stop-scrolling {
 
 .remove-item-btn { color: #ff4d4d; cursor: pointer; font-size: 1.5rem; padding: 5px; }
 
-
-/* فوتر السلة (فيه الإجمالي وزرار إتمام الطلب) - ثابت تحت */
-.cart-footer {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 20px;
-    margin-top: auto;
-}
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    font-family: 'Reem Kufi';
-}
-.total-row span:last-child { color: var(--primary); font-weight: bold; }
-
 /* ==========================================================
-   8) تعديلات الموبايل (اتجمعت كل الميديا كويريز المكررة والمتضاربة هنا)
+   14) تعديلات الموبايل (Responsive) - اتجمعت كل الميديا كويريز المكررة هنا
    ========================================================== */
 @media screen and (max-width: 768px) {
     /* الناف بار */
     .navbar { top: 10px; width: 98%; padding: 5px 0; border-radius: 15px; }
     .nav-wrapper { padding: 0 10px !important; display: flex; justify-content: space-between; }
     .logo { font-size: 16px !important; white-space: nowrap; }
+    .logo span { display: none; } /* إخفاء كلمة "تحفة" في الموبايل لتوفير مساحة */
     .nav-links { gap: 5px !important; }
+    .nav-btn-text { font-size: 11px; padding: 5px 10px; }
+    .nav-left { gap: 8px; }
+    .iq-btn-icon { width: 34px; height: 34px; font-size: 14px; }
     .glass-btn { padding: 6px 8px !important; font-size: 11px !important; border-radius: 8px; }
     .cart-nav-item { margin-left: 5px; }
 
-    /* شبكة المنتجات: منتجين جنب بعض، والصندوق بيتصغر شوية بس يفضل موحّد */
-    .product-grid, #products-list { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-    .product-card { padding: 10px !important; }
-    .product-img { height: 140px !important; }
-    .product-name { font-size: 0.85rem !important; }
-    .product-price { font-size: 1rem !important; }
+    /* الهيرو والعناوين */
+    .hero-content h1 { font-size: 2.2rem !important; }
+    .hero-content p { font-size: 1.1rem !important; }
+    .section-title { font-size: 28px; }
+    .gallery-item { height: 250px; }
+    .category-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
 
-    /* السلة الجانبية تاخد أغلب الشاشة في الموبايل */
-    .cart-overlay {
-        width: 85% !important;
-        max-width: 320px;
-        height: 100dvh !important; /* بتظبط الطول بالظبط على شاشة الموبايل */
-    }
-    .cart-footer {
-        padding: 15px !important;
-        padding-bottom: 30px !important; /* عشان الزرار ميختفيش ورا شريط الموبايل */
-        background: rgba(20, 20, 20, 0.95);
-    }
-    .cart-footer .order-btn { padding: 12px !important; font-size: 1rem !important; border-radius: 12px !important; }
-    .total-row { margin-bottom: 10px !important; font-size: 1.1rem !important; }
+    /* شبكة المنتجات (منتجين جنب بعض) */
+    .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; padding: 10px !important; }
+    .product-img { height: 120px !important; }
+
+    /* السلة الجانبية تاخد الشاشة كلها في الموبايل */
+    .cart-overlay { width: 100% !important; padding: 20px; }
+    .cart-items-container { max-height: 60vh; overflow-y: auto; } /* عشان الفوتر يفضل ظاهر */
+    .cart-item { padding: 10px; gap: 10px; }
+    .cart-item img { width: 45px; height: 45px; }
+    .item-info-box h4 { font-size: 0.8rem; }
+    .item-info-box .price { font-size: 0.9rem; }
+    .cart-footer { padding-top: 15px; margin-top: auto; padding-bottom: 20px; }
+    .cart-footer .order-btn { padding: 15px !important; font-size: 1rem !important; }
 
     /* المودال (استمارة الطلب) */
     .modal-content { padding: 25px 15px !important; margin-top: 20px; }
-    #orderForm input, #orderForm textarea { font-size: 16px !important; }
+    #orderForm input, #orderForm textarea { font-size: 16px !important; } /* يمنع الزووم في الأيفون */
 }
 
+/* تعديلات إضافية للشاشات الصغيرة جداً */
 @media screen and (max-width: 480px) {
-    .cart-overlay { width: 100% !important; }
-    .modal-content { padding: 25px 15px; }
-    .modal-content h3 { font-size: 1.1rem; }
     .hero-content h1 { font-size: 1.8rem !important; line-height: 1.3; }
     .hero-content p { font-size: 0.9rem !important; }
-
-    /* كرتين جنب بعض في السطر، وبيتكرروا تحت بعض */
-    .product-grid, #products-list { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-    .product-card { padding: 10px !important; }
-    .product-img { height: 150px !important; }
-    .product-name { font-size: 0.85rem !important; }
-    .product-price { font-size: 1rem !important; }
+    .modal-content { padding: 25px 15px; }
+    .modal-content h3 { font-size: 1.1rem; }
 }
 /* --- تنسيق نافذة تكبير الصور --- */
 .image-lightbox {
