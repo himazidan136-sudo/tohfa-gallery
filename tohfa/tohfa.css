@@ -268,10 +268,11 @@ body.stop-scrolling {
     display: flex;
     gap: 15px;
     width: max-content;
-    animation: marquee-scroll 35s linear infinite;
+    animation: marquee-right 35s linear infinite;
+    will-change: transform;
 }
 .marquee-row.marquee-reverse .marquee-track {
-    animation-direction: reverse;
+    animation-name: marquee-left;
     animation-duration: 40s; /* سرعة مختلفة شوية عن الصفوف التانية عشان الحركة تبقى طبيعية */
 }
 .marquee-item {
@@ -289,9 +290,13 @@ body.stop-scrolling {
     transition: transform 0.5s;
 }
 .marquee-item img:hover { transform: scale(1.08); }
-@keyframes marquee-scroll {
+@keyframes marquee-right {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); } /* بما إن الصور متكررة مرتين، النص ده بيخلي اللفة تبقى ملساء */
+}
+@keyframes marquee-left {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); } /* اتجاه معاكس بدون الاعتماد على animation-direction */
 }
 @media screen and (max-width: 768px) {
     .marquee-item { width: 150px; height: 150px; }
@@ -665,7 +670,6 @@ body.stop-scrolling {
     .cart-nav-item { margin-left: 5px; }
 
     /* الهيرو والعناوين */
-    .hero { height: 65vh !important; } /* بدل 100vh: عشان الفيديو الأفقي ميتقطعش بزيادة على شاشة طولية */
     .hero-content h1 { font-size: 2.2rem !important; }
     .hero-content p { font-size: 1.1rem !important; }
     .section-title { font-size: 28px; }
