@@ -266,7 +266,6 @@ body.stop-scrolling {
 }
 .marquee-track {
     display: flex;
-    gap: 15px;
     width: max-content;
     animation: marquee-right 35s linear infinite;
     will-change: transform;
@@ -279,6 +278,7 @@ body.stop-scrolling {
     flex: 0 0 auto;
     width: 220px;
     height: 220px;
+    margin-inline-end: 15px; /* margin بدل gap: كل صورة (حتى آخر واحدة) بتاخد نفس المسافة بالظبط، فنقطة 50% بتقع في المكان الصح تمامًا ومفيش أي قفزة أو وقفة عند نهاية الدورة */
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.25);
