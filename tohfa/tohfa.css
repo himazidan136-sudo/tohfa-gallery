@@ -253,8 +253,8 @@ body.stop-scrolling {
 .cat-card:hover { transform: translateY(-15px) !important; background: var(--primary); color: white; }
 .cat-card .icon { font-size: 45px; margin-bottom: 15px; display: block; }
 
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.gallery-item { height: 350px; overflow: hidden; padding: 10px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+.gallery-item { height: 240px; overflow: hidden; padding: 8px; }
 
 /* 🆕 شرايط الصور المتحركة (Marquee) بدل الجريد الثابت */
 .marquee-row {
@@ -673,7 +673,7 @@ body.stop-scrolling {
     .hero-content h1 { font-size: 2.2rem !important; }
     .hero-content p { font-size: 1.1rem !important; }
     .section-title { font-size: 28px; }
-    .gallery-item { height: 250px; }
+    .gallery-item { height: 160px; }
     .category-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
 
     /* شبكة المنتجات (منتجين جنب بعض) */
