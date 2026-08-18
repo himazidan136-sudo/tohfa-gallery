@@ -149,6 +149,33 @@ body.stop-scrolling {
     z-index: 5;
     white-space: nowrap;
 }
+
+/* ==========================================================
+   🆕 كروت صفحة Wall Decor (التابلوهات) - أكبر وبتوري اللوحة
+   كاملة من غير قص، لأن التابلوهات أشكالها وأبعادها مختلفة عن
+   باقي المنتجات (فازات/ديكور) اللي شكلها متقارب ومربّع أكتر.
+   الستايل ده بيستهدف #wall-list بس، مبيأثرش على باقي الصفحات.
+   ========================================================== */
+#wall-list.product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 30px !important;
+}
+#wall-list .product-card {
+    padding: 20px !important;
+}
+#wall-list .product-img {
+    height: 480px !important; /* أطول بكتير عشان اللوحة تبان كاملة وكبيرة */
+    background: rgba(255,255,255,0.03);
+}
+@media screen and (max-width: 768px) {
+    #wall-list.product-grid {
+        grid-template-columns: 1fr !important; /* عمود واحد بس في التابلت/الموبايل عشان اللوحة تبان كبيرة وواضحة */
+    }
+    #wall-list .product-img { height: 380px !important; }
+}
+@media screen and (max-width: 480px) {
+    #wall-list .product-img { height: 320px !important; }
+}
 .product-card.out-of-stock .order-btn,
 .product-card.out-of-stock .add-to-cart-btn {
     opacity: 0.5;
