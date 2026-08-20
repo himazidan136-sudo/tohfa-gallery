@@ -673,7 +673,7 @@ body.stop-scrolling {
     .hero-content h1 { font-size: 2.2rem !important; }
     .hero-content p { font-size: 1.1rem !important; }
     .section-title { font-size: 28px; }
-    .gallery-item { height: 160px; }
+    .gallery-item { height: auto; aspect-ratio: 1 / 1; } /* مربع بدل مستطيل عريض، عشان الصورة تبان كاملة أكتر */
     .category-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
 
     /* شبكة المنتجات (منتجين جنب بعض) */
