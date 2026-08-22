@@ -156,25 +156,42 @@ body.stop-scrolling {
    باقي المنتجات (فازات/ديكور) اللي شكلها متقارب ومربّع أكتر.
    الستايل ده بيستهدف #wall-list بس، مبيأثرش على باقي الصفحات.
    ========================================================== */
+/* ==========================================================
+   🆕 كروت صفحة Wall Decor (التابلوهات) - نظام Masonry:
+   بما إن التابلوهات مقاساتها مختلفة (طولية وعرضية)، كل كارت بياخد
+   حجم صورته الطبيعي (من غير قص أو تثبيت ارتفاع)، والكروت بترص
+   نفسها في أعمدة تلقائيًا من غير فراغات أو تداخل - زي بينتريست.
+   الستايل ده بيستهدف #wall-list بس، مبيأثرش على باقي الصفحات.
+   ========================================================== */
 #wall-list.product-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 30px !important;
+    display: block !important; /* إلغاء الجريد العادي، هنستخدم أعمدة (columns) بدالها */
+    column-count: 3;
+    column-gap: 25px;
+    width: 100%;
 }
 #wall-list .product-card {
-    padding: 20px !important;
+    display: inline-block !important; /* مهم عشان يتعامل صح مع نظام الأعمدة */
+    width: 100% !important;
+    break-inside: avoid; /* أهم سطر: يمنع الكارت إنه يتقطع بين عمودين */
+    margin-bottom: 25px;
+    padding: 15px !important;
 }
 #wall-list .product-img {
-    height: 480px !important; /* أطول بكتير عشان اللوحة تبان كاملة وكبيرة */
-    background: rgba(255,255,255,0.03);
+    height: auto !important; /* الأهم: الصورة تاخد ارتفاعها الطبيعي، مش ارتفاع ثابت */
+    background: transparent;
 }
-@media screen and (max-width: 768px) {
-    #wall-list.product-grid {
-        grid-template-columns: 1fr !important; /* عمود واحد بس في التابلت/الموبايل عشان اللوحة تبان كبيرة وواضحة */
-    }
-    #wall-list .product-img { height: 380px !important; }
+#wall-list .product-img img {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: unset !important; /* عشان الصورة تظهر بأبعادها الحقيقية بالظبط */
 }
-@media screen and (max-width: 480px) {
-    #wall-list .product-img { height: 320px !important; }
+@media screen and (max-width: 900px) {
+    #wall-list.product-grid { column-count: 2; }
+}
+@media screen and (max-width: 600px) {
+    #wall-list.product-grid { column-count: 1; }
 }
 .product-card.out-of-stock .order-btn,
 .product-card.out-of-stock .add-to-cart-btn {
