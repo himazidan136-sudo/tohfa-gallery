@@ -419,7 +419,7 @@ const flowerProducts = [
     { name: "فرع عباد شمس مستورد  ", price: "295 ج.م", img: "tohfa/z1.jpeg" },
     { name: "فرع كريز مستورد  ", price: "320 ج.م", img: "tohfa/z2.jpeg" },
     { name: "بيبي فلاور 8 فرع مستورد ", price: "250 ج.م", img: "tohfa/z3.jpeg" },
-    { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z4.jpeg" },
+    { name: "فروع نباتات مختلفه  ", price: "235 ج.م", img: "tohfa/z4.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z5.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z6.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z7.jpeg" },
