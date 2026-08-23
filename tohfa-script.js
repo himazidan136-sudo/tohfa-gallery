@@ -416,7 +416,7 @@ const flowerProducts = [
     { name: "بوت فراوله مع زرع كولكاسيا", price: "480 ج.م", img: "tohfa/b3.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/b4.jpeg" },
 
-    { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z1.jpeg" },
+    { name: "فرع عباد شمس   ", price: "1120 ج.م", img: "tohfa/z1.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z2.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z3.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z4.jpeg" },
