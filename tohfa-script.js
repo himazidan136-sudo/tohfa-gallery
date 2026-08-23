@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', rendervases);
 
 
 const wallProducts = [
-    { name: "تابلوه جلد 120*80", price: "750 ج.م", img: "tohfa/wall/w.jpeg" },
+    { name: "تابلوه جلد 120*80 ", price: "1200 ج.م", img: "tohfa/wall/w.jpeg" },
     { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w0.jpeg" },
     { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w1.jpeg" },
     { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w2.jpeg" },
