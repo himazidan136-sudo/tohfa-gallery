@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', rendervases);
 
 const wallProducts = [
 
-    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/WhatsApp_Image_2026-08-23_at_3.20.43_PM__1_-removebg-preview.png" },
    
 ];
 
