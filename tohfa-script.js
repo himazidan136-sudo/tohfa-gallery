@@ -535,7 +535,7 @@ const wallProducts = [
     { name: "تابلوه هاند ميد مدهب بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w5.jpeg" },
     { name: "تابلوه هاند ميد مدهب اخضر بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w6.jpeg" },
     { name: "تابلوه هاند ميد ورد بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w7.jpeg" },
-    { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w8.jpeg" },
+    { name: "تابلوه هاند ميد  كبير", price: "750 ج.م", img: "tohfa/wall/w8.jpeg" },
     { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w9.jpeg" },
     { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w10.jpeg" },
     { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w11.jpeg" },
