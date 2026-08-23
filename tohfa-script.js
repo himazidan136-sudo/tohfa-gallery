@@ -539,7 +539,6 @@ const wallProducts = [
     { name: "تابلوه جلد بنت افريقيه 120*80", price: "1200 ج.م", img: "tohfa/wall/w9.jpeg" },
     { name: "تابلوه جلد بحار 120*80", price: "1200 ج.م", img: "tohfa/wall/w10.jpeg" },
     { name: "تابلوه جلد  90*50", price: "850 ج.م", img: "tohfa/wall/w11.jpeg" },
-    { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w12.jpeg" },
     { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg" },
    
 ];
