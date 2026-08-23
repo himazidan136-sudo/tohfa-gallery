@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 // 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
 const flowerProducts = [
     { name: "بوت فايبر كوبايه مع زرع اريكا", price: "2200 ج.م", img: "tohfa/b.jpeg" },
-    { name: "بوت فايبر كوبايه مع زرع اريكا", price: "2200 ج.م", img: "tohfa/b0.jpeg" },
+    { name: "بوت فايبر مع زرع اريكا", price: "2200 ج.م", img: "tohfa/b0.jpeg" },
     { name: "بوت فايبر كوبايه مع زرع اريكا", price: "2200 ج.م", img: "tohfa/b1.jpeg" },
     { name: "بوت فايبر كوبايه مع زرع اريكا", price: "2200 ج.م", img: "tohfa/b2.jpeg" },
     { name: "بوت فايبر كوبايه مع زرع اريكا", price: "2200 ج.م", img: "tohfa/b3.jpeg" },
