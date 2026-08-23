@@ -424,7 +424,7 @@ const flowerProducts = [
     { name: "فرع كالبتوس مستورد  ", price: "170 ج.م", img: "tohfa/z7.jpeg" },
     { name: "جهنميه اسود مستورد  ", price: "175 ج.م", img: "tohfa/z8.jpeg" },
     { name: "فرع 70 سم دهبي مستورد ", price: "145 ج.م", img: "tohfa/z9.jpeg" },
-    { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z10.jpeg" },
+    { name: "فرع 70 سم دهبي مستورد ", price: "145 ج.م", img: "tohfa/z10.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z11.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z12.jpeg" },
     { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfa/z13.jpeg" },
