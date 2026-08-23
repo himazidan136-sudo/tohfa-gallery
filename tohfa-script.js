@@ -414,7 +414,7 @@ const flowerProducts = [
     { name: "حوض مجاميع كبير ", price: "1550 ج.م", img: "tohfa/b1.jpeg" },
     { name: "حوض مجاميع صغير ", price: "1100 ج.م", img: "tohfa/b2.jpeg" },
     { name: "بوت فراوله مع زرع كولكاسيا", price: "480 ج.م", img: "tohfa/b3.jpeg" },
-    { name: "بوت كريستاله مع كرز ", price: "1100 ج.م", img: "tohfa/b4.jpeg" },
+    { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/b4.jpeg" },
 
 
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
