@@ -427,7 +427,7 @@ const flowerProducts = [
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z10.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z11.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z12.jpeg" },
-    { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfa/z9.jpeg" },
+    { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfa/z13.jpeg" },
     { name: "بوت كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z14.jpeg" },
 
 
