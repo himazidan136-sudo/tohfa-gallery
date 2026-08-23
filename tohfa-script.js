@@ -428,7 +428,7 @@ const flowerProducts = [
     { name: "فرع 70 سم دهبي مستورد ", price: "145 ج.م", img: "tohfa/z11.jpeg" },
     { name: "فروع نباتات مختلفه اخضر ", price: "235 ج.م", img: "tohfa/z12.jpeg" },
     { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfa/z13.jpeg" },
-    { name: "فرع كريستاله مع كرز ", price: "1120 ج.م", img: "tohfa/z14.jpeg" },
+    { name: "فرع كريستال مستورد  ", price: "90 ج.م", img: "tohfa/z14.jpeg" },
 
 
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
