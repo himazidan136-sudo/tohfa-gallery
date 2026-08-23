@@ -526,9 +526,9 @@ document.addEventListener('DOMContentLoaded', rendervases);
 
 
 const wallProducts = [
-    { name: "تابلوه جلد 120*80 ", price: "1200 ج.م", img: "tohfa/wall/w.jpeg" },
-    { name: "تابلوه جلد كبير", price: "750 ج.م", img: "tohfa/wall/w0.jpeg" },
-    { name: "تابلوه جلد كبير", price: "750 ج.م", img: "tohfa/wall/w1.jpeg" },
+    { name: "تابلوه جلد قران 120*80 ", price: "1200 ج.م", img: "tohfa/wall/w.jpeg" },
+    { name: "تابلوه جلد شجر 120*80", price: "1200 ج.م", img: "tohfa/wall/w0.jpeg" },
+    { name: "تابلوه جلد عرايس 120*80", price: "1200 ج.م", img: "tohfa/wall/w1.jpeg" },
     { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w2.jpeg" },
     { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w3.jpeg" },
     { name: "تابلوه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w4.jpeg" },
