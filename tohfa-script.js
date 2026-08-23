@@ -526,8 +526,21 @@ document.addEventListener('DOMContentLoaded', rendervases);
 
 
 const wallProducts = [
-
-    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w0.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w1.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w2.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w3.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w4.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w5.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w6.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w7.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w8.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w9.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w10.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w11.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w12.jpeg" },
+    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/wall/w13.jpeg" },
    
 ];
 
