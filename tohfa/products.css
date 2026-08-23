@@ -123,6 +123,21 @@ body.stop-scrolling {
     transition: 0.5s;
 }
 
+/* 🆕 اسم وسعر المنتج: كانوا span (inline) من غير أي فاصل بينهم، فكانوا
+   بيظهروا لازقين في بعض على نفس السطر. دلوقتي كل واحد سطر لوحده
+   بمسافة واضحة بينهم. */
+.product-name {
+    display: block;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+.product-price {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
 /* 🆕 كارت المنتج اللي "نفذت الكمية" بتاعه */
 .product-card {
     position: relative; /* عشان الشارة تتموضع فوق الصورة بالظبط */
