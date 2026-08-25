@@ -347,7 +347,7 @@ const allProducts = [
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg" },
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg" },
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg" },
-    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg"  st},
+    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" , stock : 0},
         { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg" },
     { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg" },
     { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg" },
