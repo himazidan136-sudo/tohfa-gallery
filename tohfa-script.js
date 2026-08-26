@@ -64,14 +64,14 @@ function addToCart(name, price, img, stock, btn) {
     const existing = cart.find(item => item.name === name);
     if (existing) {
         if (existing.qty + 1 > maxStock) {
-            alert(`متأسفين، الكمية المتاحة من "${name}" هي ${maxStock} بس ولسه عندك ${existing.qty} في السلة.`);
+            alert(`متأسفين، الكمية المتاحة من "${name}" هي ${maxStock} فقط ولسه عندك ${existing.qty} في السلة.`);
             return;
         }
         existing.qty += 1;
         existing.stock = maxStock; // تحديث الحد الأقصى لو اتغير
     } else {
         if (maxStock < 1) {
-            alert(`متأسفين، "${name}" خلصت الكمية.`);
+            alert(`متأسفين، "${name}" نفذت الكمية.`);
             return;
         }
         cart.push({ name, price, img, qty: 1, stock: maxStock });
@@ -118,7 +118,7 @@ function changeQty(index, delta) {
 
     // منع الزيادة فوق الكمية المتاحة فعليًا من المنتج
     if (delta > 0 && typeof cart[index].stock === 'number' && cart[index].qty + delta > cart[index].stock) {
-        alert(`متأسفين، الكمية المتاحة من "${cart[index].name}" هي ${cart[index].stock} بس.`);
+        alert(`متأسفين، الكمية المتاحة من "${cart[index].name}" هي ${cart[index].stock} فقط.`);
         return;
     }
 
@@ -333,7 +333,7 @@ function isAvailable(item) {
 const allProducts = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg" },
     { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg" },
-    { name: "طقم شمعدان ميرور ورد ", price: 1100, img: "tohfa/sham3dan2.jpeg" },
+    { name: "طقم شمعدان ميرور ورد ", price: 1250, img: "tohfa/sham3dan2.jpeg" },
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg" },
     { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpeg" },
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg" },
@@ -343,11 +343,11 @@ const allProducts = [
     { name: "انتيكه اقراص ملونه", price: 500, img: "tohfa/decoran.jpeg" },
     { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg" },
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg" },
-    { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" },
+    { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" , stock : 0 },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg" },
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg" },
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg" },
-    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" },
+    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" , stock : 0},
         { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg" },
     { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg" },
     { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg" },
@@ -409,6 +409,28 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 
 // 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
 const flowerProducts = [
+    { name: "بوت فايبر كوبايه مع زرع اريكا", price: "2200 ج.م", img: "tohfa/b.jpeg" },
+    { name: "بوت فايبر مع زرع شاميدورا", price: "2000 ج.م", img: "tohfa/b0.jpeg" },
+    { name: "حوض + مجاميع كبير ", price: "1550 ج.م", img: "tohfa/b1.jpeg" },
+    { name: "حوض + مجاميع صغير ", price: "1100 ج.م", img: "tohfa/b2.jpeg" },
+    { name: "بوت فراوله مع زرع كولكاسيا", price: "480 ج.م", img: "tohfa/b3.jpeg" },
+    { name: "بوت كريستاله مع كريز ", price: "1120 ج.م", img: "tohfa/b4.jpeg" },
+
+    { name: "فرع عباد شمس مستورد  ", price: "295 ج.م", img: "tohfa/z1.jpeg" },
+    { name: "فرع كريز مستورد  ", price: "320 ج.م", img: "tohfa/z2.jpeg" },
+    { name: "بيبي فلاور 8 فرع مستورد ", price: "250 ج.م", img: "tohfa/z3.jpeg" },
+    { name: "فروع نباتات مختلفه اخضر ", price: "235 ج.م", img: "tohfa/z4.jpeg" },
+    { name: "فروع نباتات مختلفه اخضر ", price: "235 ج.م", img: "tohfa/z5.jpeg" },
+    { name: "فرع كالبتوس مستورد  ", price: "170 ج.م", img: "tohfa/z7.jpeg" },
+    { name: "جهنميه اسود مستورد  ", price: "175 ج.م", img: "tohfa/z8.jpeg" },
+    { name: "فرع 70 سم اصفر مستورد ", price: "145 ج.م", img: "tohfa/z9.jpeg" },
+    { name: "فرع 70 سم احمر مستورد ", price: "145 ج.م", img: "tohfa/z10.jpeg" },
+    { name: "فرع 70 سم دهبي مستورد ", price: "145 ج.م", img: "tohfa/z11.jpeg" },
+    { name: "فروع نباتات مختلفه اخضر ", price: "235 ج.م", img: "tohfa/z12.jpeg" },
+    { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfa/z13.jpeg" },
+    { name: "فرع كريستال مستورد  ", price: "90 ج.م", img: "tohfa/z14.jpeg" },
+
+
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/flowersf.jpeg" },
     { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/flowersw.jpeg" },
     { name: "حامل نباتات استانلس", price: "200 ج.م", img: "tohfa/flowersh.jpeg" },
@@ -526,8 +548,20 @@ document.addEventListener('DOMContentLoaded', rendervases);
 
 
 const wallProducts = [
-
-    { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg" },
+    { name: "تابلوه جلد قران 120*80 ", price: "1200 ج.م", img: "tohfa/wall/w.jpeg" },
+    { name: "تابلوه جلد شجر 120*80", price: "1200 ج.م", img: "tohfa/wall/w0.jpeg" },
+    { name: "تابلوه جلد عرايس 120*80", price: "1200 ج.م", img: "tohfa/wall/w1.jpeg" },
+    { name: "تابلوه كلاسيك زيت خشب بني غامق 120*60", price: "1590 ج.م", img: "tohfa/wall/w2.jpeg" },
+    { name: "تابلوه كلاسيك زيت خشب بني 120*60", price: "1590 ج.م", img: "tohfa/wall/w3.jpeg" },
+    { name: "تابلوه كلاسيك زيت خشب دهبي 120*60", price: "1690 ج.م", img: "tohfa/wall/w4.jpeg" },
+    { name: "تابلوه هاند ميد مدهب بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w5.jpeg" },
+    { name: "تابلوه هاند ميد مدهب اخضر بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w6.jpeg" },
+    { name: "تابلوه هاند ميد ورد بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w7.jpeg" },
+    { name: "تابلوه هاند ميد ورد بارز اخضر  120*80 ", price: "2150 ج.م", img: "tohfa/wall/w8.jpeg" },
+    { name: "تابلوه جلد بنت افريقيه 120*80", price: "1200 ج.م", img: "tohfa/wall/w9.jpeg" },
+    { name: "تابلوه جلد بحار 120*80", price: "1200 ج.م", img: "tohfa/wall/w10.jpeg" },
+    { name: "تابلوه جلد  90*50", price: "850 ج.م", img: "tohfa/wall/w11.jpeg" },
+    { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg" },
    
 ];
 
