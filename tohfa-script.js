@@ -486,9 +486,9 @@ document.addEventListener('DOMContentLoaded', renderFlowers);
 
 
 const vasesProducts = [
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasef.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasef0.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasef1.jpeg", stock: 1 },
+    { name: "   طقم فاز فخار اورنج", price: "700 ج.م", img: "tohfa/vasef.jpeg", stock: 1 },
+    { name: "  طقم فاز فخار ابيض ", price: "700 ج.م", img: "tohfa/vasef0.jpeg", stock: 1 },
+    { name: "   طقم فاز متداخل", price: "600 ج.م", img: "tohfa/vasef1.jpeg", stock: 1 },
     { name: "   ", price: "450 ج.م", img: "tohfa/vasef2.jpeg", stock: 1 },
     { name: "   ", price: "450 ج.م", img: "tohfa/vasef3.jpeg", stock: 1 },
     { name: "   ", price: "450 ج.م", img: "tohfa/vasef4.jpeg", stock: 1 },
