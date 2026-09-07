@@ -364,9 +364,9 @@ const allProducts = [
     { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" , stock: 0 },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1 },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1 },
-    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3w0.jpeg", stock: 1 },
-    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3g.jpeg", stock: 1 },
-    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3g0.jpeg", stock: 1 },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decore3w0.jpeg", stock: 1 },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decore3g.jpeg", stock: 1 },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decore3g0.jpeg", stock: 1 },
 
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg", stock: 1 },
     { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" , stock: 0},
