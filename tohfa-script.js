@@ -486,14 +486,14 @@ document.addEventListener('DOMContentLoaded', renderFlowers);
 
 
 const vasesProducts = [
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf0.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf1.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf2.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf3.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf4.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf5.jpeg", stock: 1 },
-    { name: "   ", price: "450 ج.م", img: "tohfa/vasesf6.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef0.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef1.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef2.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef3.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef4.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef5.jpeg", stock: 1 },
+    { name: "   ", price: "450 ج.م", img: "tohfa/vasef6.jpeg", stock: 1 },
 
     { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vasesm.jpeg", stock: 1 },
     { name: "مزهريه ذهبيه وسط", price: "620 ج.م", img: "tohfa/vasesmm.jpeg", stock: 1 },
