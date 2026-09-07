@@ -331,11 +331,11 @@ function isAvailable(item) {
 
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
-    { name: " طقم شمعدان اسود ", price: 1495, img: "tohfa/sham3dan3.jpeg", stock: 1 },
-    { name: "شمعدان استرس معدن ", price: 1495, img: "tohfa/sham3dan4.jpeg", stock: 1 },
-    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan5.jpeg", stock: 1 },
-    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan6.jpeg", stock: 1 },
-    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan7.jpeg", stock: 1 },
+    { name: " طقم شمعدان اسود ", price: 1550, img: "tohfa/sham3dan3.jpeg", stock: 1 },
+    { name: "شمعدان استرس معدن ", price: 750, img: "tohfa/sham3dan4.jpeg", stock: 1 },
+    { name: "  ", price: 1495, img: "tohfa/sham3dan5.jpeg", stock: 1 },
+    { name: "  ", price: 1495, img: "tohfa/sham3dan6.jpeg", stock: 1 },
+    { name: "  ", price: 1495, img: "tohfa/sham3dan7.jpeg", stock: 1 },
 
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg", stock: 1 },
     { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg", stock: 2 },
