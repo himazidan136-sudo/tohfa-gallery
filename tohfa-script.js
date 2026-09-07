@@ -337,6 +337,7 @@ const allProducts = [
     { name: " شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan6.jpeg", stock: 1 },
     { name: "   شمعدان معدن كريستال عريض", price: 550, img: "tohfa/sham3dan7.jpeg", stock: 1 },
     { name: " شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan8.jpeg", stock: 1 },
+    { name: " شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan10.jpeg", stock: 1 },
     { name: " شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan9.jpeg", stock: 1 },
 
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg", stock: 1 },
