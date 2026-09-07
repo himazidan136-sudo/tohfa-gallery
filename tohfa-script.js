@@ -503,6 +503,7 @@ const vasesProducts = [
     { name: "   فاز فخار ابيض", price: "500 ج.م", img: "tohfa/vasef4.jpeg", stock: 1 },
     { name: "  فاز فخار رمادي ", price: "500 ج.م", img: "tohfa/vasef5.jpeg", stock: 1 },
     { name: "   فاز فخار اخضر", price: "500 ج.م", img: "tohfa/vasef6.jpeg", stock: 1 },
+    { name: "   فاز فخار ابيض", price: "500 ج.م", img: "tohfa/vasef7.jpeg", stock: 1 },
     { name: "   فاز خزف صغير", price: "110 ج.م", img: "tohfa/vasek.jpeg", stock: 1 },
     { name: "   فاز خزف كبير", price: "320 ج.م", img: "tohfa/vasek0.jpeg", stock: 1 },
 
