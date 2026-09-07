@@ -345,7 +345,7 @@ const allProducts = [
     { name: "طقم شمعدان ميرور ورد ", price: 1250, img: "tohfa/sham3dan2.jpeg", stock: 2 },
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg", stock: 1 },
     { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpeg", stock: 1 },
-        { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg", stock: 1 },
+    { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg", stock: 1 },
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg", stock: 1 },
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg", stock: 1 },
 
