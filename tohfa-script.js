@@ -346,7 +346,7 @@ const allProducts = [
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg", stock: 1 },
     { name: "مبخره هيدستينس افريقيه", price: 630, img: "tohfa/decorm.jpeg", stock: 1 },
     { name: "مبخره شلال", price: 600, img: "tohfa/mab5aras.jpeg", stock: 1 },
-    { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5aras0.jpeg", stock: 1 },
+    { name: "مبخره شلال بوزي", price: 600, img: "tohfa/mab5aras0.jpeg", stock: 1 },
 
     { name: "ديكور اب", price: 450, img: "tohfa/decor0.jpeg", stock: 1 },
     { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 1 },
