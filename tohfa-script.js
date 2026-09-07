@@ -363,7 +363,11 @@ const allProducts = [
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg", stock: 1 },
     { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" , stock: 0 },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1 },
-    { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg", stock: 1 },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1 },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3w0.jpeg", stock: 1 },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3g.jpeg", stock: 1 },
+    { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3g0.jpeg", stock: 1 },
+
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg", stock: 1 },
     { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" , stock: 0},
         { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg", stock: 1 },
