@@ -336,6 +336,8 @@ const allProducts = [
     { name: "  طقم شمعدان اسود مموج", price: 1050, img: "tohfa/sham3dan5.jpeg", stock: 1 },
     { name: " شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan6.jpeg", stock: 1 },
     { name: "   شمعدان معدن كريستال عريض", price: 550, img: "tohfa/sham3dan7.jpeg", stock: 1 },
+    { name: " شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan8.jpeg", stock: 1 },
+    { name: " شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan9.jpeg", stock: 1 },
 
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg", stock: 1 },
     { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg", stock: 2 },
