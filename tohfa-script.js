@@ -333,7 +333,7 @@ function isAvailable(item) {
 const allProducts = [
     { name: " طقم شمعدان اسود ", price: 1550, img: "tohfa/sham3dan3.jpeg", stock: 1 },
     { name: "شمعدان استرس معدن ", price: 750, img: "tohfa/sham3dan4.jpeg", stock: 1 },
-    { name: "  ", price: 1495, img: "tohfa/sham3dan5.jpeg", stock: 1 },
+    { name: "  طقم شمعدان اسود مموج", price: 1050, img: "tohfa/sham3dan5.jpeg", stock: 1 },
     { name: "  ", price: 1495, img: "tohfa/sham3dan6.jpeg", stock: 1 },
     { name: "  ", price: 1495, img: "tohfa/sham3dan7.jpeg", stock: 1 },
 
