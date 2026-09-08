@@ -625,7 +625,7 @@ const wallProducts = [
        { name: "برواز ثلاثي 40*60 موردن بيج", price: "900 ج.م", img: "tohfa/wall/t8.jpeg", stock: 1 },
        { name: "برواز ثلاثي  ", price: "500.م", img: "tohfa/wall/t6.jpeg", stock: 1 },
 
-       { name: "", price: "850 ج.م", img: "tohfa/wall/t9.jpeg", stock: 1 },
+       { name: "بروا", price: "850 ج.م", img: "tohfa/wall/t9.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t10.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t11.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t12.jpeg", stock: 1 },
