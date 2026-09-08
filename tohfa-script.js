@@ -361,6 +361,7 @@ const allProducts = [
     { name: "انتيكه اقراص ملونه", price: 500, img: "tohfa/decoran.jpeg", stock: 1 },
     { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg", stock: 1 },
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg", stock: 1 },
+    { name: " اباجوره ليد قابل للطي", price:590 , img: "tohfa/decora0.jpeg", stock: 1 },
 
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg", stock: 1 },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1 },
