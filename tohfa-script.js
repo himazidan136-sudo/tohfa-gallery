@@ -358,11 +358,9 @@ const allProducts = [
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg", stock: 1 },
     { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg", stock: 1 },
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg", stock: 1 },
-    { name: "بلوره هلال", price: 485, img: "tohfa/decorb3.jpeg", stock: 0 },
     { name: "انتيكه اقراص ملونه", price: 500, img: "tohfa/decoran.jpeg", stock: 1 },
     { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg", stock: 1 },
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg", stock: 1 },
-    { name: " اباجوره ليد سمارت", price:775 , img: "tohfa/decoras.jpeg" , stock: 0 },
 
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg", stock: 1 },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1 },
@@ -371,7 +369,6 @@ const allProducts = [
     { name: "بوكس مناديل شنطه يد", price:650 , img: "tohfa/decore3g0.jpeg", stock: 1 },
 
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg", stock: 1 },
-    { name: "بنت عوسه  ", price:500 , img: "tohfa/decorbn.jpeg" , stock: 0},
         { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg", stock: 1 },
     { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg", stock: 1 },
     { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg", stock: 1 },
