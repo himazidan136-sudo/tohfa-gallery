@@ -379,7 +379,7 @@ const allProducts = [
     { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg", stock: 1 },
     { name: "مرايا بابلز  ", price:250 , img: "tohfa/dm.jpeg", stock: 1 },
     { name: "مرايا كريستال  ", price:490 , img: "tohfa/dm0.jpeg", stock: 1 },
-    { name: "فواحه   ", price:490 , img: "tohfa/df.jpeg", stock: 1 },
+    { name: "مبخره ليد   ", price:490 , img: "tohfa/df.jpeg", stock: 1 },
     { name: "فواحه اطفال ", price:320 , img: "tohfa/df0.jpeg", stock: 1 },
     { name: "فواحه اطفال قطه  ", price:230 , img: "tohfa/df1.jpeg", stock: 1 },
 
