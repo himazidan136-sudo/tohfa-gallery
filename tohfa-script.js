@@ -467,9 +467,9 @@ const flowerProducts = [
     { name: " مقزمه معدن مضيئه ابيض ", price: "520 ج.م", img: "tohfa/z/f.jpeg", stock: 1 },
     { name: "  مقزمه معدن مضيئه اسود", price: "520 ج.م", img: "tohfa/z/f0.jpeg", stock: 1 },
     { name: "  ", price: "300 ج.م", img: "tohfa/z/f1.jpeg", stock: 1 },
-    { name: "  ", price: "300 ج.م", img: "tohfa/z/f2.jpeg", stock: 1 },
-    { name: "  ", price: "300 ج.م", img: "tohfa/z/f3.jpeg", stock: 1 },
-    { name: "  ", price: "300 ج.م", img: "tohfa/z/f4.jpeg", stock: 1 },
+    { name: " مقزمه فخار حجري كبير ", price: "250 ج.م", img: "tohfa/z/f2.jpeg", stock: 1 },
+    { name: "  مقزمه فخار حجري صغير", price: "150 ج.م", img: "tohfa/z/f3.jpeg", stock: 1 },
+    { name: "  مقزمه فخار حجري صغير", price: "150 ج.م", img: "tohfa/z/f4.jpeg", stock: 1 },
 
     { name: "صباره فستان استانلس", price: "300 ج.م", img: "tohfa/z/flowersf.jpeg", stock: 1 },
     { name: "صباره وش استانلس", price: "300 ج.م", img: "tohfa/z/flowersw.jpeg", stock: 1 },
