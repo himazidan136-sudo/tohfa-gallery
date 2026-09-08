@@ -353,7 +353,7 @@ const allProducts = [
     { name: "بنت عوسه ابيض", price: 700, img: "tohfa/decor3.jpeg", stock: 1 },
     { name: "بنت عوسه مع طبق", price: 750, img: "tohfa/decor4.jpeg", stock: 1 },
     { name: "انتيك امراه دهبي", price: 705, img: "tohfa/decor5.jpeg", stock: 1 },
-    { name: "انتيك امراه دهبي", price: 705, img: "tohfa/decor6.jpeg", stock: 1 },
+    { name: "طقم تفاحه مستورد ", price: 1300, img: "tohfa/decor6.jpeg", stock: 1 },
 
     { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg", stock: 1 },
     { name: "بلوره مع حامل رخام", price: 300, img: "tohfa/decorb1.jpeg", stock: 1 },
