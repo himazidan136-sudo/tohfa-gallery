@@ -629,7 +629,7 @@ const wallProducts = [
        { name: "برواز سداسي مودرن جراي", price: "800 ج.م", img: "tohfa/wall/t10.jpeg", stock: 1 },
        { name: "برواز سداسي قران", price: "800 ج.م", img: "tohfa/wall/t11.jpeg", stock: 1 },
        { name: "برواز سداسي اطفال", price: "800 ج.م", img: "tohfa/wall/t12.jpeg", stock: 1 },
-       { name: "برواز سداسي", price: "800 ج.م", img: "tohfa/wall/t13.jpeg", stock: 1 },
+       { name: " ", price: "800 ج.م", img: "tohfa/wall/t13.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t14.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t15.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t16.jpeg", stock: 1 },
