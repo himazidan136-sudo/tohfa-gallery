@@ -449,7 +449,7 @@ const flowerProducts = [
     { name: "فرع 70 سم احمر مستورد ", price: "145 ج.م", img: "tohfa/z/z10.jpeg", stock: 1 },
     { name: "فرع 70 سم دهبي مستورد ", price: "145 ج.م", img: "tohfa/z/z11.jpeg", stock: 1 },
     { name: "فروع نباتات مختلفه اخضر ", price: "235 ج.م", img: "tohfa/z/z12.jpeg", stock: 1 },
-    { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfaz//z13.jpeg", stock: 1 },
+    { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfa/z/z13.jpeg", stock: 1 },
     { name: "فرع كريستال مستورد  ", price: "90 ج.م", img: "tohfa/z/z14.jpeg", stock: 1 },
 
 
