@@ -622,7 +622,9 @@ const wallProducts = [
        { name: "برواز ثلاثي 40*60 قران سور", price: "900ج.م", img: "tohfa/wall/t4.jpeg", stock: 1 },
        { name: "برواز ثلاثي 40*60 قران ", price: "900ج.م", img: "tohfa/wall/t5.jpeg", stock: 1 },
        { name: "برواز ثلاثي 40*60", price: "900ج.م", img: "tohfa/wall/t6.jpeg", stock: 1 },
-       { name: "برواز ثلاثي 40*60", price: "900ج.م", img: "tohfa/wall/t7.jpeg", stock: 1 },
+       { name: "برواز ثلاثي 40*60 اطفال قران", price: "900ج.م", img: "tohfa/wall/t7.jpeg", stock: 1 },
+
+       { name: "", price: "850 ج.م", img: "tohfa/wall/t8.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t9.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t10.jpeg", stock: 1 },
        { name: "", price: "850 ج.م", img: "tohfa/wall/t11.jpeg", stock: 1 },
