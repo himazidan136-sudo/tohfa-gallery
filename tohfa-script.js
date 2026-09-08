@@ -527,7 +527,7 @@ const vasesProducts = [
     { name: "مزهريه خزفيه ذهبيه كبير", price: "820 ج.م", img: "tohfa/vasesmk.jpeg", stock: 1 },
     { name: "مزهريه خزفيه ذهبيه وسط", price: "650 ج.م", img: "tohfa/vasesmkm.jpeg", stock: 1 },
     { name: "مزهريه خزفيه ذهبيه صغير", price: "550 ج.م", img: "tohfa/vasesmks.jpeg", stock: 1 },
-    { name: "فاز ذهبيه صغير", price: "580 ج.م", img: "tohfa/vasems0.jpeg", stock: 1 },
+    { name: "فاز ذهبيه شاين", price: "550 ج.م", img: "tohfa/vasems0.jpeg", stock: 1 },
 
     { name: "فاز زور اسود ", price: "1000 ج.م", img: "tohfa/vasesz.jpeg", stock: 1 },
     { name: "فاز زور اسود كبير", price: "1200 ج.م", img: "tohfa/vasesz0.jpeg", stock: 1 },
