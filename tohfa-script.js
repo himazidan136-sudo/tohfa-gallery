@@ -444,7 +444,7 @@ const flowerProducts = [
     { name: "بوت كريستاله مع كريز ", price: "1120 ج.م", img: "tohfa/z/b4.jpeg", stock: 1 },
 
     { name: "لوزه 9 ورده مستورد  ", price: "210 ج.م", img: "tohfa/z/z15.jpeg", stock: 1 },
-    { name: "مجموعه عباد شمس مستورد  ", price: "295 ج.م", img: "tohfa/z/z16.jpeg", stock: 1 },
+    { name: "مجموعه ورد احمر قطيفه مستورد  ", price: "210 ج.م", img: "tohfa/z/z16.jpeg", stock: 1 },
     { name: "فرع عباد شمس مستورد  ", price: "295 ج.م", img: "tohfa/z/z17.jpeg", stock: 1 },
     { name: "فرع عباد شمس مستورد  ", price: "295 ج.م", img: "tohfa/z/z18.jpeg", stock: 1 },
     { name: "فرع عباد شمس مستورد  ", price: "295 ج.م", img: "tohfa/z/z19.jpeg", stock: 1 },
