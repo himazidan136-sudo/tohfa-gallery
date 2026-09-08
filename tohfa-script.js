@@ -627,7 +627,7 @@ const wallProducts = [
 
        { name: "برواز سداسي مودرن طوبي", price: "800 ج.م", img: "tohfa/wall/t9.jpeg", stock: 1 },
        { name: "برواز سداسي مودرن جراي", price: "800 ج.م", img: "tohfa/wall/t10.jpeg", stock: 1 },
-       { name: "برواز سداسي قران", price: "800 ج.م", img: "tohfa/wall/t11.jpeg", stock: 1 },
+       { name: "برواز سداسي عربي", price: "800 ج.م", img: "tohfa/wall/t11.jpeg", stock: 1 },
        { name: "برواز سداسي اطفال", price: "800 ج.م", img: "tohfa/wall/t12.jpeg", stock: 1 },
        { name: " برواز بلاستيك", price: "180 ج.م", img: "tohfa/wall/t13.jpeg", stock: 1 },
        { name: "برواز خشب 40*30", price: "200 ج.م", img: "tohfa/wall/t14.jpeg", stock: 1 },
