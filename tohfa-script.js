@@ -464,8 +464,8 @@ const flowerProducts = [
     { name: "بامبو 19 ورقه سباعي مستورد ", price: "195 ج.م", img: "tohfa/z/z13.jpeg", stock: 1 },
     { name: "فرع كريستال مستورد  ", price: "90 ج.م", img: "tohfa/z/z14.jpeg", stock: 1 },
 
-    { name: "  ", price: "300 ج.م", img: "tohfa/z/f.jpeg", stock: 1 },
-    { name: "  ", price: "300 ج.م", img: "tohfa/z/f0.jpeg", stock: 1 },
+    { name: " مقزمه معدن مضيئه ابيض ", price: "520 ج.م", img: "tohfa/z/f.jpeg", stock: 1 },
+    { name: "  مقزمه معدن مضي", price: "300 ج.م", img: "tohfa/z/f0.jpeg", stock: 1 },
     { name: "  ", price: "300 ج.م", img: "tohfa/z/f1.jpeg", stock: 1 },
     { name: "  ", price: "300 ج.م", img: "tohfa/z/f2.jpeg", stock: 1 },
     { name: "  ", price: "300 ج.م", img: "tohfa/z/f3.jpeg", stock: 1 },
