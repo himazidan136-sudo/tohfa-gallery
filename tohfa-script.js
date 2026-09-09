@@ -449,8 +449,8 @@ const flowerProducts = [
     { name: "براعم 5 ورده بينك مستورد  ", price: "110 ج.م", img: "tohfa/z/z18.jpeg", stock: 1 },
     { name: "براعم 5 ورده لبني مستورد  ", price: "110 ج.م", img: "tohfa/z/z19.jpeg", stock: 1 },
     { name: "قرنفل 12 ورده مستورد  ", price: "250 ج.م", img: "tohfa/z/z20.jpeg", stock: 1 },
-    { name: "قرنفل 12 ورده مستورد  ", price: "250 ج.م", img: "tohfa/z/z21.jpeg", stock: 1 },
-    { name: "قرنفل 12 ورده مستورد  ", price: "250 ج.م", img: "tohfa/z/z22.jpeg", stock: 1 },
+    { name: "براعم 5 ورده بنفسجي مستورد  ", price: "110 ج.م", img: "tohfa/z/z21.jpeg", stock: 1 },
+    { name: "براعم 5 ورده لبني مستورد  ", price: "110 ج.م", img: "tohfa/z/z22.jpeg", stock: 1 },
 
     { name: "فرع عباد شمس مستورد  ", price: "295 ج.م", img: "tohfa/z/z1.jpeg", stock: 1 },
     { name: "فرع كريز مستورد  ", price: "320 ج.م", img: "tohfa/z/z2.jpeg", stock: 1 },
