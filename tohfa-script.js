@@ -382,6 +382,7 @@ const allProducts = [
     { name: "مبخره ليد   ", price:490 , img: "tohfa/df.jpeg", stock: 1 },
     { name: "فواحه اطفال ", price:320 , img: "tohfa/df0.jpeg", stock: 1 },
     { name: "فواحه اطفال قطه  ", price:230 , img: "tohfa/df1.jpeg", stock: 1 },
+    { name: "فاز فواحه معطر  ", price:485 , img: "tohfa/fowaha.jpeg", stock: 1 },
 
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg", stock: 1 },
     { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg", stock: 1 },
@@ -397,7 +398,6 @@ const allProducts = [
     { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg", stock: 1 },
     { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg", stock: 1 },
     { name: "ساعه منبه صغير  ", price:300 , img: "tohfa/sa3a2.jpeg", stock: 1 },
-    { name: "فاز فواحه معطر  ", price:485 , img: "tohfa/fowaha.jpeg", stock: 1 },
 
     // عشان تضيف منتج جديد.. خد السطر اللي فوق "نسخ" وغير البيانات بس
 ];
