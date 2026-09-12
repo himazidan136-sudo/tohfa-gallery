@@ -536,7 +536,7 @@ const vasesProducts = [
     { name: "   فاز فخار اخضر", price: "500 ج.م", img: "tohfa/vase/vasef6.jpeg", stock: 1 },
     { name: "   فاز فخار ابيض", price: "500 ج.م", img: "tohfa/vase/vasef7.jpeg", stock: 1 },
     { name: "   فاز خزف صغير", price: "110 ج.م", img: "tohfa/vase/vasek.jpeg", stock: 0 },
-    { name: "   فاز خزف كبير", price: "320 ج.م", img: "tohfa/vase/vasek0.jpeg", stock: 1 },
+    { name: "   فاز خزف كبير", price: "320 ج.م", img: "tohfa/vase/vasek0.jpeg", stock: 0 },
 
     { name: "مزهريه ذهبيه كبير", price: "750 ج.م", img: "tohfa/vase/vasesm.jpeg", stock: 1 },
     { name: "مزهريه ذهبيه وسط", price: "620 ج.م", img: "tohfa/vase/vasesmm.jpeg", stock: 1 },
