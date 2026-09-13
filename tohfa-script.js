@@ -608,7 +608,7 @@ const wallProducts = [
     { name: "تابلوه كلاسيك زيت خشب بني 120*60", price: "1590 ج.م", img: "tohfa/wall/w3.jpeg", stock: 1 },
     { name: "تابلوه كلاسيك زيت خشب دهبي 120*60", price: "1690 ج.م", img: "tohfa/wall/w4.jpeg", stock: 1 },
     { name: "تابلوه هاند ميد مدهب بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w5.jpeg", stock: 1 },
-    { name: "تابلوه هاند ميد مدهب اخضر بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w6.jpeg", stock: 1 },
+    { name: "تابلوه هاند ميد مدهب اخضر بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w6.jpeg", stock: 0},
     { name: "تابلوه هاند ميد ورد بارز 150*80", price: "1950 ج.م", img: "tohfa/wall/w7.jpeg", stock: 1 },
     { name: "تابلوه هاند ميد ورد بارز اخضر  120*80 ", price: "2150 ج.م", img: "tohfa/wall/w8.jpeg", stock: 1 },
     { name: "تابلوه جلد بنت افريقيه 120*80", price: "1200 ج.م", img: "tohfa/wall/w9.jpeg", stock: 1 },
