@@ -261,19 +261,18 @@ body.stop-scrolling {
    - تكبير الصورة + تظليل ناعم عند الـHover مع اسم القطعة بيطلع.
    ========================================================== */
 .bento-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 190px;
-    gap: 18px;
+    column-count: 4;
+    column-gap: 18px;
 }
 .bento-item {
     position: relative;
-    grid-column: span 1;
-    grid-row: span 1;
+    display: inline-block; /* مهم عشان نظام الأعمدة (columns) يشتغل صح */
+    width: 100%;
+    break-inside: avoid; /* يمنع الكارت إنه يتقطع بين عمودين */
+    margin-bottom: 18px;
     border-radius: 22px;
     overflow: hidden;
     cursor: pointer;
-    background: rgba(255,255,255,0.04); /* خلفية خفيفة تملى الفراغ حوالين الصورة لما تكون contain */
     box-shadow: 0 8px 30px rgba(0,0,0,0.25);
     /* حالة البداية قبل الظهور: مختفي ومرفوع شوية وأصغر شوية */
     opacity: 0;
@@ -289,18 +288,15 @@ body.stop-scrolling {
 .bento-item:hover {
     box-shadow: 0 14px 40px rgba(160,64,53,0.35);
 }
-.bento-large { grid-column: span 2; grid-row: span 2; }
-.bento-tall  { grid-row: span 2; }
 
 .bento-item img {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* الصورة تظهر كاملة من غير قص، بدل ما تتقص عشان تملى الكارت */
+    height: auto; /* الكارت ياخد مقاس الصورة الطبيعي بالظبط، مفيش تثبيت ارتفاع ولا قص */
     display: block;
     transition: transform 0.8s cubic-bezier(.16,1,.3,1), filter 0.5s;
 }
 .bento-item:hover img {
-    transform: scale(1.15) rotate(0.5deg);
+    transform: scale(1.08);
     filter: brightness(0.7);
 }
 .bento-overlay {
@@ -326,13 +322,15 @@ body.stop-scrolling {
 }
 
 @media screen and (max-width: 900px) {
-    .bento-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; gap: 12px; }
-    .bento-large { grid-column: span 2; grid-row: span 1; }
+    .bento-gallery { column-count: 2; column-gap: 12px; }
+    .bento-item { margin-bottom: 12px; }
 }
 @media screen and (max-width: 480px) {
-    .bento-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 130px; gap: 10px; }
+    .bento-gallery { column-count: 2; column-gap: 10px; }
+    .bento-item { margin-bottom: 10px; }
     .bento-overlay span { font-size: 0.75rem; }
 }
+
 
 /* 🆕 شرايط الصور المتحركة (Marquee) بدل الجريد الثابت */
 .marquee-row {
