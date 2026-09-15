@@ -332,7 +332,7 @@ function isAvailable(item) {
 // 1. مخزن المنتجات (ضيف هنا كل المنتجات اللي معاك في ثواني)
 const allProducts = [
     { name: " طقم شمعدان اسود ", price: 1550, img: "tohfa/sham3dan3.jpeg", stock: 1 },
-    { name: "طقم شمعدان استرس معدن ", price: 750, img: "tohfa/sham3dan4.jpeg", stock: 1 },
+    { name: "طقم شمعدان استرس معدن ", price: 750, img: "tohfa/sham3dan4.jpeg", stock: 2 },
     { name: "   طقم شمعدان اسود مموج", price: 1050, img: "tohfa/sham3dan5.jpeg", stock: 1 },
     { name: " طقم شمعدان معدن كريستال ", price: 550, img: "tohfa/sham3dan6.jpeg", stock: 1 },
     { name: "  طقم شمعدان معدن كريستال عريض", price: 550, img: "tohfa/sham3dan7.jpeg", stock: 1 },
