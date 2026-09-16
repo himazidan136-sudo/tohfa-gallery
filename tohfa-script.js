@@ -633,8 +633,8 @@ const wallProducts = [
        { name: "برواز سداسي اطفال", price: "800 ج.م", img: "tohfa/wall/t12.jpeg", stock: 1 },
        { name: " برواز بلاستيك", price: "180 ج.م", img: "tohfa/wall/t13.jpeg", stock: 1 },
        { name: "برواز خشب 40*30", price: "200 ج.م", img: "tohfa/wall/t14.jpeg", stock: 1 },
-       { name: "", price: "850 ج.م", img: "tohfa/wall/t15.jpeg", stock: 1 },
-       { name: "", price: "850 ج.م", img: "tohfa/wall/t16.jpeg", stock: 1 },
+       { name: "", price: "400 ج.م", img: "tohfa/wall/t15.jpeg", stock: 1 },
+       { name: "", price: "400 ج.م", img: "tohfa/wall/t16.jpeg", stock: 1 },
        { name: "برواز خشب 40*30", price: "200 ج.م", img: "tohfa/wall/t17.jpeg", stock: 1 },
        { name: "برواز خشب 40*30", price: "200 ج.م", img: "tohfa/wall/t18.jpeg", stock: 1 },
 
