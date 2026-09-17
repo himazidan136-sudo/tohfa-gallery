@@ -617,7 +617,7 @@ const wallProducts = [
     { name: "تابلوه مدخل مضئ جملي  40*70", price: "1350 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
     { name: "تابلوه مدخل مضئ رمادي 40*70", price: "1350 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
     { name: "تابلوه مدخل مضئ home  ", price: "1550 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
-    { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
+    { name: "تابلوه مدخل دائري مضئ ", price: "1350 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
     { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
     { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
     { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
