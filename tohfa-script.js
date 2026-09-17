@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', renderProducts);
 
 // 1. مخزن بيانات الورد (كل منتج في سطر واحد زي ما طلبت)
 const flowerProducts = [
-    { name: "بوت كريستاله مع كريز ", price: "1120 ج.م", img: "tohfa/z/b4.jpeg", stock: 1 },
+    { name: "بوت فايبر كبير مع زرع عصفوره الجنه ", price: "1120 ج.م", img: "tohfa/z/b4.jpeg", stock: 1 },
     { name: "بوت كريستاله مع كريز ", price: "1120 ج.م", img: "tohfa/z/b4.jpeg", stock: 1 },
     { name: "بوت كريستاله مع كريز ", price: "1120 ج.م", img: "tohfa/z/b4.jpeg", stock: 1 },
     { name: "بوت كريستاله مع كريز ", price: "1120 ج.م", img: "tohfa/z/b4.jpeg", stock: 1 },
