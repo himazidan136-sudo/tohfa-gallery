@@ -620,11 +620,11 @@ const wallProducts = [
     { name: "تابلوه جلد بنت افريقيه 120*80", price: "1200 ج.م", img: "tohfa/wall/w9.jpeg", stock: 1 },
     { name: "تابلوه جلد بحار 120*80", price: "1200 ج.م", img: "tohfa/wall/w10.jpeg", stock: 1 },
 
-    { name: "تابلوه مدخل مضئ جملي  40*70", price: "1350 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
-    { name: "تابلوه مدخل مضئ رمادي 40*70", price: "1350 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
-    { name: "تابلوه مدخل مضئ home  ", price: "1550 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
-    { name: "تابلوه مدخل دائري مضئ ", price: "1350 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
-    { name: "تابلوه لوحه مفاتيح  ", price: "780 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
+    { name: "تابلوه مدخل مضئ جملي  40*70", price: "1350 ج.م", img: "tohfa/wall/w14.jpeg", stock: 1 },
+    { name: "تابلوه مدخل مضئ رمادي 40*70", price: "1350 ج.م", img: "tohfa/wall/w15.jpeg", stock: 1 },
+    { name: "تابلوه مدخل مضئ home  ", price: "1550 ج.م", img: "tohfa/wall/w16.jpeg", stock: 1 },
+    { name: "تابلوه مدخل دائري مضئ ", price: "1350 ج.م", img: "tohfa/wall/w17.jpeg", stock: 1 },
+    { name: "تابلوه لوحه مفاتيح  ", price: "780 ج.م", img: "tohfa/wall/w18.jpeg", stock: 1 },
 
        { name: "برواز استرس افريقيه", price: "450 ج.م", img: "tohfa/wall/t.jpeg", stock: 1 },
        { name: "برواز استرس غزاله", price: "450 ج.م", img: "tohfa/wall/t0.jpeg", stock: 1 },
