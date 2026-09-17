@@ -613,7 +613,13 @@ const wallProducts = [
     { name: "تابلوه هاند ميد ورد بارز اخضر  120*80 ", price: "2150 ج.م", img: "tohfa/wall/w8.jpeg", stock: 1 },
     { name: "تابلوه جلد بنت افريقيه 120*80", price: "1200 ج.م", img: "tohfa/wall/w9.jpeg", stock: 1 },
     { name: "تابلوه جلد بحار 120*80", price: "1200 ج.م", img: "tohfa/wall/w10.jpeg", stock: 1 },
+    
     { name: "تابلوه جلد  90*50", price: "850 ج.م", img: "tohfa/wall/w11.jpeg", stock: 1 },
+    { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
+    { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
+    { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
+    { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
+    { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
     { name: "تابلوه جلد 80*60", price: "850 ج.م", img: "tohfa/wall/w13.jpeg", stock: 1 },
 
        { name: "برواز استرس افريقيه", price: "450 ج.م", img: "tohfa/wall/t.jpeg", stock: 1 },
