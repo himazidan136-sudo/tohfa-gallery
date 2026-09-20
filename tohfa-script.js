@@ -568,7 +568,7 @@ const vasesProducts = [
     { name: "فاز اسود ميرور ", price: "1650 ج.م", img: "tohfa/vase/vasesb.jpeg", stock: 1 },
     { name: "فاز اسود مدهب ", price: "450 ج.م", img: "tohfa/vase/vasesb0.jpeg", stock: 1 },
     { name: "فاز اسود مدور ميرور ", price: "1500 ج.م", img: "tohfa/vase/vasesbm.jpeg", stock: 1 },
-    { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vase/vasesbg.jpeg", stock: 1 },
+    { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vase/vasesbg.jpeg", stock: 0 },
     { name: "فاز كريستال شاطئ  ", price: "1200 ج.م", img: "tohfa/vase/vasess.jpeg", stock: 1 },
     { name: "فاز خشبي كرمزي  ", price: "1200 ج.م", img: "tohfa/vase/vasess0.jpeg", stock: 1 },
     { name: "فاز كريستال صغير  ", price: "500 ج.م", img: "tohfa/vase/vase.jpeg", stock: 1 },
