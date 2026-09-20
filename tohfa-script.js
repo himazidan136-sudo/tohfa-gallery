@@ -386,7 +386,7 @@ const allProducts = [
     { name: "فواحه اطفال قطه  ", price:230 , img: "tohfa/df1.jpeg", stock: 1 },
     { name: "فاز فواحه معطر  ", price:485 , img: "tohfa/fowaha.jpeg", stock: 1 },
 
-    { name: "'شياله ميرور  ", price:1500 , img: "tohfa/shayala0.jpeg", stock: 2 },
+    { name: "شياله ميرور  ", price:1500 , img: "tohfa/shayala0.jpeg", stock: 2 },
     { name: "صينيه تقديم  ", price:350 , img: "tohfa/shayala.jpeg", stock: 1 },
     { name: "منظم ابيض  ", price:1100 , img: "tohfa/shayala1.jpeg", stock: 1 },
     { name: "صينيه معدن ورقه صغير  ", price:300 , img: "tohfa/shayala2.jpeg", stock: 1 },
