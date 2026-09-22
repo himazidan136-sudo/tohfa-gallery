@@ -348,10 +348,10 @@ const allProducts = [
     { name: "مبخره شلال", price: 700, img: "tohfa/mab5aras.jpeg", stock: 1 },
     { name: "مبخره شلال بوزي", price: 550, img: "tohfa/mab5aras0.jpeg", stock: 1 },
 
-    { name: "ديكور اب", price: 450, img: "tohfa/tb.jpeg", stock: 1 },
-    { name: "ديكور اب", price: 450, img: "tohfa/tbl.jpeg", stock: 1 },
-    { name: "ديكور اب", price: 450, img: "tohfa/tw.jpeg", stock: 1 },
-    { name: "ديكور اب", price: 450, img: "tohfa/tb0.jpeg", stock: 1 },
+    { name: " طقم طرابيزه 3 قطع اسود", price: 1550, img: "tohfa/tb.jpeg", stock: 1 },
+    { name: " طقم طرابيزه 3 قطع ازرق", price: 1550, img: "tohfa/tb.jpeg", stock: 1 },
+    { name: " طقم طرابيزه قطعتين لبني", price: 1650, img: "tohfa/tw.jpeg", stock: 1 },
+    { name: "طرابيزه اسود", price: 450, img: "tohfa/tb0.jpeg", stock: 1 },
 
     { name: "ديكور اب", price: 450, img: "tohfa/decor0.jpeg", stock: 1 },
     { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 1 },
