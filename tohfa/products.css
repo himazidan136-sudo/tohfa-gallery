@@ -17,6 +17,9 @@
     text-decoration: none !important;
 }
 
+/* 🆕 سطوع ووضوح أعلى لكل الصور في صفحات المنتجات بشكل عام */
+img { filter: brightness(1.15) contrast(1.08) saturate(1.08); }
+
 body {
     font-family: 'Cairo', sans-serif;
     background-color: var(--dark-bg);
@@ -148,7 +151,7 @@ body.stop-scrolling {
 }
 .product-card.out-of-stock .product-img,
 .product-card.out-of-stock .product-img img {
-    filter: grayscale(85%);
+    filter: brightness(1.15) contrast(1.08) grayscale(85%);
 }
 .out-of-stock-badge {
     position: absolute;
