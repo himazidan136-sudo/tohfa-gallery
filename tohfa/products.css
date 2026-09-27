@@ -110,7 +110,7 @@ body.stop-scrolling {
     margin-bottom: 12px;
     overflow: hidden;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04); 
+    background: rgba(255, 255, 255, 0.08); /* أفتح شوية عشان الصورة تبان مضيئة أكتر */
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -121,6 +121,7 @@ body.stop-scrolling {
     max-height: 100%;
     object-fit: contain; /* عشان المنتج يظهر كامل وميتقصش */
     transition: 0.5s;
+    filter: brightness(1.15) contrast(1.08) saturate(1.08); /* إضاءة ووضوح أعلى للصورة */
 }
 
 /* 🆕 اسم وسعر المنتج: كانوا span (inline) من غير أي فاصل بينهم، فكانوا
