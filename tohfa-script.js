@@ -405,6 +405,8 @@ const allProducts = [
     { name: "طبق الترا عريض", price:1450 , img: "tohfa/shayala8.jpeg", stock: 1 },
     { name: "بونبونيره الترا", price:935 , img: "tohfa/shayala9.jpeg", stock: 1 },
 
+    { name: "ساعه دبل فيس مستورد  ", price:2200 , img: "tohfa/sa3a4.jpeg", stock: 1 },
+    { name: "ساعه ريزن مستورد  ", price:2200 , img: "tohfa/sa3a5.jpeg", stock: 1 },
     { name: "ساعه ريزن مستورد  ", price:2200 , img: "tohfa/sa3a3.jpeg", stock: 1 },
     { name: "ساعه بحار اطفال  ", price:735 , img: "tohfa/sa3a.jpeg", stock: 1 },
     { name: "ساعه منبه باستل تركي  ", price:600 , img: "tohfa/sa3a1.jpeg", stock: 1 },
