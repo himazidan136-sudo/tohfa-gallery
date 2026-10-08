@@ -405,7 +405,7 @@ const allProducts = [
 
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg", stock: 1 },
         { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg", stock: 1 },
-    { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg", stock: 1 },
+    { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg", stock: 0},
     { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg", stock: 1 },
     { name: "مركب بحري ديكور كبير  ", price:720 , img: "tohfa/decormr1.jpeg", stock: 1 },
     { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 1 },
