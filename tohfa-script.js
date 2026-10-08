@@ -577,7 +577,7 @@ const vasesProducts = [
     { name: "   طقم فاز فخار اورنج", price: "700 ج.م", img: "tohfa/vase/vasef.jpeg", stock: 1 },
     { name: "  طقم فاز فخار ابيض ", price: "700 ج.م", img: "tohfa/vase/vasef0.jpeg", stock: 0},
     { name: "   طقم فاز متداخل", price: "600 ج.م", img: "tohfa/vase/vasef1.jpeg", stock: 1 },
-    { name: "   طقم فاز جركن ", price: "750 ج.م", img: "tohfa/vase/vasef2.jpeg", stock: 1 },
+    { name: "   طقم فاز جركن ", price: "750 ج.م", img: "tohfa/vase/vasef2.jpeg", stock: 0},
     { name: "  طقم فاز فخار كندا ", price: "110 ج.م", img: "tohfa/vase/vasef3.jpeg", stock: 1 },
     { name: "   فاز فخار ابيض", price: "500 ج.م", img: "tohfa/vase/vasef4.jpeg", stock: 1 },
     { name: "  فاز فخار رمادي ", price: "500 ج.م", img: "tohfa/vase/vasef5.jpeg", stock: 1 },
