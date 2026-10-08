@@ -225,6 +225,33 @@ function checkout() {
 
     document.getElementById('orderModal').style.display = 'flex'; // فتح الأبلكيشن
 }
+/* ==========================================================
+   🆕 خطة بديلة لو الإرسال فشل: الطلب مايضيعش.
+   لو Web3Forms رفض الطلب أو الاتصال فشل، بنعرض للعميل يبعت نفس
+   الطلب على واتساب المحل بنفس البيانات اللي كتبها (من غير ما
+   يكتبها تاني).
+   ========================================================== */
+const SHOP_WHATSAPP = '201003206544';
+
+function sendOrderViaWhatsApp() {
+    const val = id => (document.getElementById(id) ? document.getElementById(id).value : '');
+    const text =
+        'طلب جديد من موقع تحفة\n\n' +
+        'الاسم: ' + val('cName') + '\n' +
+        'الهاتف: ' + val('cPhone') + '\n' +
+        'العنوان: ' + val('cAddr') + '\n\n' +
+        'الطلب: ' + val('hiddenProd') + '\n' +
+        'الإجمالي: ' + val('hiddenPrice');
+    // location.href بدل window.open عشان المتصفحات مابتحجبهاش
+    window.location.href = 'https://wa.me/' + SHOP_WHATSAPP + '?text=' + encodeURIComponent(text);
+}
+
+function offerWhatsAppFallback(reason) {
+    if (confirm(reason + '\n\nتحب تبعت الطلب على واتساب بدل كده؟')) {
+        sendOrderViaWhatsApp();
+    }
+}
+
 async function sendFinalOrder() {
     const form = document.getElementById('orderForm');
     const btn = document.getElementById('submitBtn');
@@ -248,10 +275,12 @@ async function sendFinalOrder() {
                 localStorage.removeItem(CART_STORAGE_KEY); // تصفير السلة
                 window.location.reload(); 
             } else {
-                alert("السيرفر رفض الطلب: " + result.message);
+                console.error('Web3Forms رفض الطلب:', result);
+                offerWhatsAppFallback("السيرفر رفض الطلب: " + (result.message || "سبب غير معروف"));
             }
         } catch (error) {
-            alert("فشل الاتصال، جرب استخدام بيانات الهاتف (4G).");
+            console.error('خطأ اتصال:', error);
+            offerWhatsAppFallback("فشل الاتصال بالسيرفر.");
         } finally {
             btn.innerText = "تأكيد وإرسال الطلب";
             btn.disabled = false;
