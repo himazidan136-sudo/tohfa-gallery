@@ -383,7 +383,7 @@ const allProducts = [
     { name: "طرابيزه اسود", price: 650, img: "tohfa/tb1.jpeg", stock: 1 },
 
     { name: "ديكور اب", price: 450, img: "tohfa/decor0.jpeg", stock: 1 },
-    { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 1 },
+    { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 0},
     { name: "بنت عوسه ابيض", price: 700, img: "tohfa/decor3.jpeg", stock: 0 },
     { name: "بنت عوسه مع طبق", price: 750, img: "tohfa/decor4.jpeg", stock: 0 },
     { name: "انتيك امراه دهبي", price: 705, img: "tohfa/decor5.jpeg", stock: 1 },
