@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تحفة | Wall Decor</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Reem+Kufi:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="tohfa/products.css">
+    <link rel="stylesheet" href="tohfa/products.css?v=15">
 </head>
 <body>
     <nav class="navbar">
@@ -19,6 +19,14 @@
     </nav>
 <section class="container">
     <h2 class="section-title">لوحاتنا</h2>
+    <!-- 🆕 بانر طلب تابلوه مخصص -->
+    <div class="custom-banner">
+        <div>
+            <h3>عايز تابلوه بتصميمك الخاص؟</h3>
+            <p>ارفع صورة التابلوه اللي نفسك فيه واكتب تفاصيله ومقاسه، وفريقنا هيتواصل معاك.</p>
+        </div>
+        <button type="button" class="custom-banner-btn" onclick="openCustomModal()">🖼️ اطلب تابلوه مخصص</button>
+    </div>
     <!-- ده المكان اللي الجافا سكريبت هترص فيه المنتجات -->
     <div id="wall-list" class="product-grid"></div> 
 </section>    <!-- الجافا سكريبت هيملا المكان ده فوراً -->
@@ -63,10 +71,34 @@
 </form>
     </div>
 </div>
+<!-- 🆕 نافذة طلب تابلوه مخصص (رفع صورة + وصف) -->
+<div id="customModal" class="modal-overlay">
+    <div class="modal-content glass-card custom-modal-content">
+        <span class="close-btn" onclick="closeCustomModal()">&times;</span>
+        <h3>اطلب تابلوه بتصميمك</h3>
+        <form id="customForm" onsubmit="return false;">
+            <input type="text" id="customName" placeholder="الاسم بالكامل" autocomplete="name">
+            <input type="tel" id="customPhone" placeholder="رقم الهاتف" autocomplete="tel">
+            <input type="text" id="customSize" placeholder="المقاس المطلوب (اختياري) مثال: 120*80">
+            <textarea id="customDesc" rows="4" placeholder="اكتب تفاصيل التابلوه اللي عايزه (الألوان، الإطار، الكتابة...)"></textarea>
+
+            <label class="custom-file-label" for="customImage">
+                <span id="customFileText">📷 اختر صورة التابلوه</span>
+            </label>
+            <input type="file" id="customImage" accept="image/*" hidden>
+            <img id="customPreview" class="custom-preview" alt="معاينة الصورة">
+
+            <button type="button" id="customSubmitBtn" class="order-btn" onclick="submitCustomRequest()">إرسال الطلب</button>
+            <p id="customStatus" class="custom-status"></p>
+        </form>
+    </div>
+</div>
+
 <!-- نافذة تكبير الصور (Lightbox) -->
 
 <!-- ربط ملف الجافا سكريبت الجديد -->
 <script src="tohfa-script.js"></script>
+<script src="tohfa-custom.js?v=1"></script>
 <div id="imageModal" class="image-lightbox">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
     <img id="fullImage" src="" alt="Enlarged Image">
