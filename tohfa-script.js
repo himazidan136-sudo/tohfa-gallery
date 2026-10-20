@@ -398,7 +398,7 @@ const allProducts = [
     { name: " اباجوره ليد قابل للطي", price:590 , img: "tohfa/decora0.jpeg", stock: 0},
 
     { name: "بوكس مناديل فخار ابيض", price:900 , img: "tohfa/mn.jpeg", stock: 1 },
-    { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/mn0.jpeg", stock: 1 },
+    { name: "بوكس مناديل ماجنتيك اسود", price:800 , img: "tohfa/mn0.jpeg", stock: 1 },
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/mn1.jpeg", stock: 1 },
 
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg", stock: 1 },
