@@ -382,6 +382,9 @@ const allProducts = [
     { name: " طقم طرابيزه قطعتين بابيبلو", price: 1650, img: "tohfa/tw.jpeg", stock: 1 },
     { name: "طرابيزه اسود", price: 650, img: "tohfa/tb1.jpeg", stock: 1 },
 
+    { name: "ديكور اب", price: 450, img: "tohfa/kr.jpeg", stock: 1 },
+    { name: "ديكور اب", price: 450, img: "tohfa/kr0.jpeg", stock: 1 },
+
     { name: "ديكور اب", price: 450, img: "tohfa/decor0.jpeg", stock: 1 },
     { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 0},
     { name: "بنت عوسه ابيض", price: 700, img: "tohfa/decor3.jpeg", stock: 0 },
