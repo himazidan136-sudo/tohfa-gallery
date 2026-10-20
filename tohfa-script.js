@@ -383,7 +383,7 @@ const allProducts = [
     { name: "طرابيزه اسود", price: 650, img: "tohfa/tb1.jpeg", stock: 1 },
 
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr.jpeg", stock: 1 },
-    { name: "ديكور اب", price: 450, img: "tohfa/kr0.jpeg", stock: 1 },
+    { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr0.jpeg", stock: 1 },
 
     { name: "ديكور اب", price: 450, img: "tohfa/decor0.jpeg", stock: 1 },
     { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 0},
