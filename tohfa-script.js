@@ -399,7 +399,7 @@ const allProducts = [
 
     { name: "بوكس مناديل فخار ابيض", price:900 , img: "tohfa/mn.jpeg", stock: 1 },
     { name: "بوكس مناديل ماجنتيك اسود", price:800 , img: "tohfa/mn0.jpeg", stock: 1 },
-    { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/mn1.jpeg", stock: 1 },
+    { name: "بوكس مناديل ماجنتيك ابيض", price:800 , img: "tohfa/mn1.jpeg", stock: 1 },
 
     { name: "بوكس مناديل بابلز ابيض", price:500 , img: "tohfa/decor3w.jpeg", stock: 1 },
     { name: "بوكس مناديل بابلز اسود", price:400 , img: "tohfa/decor3b.jpeg", stock: 1 },
