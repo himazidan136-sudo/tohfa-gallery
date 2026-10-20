@@ -374,6 +374,10 @@ const allProducts = [
     { name: "طقم شمعدان ميرور ورد ", price: 1250, img: "tohfa/sham3dan2.jpeg", stock: 2 },
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr.jpeg", stock: 1 },
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr0.jpeg", stock: 1 },
+    { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 1 },
+    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 1 },
+    { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg", stock: 0 },
+
     { name: "كره ارضيه شبكي", price: 1350, img: "tohfa/kora0.jpeg", stock: 1 },
     { name: "كره ارضيه ", price: 2200, img: "tohfa/kora.jpeg", stock: 1 },
     { name: "كره ارضيه استانلس", price: 1650, img: "tohfa/kora1.jpeg", stock: 1 },
@@ -416,9 +420,7 @@ const allProducts = [
     { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg", stock: 0    },
     { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg", stock: 1 },
     { name: "مركب بحري ديكور كبير  ", price:720 , img: "tohfa/decormr1.jpeg", stock: 1 },
-    { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 1 },
-    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 1 },
-    { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg", stock: 0 },
+    
     { name: "مرايا بابلز  ", price:250 , img: "tohfa/dm.jpeg", stock: 1 },
     { name: "مرايا كريستال  ", price:490 , img: "tohfa/dm0.jpeg", stock: 1 },
         { name: "مرايا ضد الكسر  ", price:1100 , img: "tohfa/dm1.jpeg", stock: 0 },
