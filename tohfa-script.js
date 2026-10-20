@@ -384,6 +384,8 @@ const allProducts = [
 
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr.jpeg", stock: 1 },
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr0.jpeg", stock: 1 },
+    { name: "كره ارضيه معدن", price: 450, img: "tohfa/kora.jpeg", stock: 1 },
+    { name: "كره ارضيه ", price: 450, img: "tohfa/kora.jpeg", stock: 1 },
 
     { name: "ديكور اب", price: 450, img: "tohfa/decor0.jpeg", stock: 1 },
     { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 0},
