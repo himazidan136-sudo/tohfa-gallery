@@ -394,8 +394,8 @@ const allProducts = [
     { name: "بنت عوسه ابيض", price: 800, img: "tohfa/decor3.jpeg", stock: 1 },
     { name: "بنت عوسه مع طبق", price: 900, img: "tohfa/decor4.jpeg", stock: 1},
 
-    { name: "انتيك امراه دهبي", price: 705, img: "tohfa/decor5.jpeg", stock: 1 },
-    { name: "انتيك امراه دهبي", price: 705, img: "tohfa/decor5.jpeg", stock: 1 },
+    { name: "انتيك امراه دهبي", price: 705, img: "tohfa/dyoga.jpeg", stock: 1 },
+    { name: "انتيك امراه دهبي", price: 705, img: "tohfa/yoga0.jpeg", stock: 1 },
 
     { name: "انتيك امراه دهبي", price: 705, img: "tohfa/decor5.jpeg", stock: 1 },
     { name: "طقم تفاحه مستورد ", price: 1300, img: "tohfa/decor6.jpeg", stock: 1 },
