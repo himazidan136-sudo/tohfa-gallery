@@ -677,7 +677,6 @@ document.addEventListener('DOMContentLoaded', rendervases);
 
 
 const wallProducts = [
-    { name: "تابلوه جلد قران 120*80 ", price: "1200 ج.م", img: "tohfa/wall/w.jpeg", stock: 0 },
     { name: "تابلوه جلد شجر 120*80", price: "1200 ج.م", img: "tohfa/wall/w0.jpeg", stock: 1 },
     { name: "تابلوه جلد عرايس 120*80", price: "1200 ج.م", img: "tohfa/wall/w1.jpeg", stock: 1 },
     { name: "تابلوه كلاسيك زيت خشب بني غامق 120*60", price: "1590 ج.م", img: "tohfa/wall/w2.jpeg", stock: 1 },
