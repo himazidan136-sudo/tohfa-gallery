@@ -591,9 +591,9 @@ document.addEventListener('DOMContentLoaded', renderFlowers);
 
 const vasesProducts = [
 
-    { name: "   فاز قزاز صغير", price: "110 ج.م", img: "tohfa/vase/vg.jpeg", stock: 1 },
-    { name: "   فاز قزاز كبير", price: "110 ج.م", img: "tohfa/vase/vg.jpeg", stock: 1 },
-    { name: "   فاز قزاز مستورد", price: "110 ج.م", img: "tohfa/vase/vg.jpeg", stock: 1 },
+    { name: "   فاز زجاج وسط", price: "350 ج.م", img: "tohfa/vase/vg.jpeg", stock: 1 },
+    { name: "   فاز زجاج كبير", price: "400 ج.م", img: "tohfa/vase/vg0.jpeg", stock: 1 },
+    { name: "   فاز زجاج كبير مستورد", price: "1200 ج.م", img: "tohfa/vase/vg1.jpeg", stock: 1 },
 
 
 
