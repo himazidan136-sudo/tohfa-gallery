@@ -594,6 +594,9 @@ const vasesProducts = [
     { name: "   فاز زجاج وسط", price: "350 ج.م", img: "tohfa/vase/vg.jpeg", stock: 1 },
     { name: "   فاز زجاج كبير", price: "400 ج.م", img: "tohfa/vase/vg0.jpeg", stock: 1 },
     { name: "   فاز زجاج كبير مستورد", price: "1200 ج.م", img: "tohfa/vase/vg1.jpeg", stock: 1 },
+    { name: "   فاز زجاج كبير مستورد", price: "1200 ج.م", img: "tohfa/vase/vg2.jpeg", stock: 1 },
+    { name: "   فاز زجاج كبير مستورد", price: "1200 ج.م", img: "tohfa/vase/vg3.jpeg", stock: 1 },
+    { name: "   فاز زجاج كبير مستورد", price: "800 ج.م", img: "tohfa/vase/vg4.jpeg", stock: 1 },
 
 
     { name: "   فاز خوص كبير", price: "1100 ج.م", img: "tohfa/vase/vk.jpeg", stock: 1 },
