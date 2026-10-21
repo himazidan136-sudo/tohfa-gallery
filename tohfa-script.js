@@ -393,8 +393,8 @@ const allProducts = [
     { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 0},
     { name: "بنت عوسه ابيض", price: 800, img: "tohfa/decor3.jpeg", stock: 1 },
     { name: "بنت عوسه مع طبق", price: 900, img: "tohfa/decor4.jpeg", stock: 1},
-    { name: "كاواس  مع طبق", price: 900, img: "tohfa/decor8.jpeg", stock: 1},
-    { name: "كاواس  مع طبق", price: 900, img: "tohfa/decor9.jpeg", stock: 1},
+    { name: "كاواس  مع طبق ابيض", price: 900, img: "tohfa/decor8.jpeg", stock: 1},
+    { name: "كاواس  مع طبق اسود", price: 900, img: "tohfa/decor9.jpeg", stock: 1},
 
     { name: "انتيك امراه يوجا", price: 850, img: "tohfa/yoga.jpeg", stock: 1 },
     { name: "انتيك امراه يوجا اسود", price: 850, img: "tohfa/yoga0.jpeg", stock: 1 },
