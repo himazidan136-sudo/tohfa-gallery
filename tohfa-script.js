@@ -697,7 +697,7 @@ const wallProducts = [
     { name: "تابلوه مدخل دائري مضئ ", price: "1350 ج.م", img: "tohfa/wall/w17.jpeg", stock: 1 },
     { name: "تابلوه لوحه مفاتيح  ", price: "780 ج.م", img: "tohfa/wall/w18.jpeg", stock: 1 },
 
-       { name: "برواز استرس افريقيه", price: "450 ج.م", img: "tohfa/wall/t.jpeg", stock: 1 },
+       { name: "برواز استرس افريقيه", price: "450 ج.م", img: "tohfa/wall/t.jpeg", stock: 0 },
        { name: "برواز استرس غزاله", price: "450 ج.م", img: "tohfa/wall/t0.jpeg", stock: 1 },
        { name: "برواز ثلاثي 40*60 مودرن ابيض", price: "900 ج.م", img: "tohfa/wall/t1.jpeg", stock: 1 },
        { name: "برواز ثلاثي 40*60 مودرن اسود", price: "900ج.م", img: "tohfa/wall/t2.jpeg", stock: 1 },
