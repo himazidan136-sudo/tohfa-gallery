@@ -507,7 +507,8 @@ const flowerProducts = [
     { name: "بوت فراوله مع زرع كولكاسيا", price: "480 ج.م", img: "tohfa/z/b3.jpeg", stock: 1 },
     { name: "بوت كريستاله مع كريز ", price: "1120 ج.م", img: "tohfa/z/b4.jpeg", stock: 1 },
     
-    { name: "براعم 2 لون مستورد  ", price: "150 ج.م", img: "tohfa/z/z23.jpeg", stock: 1 },
+    { name: "مجموعه 2 ريش مستورد  ", price: "250 ج.م", img: "tohfa/z/z23.jpeg", stock: 1 },
+    { name: "مجموعه 2 ريش بني مستورد  ", price: "250 ج.م", img: "tohfa/z/z23.jpeg", stock: 1 },
 
     { name: "قرنفل 12 ورده مستورد  ", price: "250 ج.م", img: "tohfa/z/z20.jpeg", stock: 1 },
     { name: "لوزه 9 ورده مستورد  ", price: "210 ج.م", img: "tohfa/z/z15.jpeg", stock: 1 },
