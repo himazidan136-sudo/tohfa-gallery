@@ -511,7 +511,7 @@ const flowerProducts = [
     { name: "مجموعه 2 ريش بني مستورد  ", price: "250 ج.م", img: "tohfa/z/z24.jpeg", stock: 1 },
     { name: "مجموعه ورد كلا مستورد  ", price: "300 ج.م", img: "tohfa/z/z25.jpeg", stock: 1 },
     { name: "مجموعه ورد وردي مستورد  ", price: "320 ج.م", img: "tohfa/z/z26.jpeg", stock: 1 },
-    { name: "مجموعه بنش ازرق مستورد  ", price: "300 ج.م", img: "tohfa/z/z27.jpeg", stock: 1 },
+    { name: "مجموعه بنش ازرق مستورد  ", price: "250 ج.م", img: "tohfa/z/z27.jpeg", stock: 1 },
 
     { name: "قرنفل 12 ورده مستورد  ", price: "250 ج.م", img: "tohfa/z/z20.jpeg", stock: 1 },
     { name: "لوزه 9 ورده مستورد  ", price: "210 ج.م", img: "tohfa/z/z15.jpeg", stock: 1 },
