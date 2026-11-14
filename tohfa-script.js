@@ -372,7 +372,7 @@ const allProducts = [
     { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg", stock: 1 },
     { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg", stock: 2 },
     { name: "طقم شمعدان ميرور ورد ", price: 1250, img: "tohfa/sham3dan2.jpeg", stock: 2 },
-    { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr.jpeg", stock: 1 },
+    { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr.jpeg", stock: 0 },
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr0.jpeg", stock: 1 },
     { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 1 },
     { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 0 },
