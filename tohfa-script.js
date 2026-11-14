@@ -378,7 +378,7 @@ const allProducts = [
     { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 0 },
     { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg", stock: 0 },
 
-    { name: "كره ارضيه شبكي", price: 1350, img: "tohfa/kora0.jpeg", stock: 1 },
+    { name: "كره ارضيه شبكي", price: 1200, img: "tohfa/kora0.jpeg", stock: 1 },
     { name: "كره ارضيه ", price: 2200, img: "tohfa/kora.jpeg", stock: 1 },
     { name: "كره ارضيه استانلس", price: 1650, img: "tohfa/kora1.jpeg", stock: 1 },
     { name: "مبخره هيدستينس", price: 600, img: "tohfa/mab5ara.jpg.jpeg", stock: 1 },
