@@ -375,7 +375,7 @@ const allProducts = [
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr.jpeg", stock: 1 },
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr0.jpeg", stock: 1 },
     { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 1 },
-    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 1 },
+    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 0 },
     { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg", stock: 0 },
 
     { name: "كره ارضيه شبكي", price: 1350, img: "tohfa/kora0.jpeg", stock: 1 },
