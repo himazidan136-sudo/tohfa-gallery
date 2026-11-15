@@ -635,7 +635,7 @@ const vasesProducts = [
     { name: "مزهريه زجاجيه اسود صغير", price: "780 ج.م", img: "tohfa/vase/vasesmz1.jpeg", stock: 1 },
     { name: "مزهريه زجاجيه اسود ", price: "850 ج.م", img: "tohfa/vase/vasesmz2.jpeg", stock: 1 },
     { name: "مزهريه خزفي زيتي ", price: "599 ج.م", img: "tohfa/vase/vasesk.jpeg", stock: 0 },
-    { name: "فاز اسود ميرور ", price: "1650 ج.م", img: "tohfa/vase/vasesb.jpeg", stock: 0 },
+    { name: "فاز اسود ميرور ", price: "1650 ج.م", img: "tohfa/vase/vasesb.jpeg", stock: 1 },
     { name: "فاز اسود مدهب ", price: "450 ج.م", img: "tohfa/vase/vasesb0.jpeg", stock: 1 },
     { name: "فاز اسود مدور ميرور ", price: "1500 ج.م", img: "tohfa/vase/vasesbm.jpeg", stock: 0 },
     { name: "فاز رمادي مدور ميرور ", price: "1500 ج.م", img: "tohfa/vase/vasesbg.jpeg", stock: 0 },
