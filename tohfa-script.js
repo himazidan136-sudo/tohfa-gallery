@@ -401,12 +401,9 @@ const allProducts = [
 
     { name: "انتيك امراه دهبي", price: 705, img: "tohfa/decor5.jpeg", stock: 1 },
     { name: "طقم تفاحه مستورد ", price: 1300, img: "tohfa/decor6.jpeg", stock: 1 },
-    { name: "انتيك فخار بابلز ", price: 400, img: "tohfa/decor7.jpeg", stock: 0},
 
-    { name: "بلوره مع حامل معدني", price: 300, img: "tohfa/decorb.jpeg", stock: 0},
     { name: "بلوره تاور", price: 400, img: "tohfa/decorb2.jpeg", stock: 1 },
     { name: "انتيكه اقراص ملونه", price: 500, img: "tohfa/decoran.jpeg", stock: 1 },
-    { name: " اباجوره سمارت", price:580 , img: "tohfa/abajora.jpg.jpeg", stock: 1 },
     { name: " اباجوره يقطينه مضيئه", price:845 , img: "tohfa/decora.jpeg", stock: 1 },
     { name: " اباجوره ليد قابل للطي", price:590 , img: "tohfa/decora0.jpeg", stock: 0},
 
