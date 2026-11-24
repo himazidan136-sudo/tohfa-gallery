@@ -368,14 +368,10 @@ const allProducts = [
     { name: " شمعدان معدن زوجي ", price: 350, img: "tohfa/sham3dan10.jpeg", stock : 2 },
     { name: " طقم شمعدان نحاس شمبين ", price: 1350, img: "tohfa/sham3dan9.jpeg", stock: 1 },
 
-    { name: "شمعدان ثلاثي ", price: 1495, img: "tohfa/sham3dan.jpg.jpeg", stock: 0 },
     { name: "طقم شمعدان ميرور حلقات ", price: 1100, img: "tohfa/sham3dan1.jpeg", stock: 2 },
     { name: "طقم شمعدان ميرور ورد ", price: 1250, img: "tohfa/sham3dan2.jpeg", stock: 2 },
-    { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr.jpeg", stock: 0 },
     { name: "راقصه باليه كريستال ", price: 1900, img: "tohfa/kr0.jpeg", stock: 1 },
     { name: "كريستال حصان ", price:1750 , img: "tohfa/decorh.jpeg", stock: 1 },
-    { name: "كريستال راس حصان ", price:1250 , img: "tohfa/decorh1.jpeg", stock: 0 },
-    { name: "قطعتين كريستال وزه ", price:2450 , img: "tohfa/decorw.jpeg", stock: 0 },
 
     { name: "كره ارضيه شبكي", price: 1200, img: "tohfa/kora0.jpeg", stock: 1 },
     { name: "كره ارضيه ", price: 2200, img: "tohfa/kora.jpeg", stock: 1 },
@@ -389,7 +385,6 @@ const allProducts = [
     { name: " طقم طرابيزه قطعتين بابيبلو", price: 1650, img: "tohfa/tw.jpeg", stock: 1 },
     { name: "طرابيزه اسود", price: 650, img: "tohfa/tb1.jpeg", stock: 1 },
     { name: "ديكور اب", price: 450, img: "tohfa/decor0.jpeg", stock: 1 },
-    { name: "ديكور اب اريكه", price: 450, img: "tohfa/decor2.jpeg", stock: 0},
     { name: "بنت عوسه ابيض", price: 800, img: "tohfa/decor3.jpeg", stock: 1 },
     { name: "بنت عوسه مع طبق", price: 900, img: "tohfa/decor4.jpeg", stock: 1},
     { name: "كاواس  مع طبق ابيض", price: 750, img: "tohfa/decor8.jpeg", stock: 1},
