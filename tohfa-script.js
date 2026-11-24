@@ -412,13 +412,11 @@ const allProducts = [
 
     { name: "رصيف", price:600 , img: "tohfa/decorr.jpeg", stock: 1 },
         { name: "كره استانلس  ", price:700 , img: "tohfa/decor1.jpeg", stock: 1 },
-    { name: "نتيجه دبدوب  ", price:250 , img: "tohfa/decoren.jpeg", stock: 0    },
     { name: "مركب بحري ديكور صغير  ", price:600 , img: "tohfa/decormr.jpeg", stock: 1 },
     { name: "مركب بحري ديكور كبير  ", price:720 , img: "tohfa/decormr1.jpeg", stock: 1 },
     
     { name: "مرايا بابلز  ", price:250 , img: "tohfa/dm.jpeg", stock: 1 },
     { name: "مرايا كريستال  ", price:490 , img: "tohfa/dm0.jpeg", stock: 1 },
-        { name: "مرايا ضد الكسر  ", price:1100 , img: "tohfa/dm1.jpeg", stock: 0 },
 
     { name: "مبخره ليد   ", price:490 , img: "tohfa/df.jpeg", stock: 1 },
     { name: "فواحه اطفال ", price:320 , img: "tohfa/df0.jpeg", stock: 1 },
